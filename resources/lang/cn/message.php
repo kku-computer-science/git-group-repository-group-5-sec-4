@@ -29,5 +29,6 @@ return [
 'closed' => '项目关闭',
 'article_stats' => '过去五年的文章统计数据',
 'citation_stats' => '被引用文章的统计数据',
+'Login' => '登录',
 ];
     
