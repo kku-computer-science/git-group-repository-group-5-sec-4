@@ -77,7 +77,7 @@
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <?php $__currentLoopData = $dn; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $department): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <li><a class="dropdown-item" href="<?php echo e(route('researchers',['id'=>$department->id])); ?>">
-                                    <?php echo e($department->program_name_en); ?></a>
+                                <?php echo e($department->{'program_name_' . App::getLocale()}); ?></a>
                             </li>
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </ul>

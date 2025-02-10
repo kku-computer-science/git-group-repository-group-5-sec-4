@@ -27,4 +27,6 @@ return [
     'submitted' => 'Submitted',
     'in_progress' => 'In Progress',
     'closed' => 'Closed',
+    'article_stats' => 'Total Articles Statistics for 5 Years',
+    'citation_stats' => 'Statistics of Cited Articles',
 ];

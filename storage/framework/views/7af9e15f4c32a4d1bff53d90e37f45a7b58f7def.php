@@ -1,4 +1,3 @@
-
 <style>
 .count {
     background-color: #f5f5f5;
@@ -42,7 +41,7 @@
 <div class="container card-cart d-sm-flex  justify-content-center mt-5">
     <div class="card">
         <div class="card-body">
-            <h5 class="card-title" style="padding: 16px;">สถิติจำนวนบทความทั้งหมด 5 ปี</h4>
+         <h5 class="card-title" style="padding: 16px;"><?php echo e(__('message.article_stats')); ?></h5>
                 <div class="row">
                     <div class="col-md-6 p-5">
                         <div style="width:520px;height:250px">
@@ -70,7 +69,7 @@
 <div class="container card-cart d-sm-flex  justify-content-center mt-5">
     <div class="card">
         <div class="card-body">
-            <h5 class="card-title"  style="padding: 16px;">สถิติจำนวนบทความที่ได้รับการอ้างอิง</h4>
+            <h5 class="card-title" style="padding: 16px;"><?php echo e(__('message.citation_stats')); ?></h5>
                 <div class="row">
                     <div class="col-md-6 p-5">
                         <div style="width:520px;height:250px">
