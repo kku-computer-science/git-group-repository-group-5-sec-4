@@ -30,5 +30,8 @@ return [
 'article_stats' => '过去五年的文章统计数据',
 'citation_stats' => '被引用文章的统计数据',
 'Login' => '登录',
+'total_articles_report' => '报告总文章数量（5年：累计）',
+'number_chart' => '研究数量',
+
 ];
     

@@ -29,7 +29,8 @@ return [
     'closed' => 'Closed',
     'article_stats' => 'Total Articles Statistics for 5 Years',
     'citation_stats' => 'Statistics of Cited Articles',
-    'Login' => 'Login',
-   
-    
+    'Login' => 'Login', 
+    'total_articles_report' => 'Report the total number of articles (5 years: cumulative)',
+    'number_chart' => 'Number',
+
 ];

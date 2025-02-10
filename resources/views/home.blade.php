@@ -260,7 +260,7 @@
                 },
                 scaleLabel: {
                     display: true,
-                    labelString: 'Number',
+                    labelString: "{{ trans('message.number_chart') }}" ,
 
                 },
                 ticks: {
@@ -271,14 +271,14 @@
             xAxes: [{
                 scaleLabel: {
                     display: true,
-                    labelString: 'Year'
+                    labelString: "{{ trans('message.year') }}" ,
                 }
             }]
         },
 
         title: {
             display: true,
-            text: 'Report the total number of articles ( 5 years : cumulative)',
+            text: "{{ trans('message.total_articles_report') }}",
             fontSize: 20
         }
 

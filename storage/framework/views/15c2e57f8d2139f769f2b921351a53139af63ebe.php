@@ -261,7 +261,7 @@
                 },
                 scaleLabel: {
                     display: true,
-                    labelString: 'Number',
+                    labelString: "<?php echo e(trans('message.number_chart')); ?>" ,
 
                 },
                 ticks: {
@@ -272,14 +272,14 @@
             xAxes: [{
                 scaleLabel: {
                     display: true,
-                    labelString: 'Year'
+                    labelString: "<?php echo e(trans('message.year')); ?>" ,
                 }
             }]
         },
 
         title: {
             display: true,
-            text: 'Report the total number of articles ( 5 years : cumulative)',
+            text: "<?php echo e(trans('message.total_articles_report')); ?>",
             fontSize: 20
         }
 
