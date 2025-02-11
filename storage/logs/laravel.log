@@ -1211,3 +1211,51 @@
 [stacktrace]
 #0 {main}
 "} 
+[2025-02-12 01:42:35] local.ERROR: syntax error, unexpected token "}", expecting "," or ";" or "{" {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): syntax error, unexpected token \"}\", expecting \",\" or \";\" or \"{\" at D:\\soften\\sprint1st\\Project_2-master\\app\\Models\\Category.php:11)
+[stacktrace]
+#0 {main}
+"} 
+[2025-02-12 01:42:35] local.ERROR: syntax error, unexpected token "}", expecting "," or ";" or "{" {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): syntax error, unexpected token \"}\", expecting \",\" or \";\" or \"{\" at D:\\soften\\sprint1st\\Project_2-master\\app\\Models\\Category.php:11)
+[stacktrace]
+#0 {main}
+"} 
+[2025-02-12 01:43:34] local.ERROR: syntax error, unexpected token "}", expecting "," or ";" or "{" {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): syntax error, unexpected token \"}\", expecting \",\" or \";\" or \"{\" at D:\\soften\\sprint1st\\Project_2-master\\app\\Models\\Category.php:11)
+[stacktrace]
+#0 {main}
+"} 
+[2025-02-12 01:44:34] local.ERROR: syntax error, unexpected token "}", expecting "," or ";" or "{" {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): syntax error, unexpected token \"}\", expecting \",\" or \";\" or \"{\" at D:\\soften\\sprint1st\\Project_2-master\\app\\Models\\Category.php:11)
+[stacktrace]
+#0 {main}
+"} 
+[2025-02-12 01:45:34] local.ERROR: syntax error, unexpected token "}", expecting "," or ";" or "{" {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): syntax error, unexpected token \"}\", expecting \",\" or \";\" or \"{\" at D:\\soften\\sprint1st\\Project_2-master\\app\\Models\\Category.php:11)
+[stacktrace]
+#0 {main}
+"} 
+[2025-02-12 01:46:34] local.ERROR: syntax error, unexpected token "}", expecting "," or ";" or "{" {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): syntax error, unexpected token \"}\", expecting \",\" or \";\" or \"{\" at D:\\soften\\sprint1st\\Project_2-master\\app\\Models\\Category.php:11)
+[stacktrace]
+#0 {main}
+"} 
+[2025-02-12 01:47:34] local.ERROR: syntax error, unexpected token "}", expecting "," or ";" or "{" {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): syntax error, unexpected token \"}\", expecting \",\" or \";\" or \"{\" at D:\\soften\\sprint1st\\Project_2-master\\app\\Models\\Category.php:11)
+[stacktrace]
+#0 {main}
+"} 
+[2025-02-12 01:48:34] local.ERROR: syntax error, unexpected token "}", expecting "," or ";" or "{" {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): syntax error, unexpected token \"}\", expecting \",\" or \";\" or \"{\" at D:\\soften\\sprint1st\\Project_2-master\\app\\Models\\Category.php:11)
+[stacktrace]
+#0 {main}
+"} 
+[2025-02-12 01:49:34] local.ERROR: syntax error, unexpected token "}", expecting "," or ";" or "{" {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): syntax error, unexpected token \"}\", expecting \",\" or \";\" or \"{\" at D:\\soften\\sprint1st\\Project_2-master\\app\\Models\\Category.php:11)
+[stacktrace]
+#0 {main}
+"} 
+[2025-02-12 01:50:34] local.ERROR: syntax error, unexpected token "}", expecting "," or ";" or "{" {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): syntax error, unexpected token \"}\", expecting \",\" or \";\" or \"{\" at D:\\soften\\sprint1st\\Project_2-master\\app\\Models\\Category.php:11)
+[stacktrace]
+#0 {main}
+"} 
+[2025-02-12 01:51:34] local.ERROR: syntax error, unexpected token "}", expecting "," or ";" or "{" {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): syntax error, unexpected token \"}\", expecting \",\" or \";\" or \"{\" at D:\\soften\\sprint1st\\Project_2-master\\app\\Models\\Category.php:11)
+[stacktrace]
+#0 {main}
+"} 
+[2025-02-12 01:52:34] local.ERROR: syntax error, unexpected token "}", expecting "," or ";" or "{" {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): syntax error, unexpected token \"}\", expecting \",\" or \";\" or \"{\" at D:\\soften\\sprint1st\\Project_2-master\\app\\Models\\Category.php:11)
+[stacktrace]
+#0 {main}
+"} 
