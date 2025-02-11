@@ -48,5 +48,6 @@ return [
     'Search' => 'Search',
     'Book' => 'Book',
     'Otheracademicworks' => 'Other academic works',
+    
   
 ];

@@ -57,7 +57,11 @@
                         <!-- <h6 class="card-text1">Department of {{$res->program->program_name_en}}</h6> -->
                         <!-- <h6 class="card-text1">College of Computing</h6>
                     <h6 class="card-text1">Khon Kaen University</h6> -->
+                        @if(app()->getLocale() == 'en')
                         <h6 class="card-text1">E-mail: {{$res->email}}</h6>
+                        @else
+                        <h6 class="card-text1">อีเมล: {{$res->email}}</h6>
+                        @endif
                         <h6 class="card-title">{{ trans('message.education') }}</h6>
                         @foreach( $res->education as $edu)
                         <h6 class="card-text2 col-sm-10"> {{$edu->year}} {{$edu->qua_name}} {{$edu->uname}}</h6>
@@ -581,7 +585,6 @@
         var table1 = $('#example1').DataTable({
             responsive: true,
         });
-
         var table2 = $('#example2').DataTable({
             responsive: true,
         });

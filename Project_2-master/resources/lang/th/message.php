@@ -27,8 +27,8 @@ return [
     'submitted' => 'ยื่นขอ',
     'in_progress' => 'ดำเนินการ',
     'closed' => 'ปิดโครงการ',
-    'Summary'=> 'รวมวิจัยทั้งหมด',
-    'ExportToExcel' => 'ส่งออกไฟล์',
+    'Summary'=> 'งานวิจัยทั้งหมด',
+    'ExportToExcel' => 'ส่งออกไฟล์ Excel',
     'No' => 'ลำดับ',
     'Year' => 'ปี',
     'PaperName' => 'ชื่อบทความ',
@@ -48,7 +48,7 @@ return [
     'Search' => 'ค้นหา',
     'Book' => 'หนังสือ',
     'Otheracademicworks' => 'ผลงานวิชาการด้านอื่นๆ',
-
+   
     
   
 
