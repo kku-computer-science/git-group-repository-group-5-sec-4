@@ -32,6 +32,8 @@ return [
 'Login' => 'เข้าสู่ระบบ',
 'total_articles_report' => 'รายงานจำนวนบทความทั้งหมด (5 ปี: สะสม)',
 'number_chart' => 'จำนวนงานวิจัย',
+'search' => 'ค้นหา',
+'show_entries' => 'แสดง :entries รายการ', 
 
 ];
 

@@ -117,6 +117,22 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 FAQ</a>
                             <a class="dropdown-item"><i
                                     class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Sign Out</a> -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"aria-haspopup="true" aria-expanded="false">
+                                <i class="mdi mdi-translate"></i>
+                                <span class="flag-icon flag-icon-{{Config::get('languages')[App::getLocale()]['flag-icon']}}"></span>
+                                {{ Config::get('languages')[App::getLocale()]['display'] }}
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="navbarDropdownMenuLink">
+                                @foreach (Config::get('languages') as $lang => $language)
+                                @if ($lang != App::getLocale())
+                                <a class="dropdown-item" href="{{ route('langswitch', $lang) }}"><span
+                                        class="flag-icon flag-icon-{{$language['flag-icon']}}"></span>
+                                    {{$language['display']}}</a>
+                                @endif
+                                @endforeach
+                            </div>
+                        </li>
                     <li class="nav-item d-none d-sm-inline-block">
                         <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); 
                         document.getElementById ('logout-form').submit();"> {{ __('Logout') }} <i class="mdi mdi-logout"></i></a>

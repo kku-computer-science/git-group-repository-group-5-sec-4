@@ -117,6 +117,23 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 FAQ</a>
                             <a class="dropdown-item"><i
                                     class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Sign Out</a> -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"aria-haspopup="true" aria-expanded="false">
+                                <i class="mdi mdi-translate"></i>
+                                <span class="flag-icon flag-icon-<?php echo e(Config::get('languages')[App::getLocale()]['flag-icon']); ?>"></span>
+                                <?php echo e(Config::get('languages')[App::getLocale()]['display']); ?>
+
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="navbarDropdownMenuLink">
+                                <?php $__currentLoopData = Config::get('languages'); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $lang => $language): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <?php if($lang != App::getLocale()): ?>
+                                <a class="dropdown-item" href="<?php echo e(route('langswitch', $lang)); ?>"><span
+                                        class="flag-icon flag-icon-<?php echo e($language['flag-icon']); ?>"></span>
+                                    <?php echo e($language['display']); ?></a>
+                                <?php endif; ?>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                            </div>
+                        </li>
                     <li class="nav-item d-none d-sm-inline-block">
                         <a class="nav-link" href="<?php echo e(route('logout')); ?>" onclick="event.preventDefault(); 
                         document.getElementById ('logout-form').submit();"> <?php echo e(__('Logout')); ?> <i class="mdi mdi-logout"></i></a>

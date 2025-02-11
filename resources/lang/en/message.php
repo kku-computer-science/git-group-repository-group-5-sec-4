@@ -32,5 +32,6 @@ return [
     'Login' => 'Login', 
     'total_articles_report' => 'Report the total number of articles (5 years: cumulative)',
     'number_chart' => 'Number',
-
+    'search' => 'Search',
+    'show_entries' => 'Showing :entries entries',
 ];

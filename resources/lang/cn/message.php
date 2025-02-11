@@ -32,6 +32,7 @@ return [
 'Login' => '登录',
 'total_articles_report' => '报告总文章数量（5年：累计）',
 'number_chart' => '研究数量',
-
+'search' => '搜索',
+'show_entries' => '显示 :entries 条目',
 ];
     
