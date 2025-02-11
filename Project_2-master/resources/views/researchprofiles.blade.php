@@ -58,9 +58,13 @@
                         <!-- <h6 class="card-text1">College of Computing</h6>
                     <h6 class="card-text1">Khon Kaen University</h6> -->
                         @if(app()->getLocale() == 'en')
-                        <h6 class="card-text1">E-mail: {{$res->email}}</h6>
+                            <h6 class="card-text1">E-mail: {{ $res->email }}</h6>
+                        @elseif(app()->getLocale() == 'th')
+                            <h6 class="card-text1">อีเมล: {{ $res->email }}</h6>
+                        @elseif(app()->getLocale() == 'cn')
+                            <h6 class="card-text1">电子邮件: {{ $res->email }}</h6>
                         @else
-                        <h6 class="card-text1">อีเมล: {{$res->email}}</h6>
+                            <h6 class="card-text1">E-mail: {{ $res->email }}</h6> {{-- ค่าเริ่มต้นเป็นภาษาอังกฤษ --}}
                         @endif
                         <h6 class="card-title">{{ trans('message.education') }}</h6>
                         @foreach( $res->education as $edu)

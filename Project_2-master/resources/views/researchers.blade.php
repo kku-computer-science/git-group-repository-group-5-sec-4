@@ -6,8 +6,10 @@
     <span>
         @if(app()->getLocale() == 'en')
         <ion-icon name="caret-forward-outline" size="small"></ion-icon> {{$res->program_name_en}}
-        @else
+        @elseif(app()->getLocale() == 'th')
         <ion-icon name="caret-forward-outline" size="small"></ion-icon> {{$res->program_name_th}}
+        @elseif(app()->getLocale() == 'cn')
+        <ion-icon name="caret-forward-outline" size="small"></ion-icon> {{$res->program_name_cn}}
         @endif
     </span>
     <div class="d-flex">
@@ -17,8 +19,10 @@
                     <div class="input-group">
                         @if(app()->getLocale() == 'en')
                         <input type="text" class="form-control" name="textsearch" placeholder="Research interests">
-                        @else
+                        @elseif(app()->getLocale() == 'th')
                         <input type="text" class="form-control" name="textsearch" placeholder="งานวิจัยที่สนใจ">
+                        @elseif(app()->getLocale() == 'cn')
+                        <input type="text" class="form-control" name="textsearch" placeholder="研究兴趣">
                         @endif
                     </div>
                 </div>

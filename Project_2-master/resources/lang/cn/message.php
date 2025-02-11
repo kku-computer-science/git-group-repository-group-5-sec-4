@@ -47,5 +47,6 @@ return [
         'Dateofregistration' => '登记日期',
         'Book' => '书',
         'Otheracademicworks' => '其他学术成果',
+        'Search' => '搜索',
         ];
     

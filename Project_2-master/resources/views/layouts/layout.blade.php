@@ -76,11 +76,14 @@
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             @foreach($dn as $department)
                             <li><a class="dropdown-item" href="{{ route('researchers',['id'=>$department->id])}}">
-                                    @if(app()->getLocale() == 'en')
-                                    {{$department->program_name_en}}</a>
-                                    @else
-                                    {{$department->program_name_th}}</a>
-                                    @endif
+                            @if(app()->getLocale() == 'th')
+                                {{ $department->program_name_th }}
+                            @elseif(app()->getLocale() == 'cn')
+                                {{ $department->program_name_cn }}
+                            @else
+                                {{ $department->program_name_en }} {{-- ค่าเริ่มต้นเป็นภาษาอังกฤษ --}}
+                            @endif
+                        </a>
                             </li>
                             @endforeach
                         </ul>
