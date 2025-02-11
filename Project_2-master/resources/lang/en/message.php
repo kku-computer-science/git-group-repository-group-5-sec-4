@@ -45,5 +45,8 @@ return [
     'Type' => 'Type',
     'Registrationnumber' => 'Registration number',
     'Dateofregistration' => 'Date of registration',
+    'Search' => 'Search',
+    'Book' => 'Book',
+    'Otheracademicworks' => 'Other academic works',
   
 ];

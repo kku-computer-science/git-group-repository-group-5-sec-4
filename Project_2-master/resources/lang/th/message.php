@@ -45,6 +45,11 @@ return [
     'Type' => 'ประเภท',
     'Registrationnumber' => 'หมายเลขทะเบียน',
     'Dateofregistration' => 'วันที่จดทะเบียน',
+    'Search' => 'ค้นหา',
+    'Book' => 'หนังสือ',
+    'Otheracademicworks' => 'ผลงานวิชาการด้านอื่นๆ',
+
+    
   
 
 

@@ -45,5 +45,7 @@ return [
         'Type' => '类别',
         'Registrationnumber' => '登记号',
         'Dateofregistration' => '登记日期',
+        'Book' => '书',
+        'Otheracademicworks' => '其他学术成果',
         ];
     

@@ -32,7 +32,7 @@
                         </select>
                     </div> -->
                 <div class="col-md-4">
-                    <button type="submit" class="btn btn-outline-primary">Search</button>
+                    <button type="submit" class="btn btn-outline-primary">{{trans('message.Search')}}</button>
                 </div>
             </form>
         </div>
