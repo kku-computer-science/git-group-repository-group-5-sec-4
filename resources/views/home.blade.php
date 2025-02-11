@@ -44,10 +44,22 @@
             </div>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="{{asset('img/Banner1.png')}}" class="d-block w-100" alt="...">
+                    @if(app()->getLocale() == 'en')
+                    <img src="{{asset('img/banner1-en.png')}}" class="d-block w-100" alt="...">
+                    @elseif (app()->getLocale() == 'th')
+                    <img src="{{asset('img/banner1-th.png')}}" class="d-block w-100" alt="...">
+                    @elseif (app()->getLocale() == 'cn')
+                    <img src="{{asset('img/banner1-cn.png')}}" class="d-block w-100" alt="...">
+                    @endif
                 </div>
                 <div class="carousel-item">
-                    <img src="{{asset('img/Banner2.png')}}" class="d-block w-100" alt="...">
+                    @if(app()->getLocale() == 'en')
+                    <img src="{{asset('img/banner2-en.png')}}" class="d-block w-100" alt="...">
+                    @elseif (app()->getLocale() == 'th')
+                    <img src="{{asset('img/banner2-th.png')}}" class="d-block w-100" alt="...">
+                    @elseif (app()->getLocale() == 'cn')
+                    <img src="{{asset('img/banner2-cn.png')}}" class="d-block w-100" alt="...">
+                    @endif
                 </div>
                 <!-- <div class="carousel-item">
                 <img src="..." class="d-block w-100" alt="...">
