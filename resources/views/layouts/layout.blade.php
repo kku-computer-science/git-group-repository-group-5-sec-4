@@ -57,12 +57,8 @@
     <!-- Navigation -->
     <nav id="navbar" class="navbar navbar-expand-lg navbar-light">
         <div class="container-fluid">
-<<<<<<< HEAD
             <a class="navbar-brand logo-image" href="#">
                 @if(app()->getLocale() == 'en')
-=======
-            <a class="navbar-brand logo-image" href="#">@if(app()->getLocale() == 'en')
->>>>>>> Test
                 <img src="{{asset('img/logo2-en.png')}}" alt="alternative">
                 @elseif (app()->getLocale() == 'th')
                 <img src="{{asset('img/logo2-th.png')}}" alt="alternative">
