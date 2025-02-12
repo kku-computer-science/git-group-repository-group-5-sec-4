@@ -118,7 +118,6 @@
                         </div>
                     </li>
 
-
                 </ul>
                 @if (Route::has('login'))
                 @auth
