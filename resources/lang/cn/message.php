@@ -34,5 +34,12 @@ return [
 'number_chart' => '研究数量',
 'search' => '搜索',
 'show_entries' => '显示 :entries 条目',
+'showing_entries' => '显示 :start 到 :end，共 :total 条目',
+'first' => '第一页',
+'last' => '最后一页',
+'next' => '下一页',
+'previous' => '上一页',
+'research_interests' => '研究兴趣',
+
 ];
     

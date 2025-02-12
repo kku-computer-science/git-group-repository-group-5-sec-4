@@ -1,9 +1,9 @@
 <?php $__env->startSection('content'); ?>
 <div class="container card-2">
-    <p class="title"> Researchers </p>
+    <p class="title"><?php echo e(__('message.Researchers')); ?></p>
     <?php $__currentLoopData = $request; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $res): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
     <span>
-        <ion-icon name="caret-forward-outline" size="small"></ion-icon> <?php echo e($res->program_name_en); ?>
+        <ion-icon name="caret-forward-outline" size="small"></ion-icon> <?php echo e($res->{'program_name_' .app()->getLocale()}); ?>
 
     </span>
     <div class="d-flex">
@@ -11,7 +11,7 @@
             <form class="row row-cols-lg-auto g-3" method="GET" action="<?php echo e(route('searchresearchers',['id'=>$res->id])); ?>">
                 <div class="col-md-8">
                     <div class="input-group">
-                        <input type="text" class="form-control" name="textsearch" placeholder="Research interests">
+                        <input type="text" class="form-control" name="textsearch" placeholder="<?php echo e(__('message.research_interests')); ?>">
                     </div>
                 </div>
                 <!-- <div class="col-12">
@@ -24,7 +24,7 @@
                         </select>
                     </div> -->
                 <div class="col-md-4">
-                    <button type="submit" class="btn btn-outline-primary">Search</button>
+                    <button type="submit" class="btn btn-outline-primary"><?php echo e(__('message.search')); ?></button>
                 </div>
             </form>
         </div>
@@ -39,33 +39,37 @@
                     <div class="col-sm-4">
                         <img class="card-image" src="<?php echo e($r->picture); ?>" alt="">
                     </div>
-                    <div class="col-sm-8 overflow-hidden" style="text-overflow: clip; <?php if(app()->getLocale() == 'en'): ?> max-height: 220px; <?php else: ?> max-height: 210px;<?php endif; ?>">
+                    <div class="col-sm-8 overflow-hidden" style="text-overflow: clip; <?php if(app()->getLocale() == 'en' || app()->getLocale() == 'cn' || app()->getLocale() == 'th'): ?> max-height: 220px; <?php else: ?> max-height: 210px;<?php endif; ?>">
                         <div class="card-body">
                             <?php if(app()->getLocale() == 'en'): ?>
-
                                 <?php if($r->doctoral_degree == 'Ph.D.'): ?>
-                                <h5 class="card-title"><?php echo e($r->{'fname_'.app()->getLocale()}); ?> <?php echo e($r->{'lname_'.app()->getLocale()}); ?>, <?php echo e($r->doctoral_degree); ?>
-
+                                    <h5 class="card-title"><?php echo e($r->fname_en); ?> <?php echo e($r->lname_en); ?>, <?php echo e($r->doctoral_degree); ?></h5>
                                 <?php else: ?>
-                                <h5 class="card-title"><?php echo e($r->{'fname_'.app()->getLocale()}); ?> <?php echo e($r->{'lname_'.app()->getLocale()}); ?></h5>
+                                    <h5 class="card-title"><?php echo e($r->fname_en); ?> <?php echo e($r->lname_en); ?></h5>
                                 <?php endif; ?>
-
-
-                                <!-- <h5 class="card-title"><?php echo e($r->{'fname_'.app()->getLocale()}); ?> <?php echo e($r->{'lname_'.app()->getLocale()}); ?></h5> -->
-                                <h5 class="card-title-2"><?php echo e($r->{'academic_ranks_'.app()->getLocale()}); ?></h5>
+                                <h5 class="card-title-2"><?php echo e($r->academic_ranks_en); ?></h5>
+                            <?php elseif(app()->getLocale() == 'cn'): ?>
+                                <?php if($r->doctoral_degree == 'Ph.D.'): ?>
+                                    <h5 class="card-title"><?php echo e($r->fname_en); ?> <?php echo e($r->lname_en); ?>, <?php echo e($r->doctoral_degree); ?></h5>
                                 <?php else: ?>
-                                <h5 class="card-title"><?php echo e($r->{'position_'.app()->getLocale()}); ?>
-
-                                    <?php echo e($r->{'fname_'.app()->getLocale()}); ?> <?php echo e($r->{'lname_'.app()->getLocale()}); ?>
-
-                                </h5>
+                                    <h5 class="card-title"><?php echo e($r->fname_en); ?> <?php echo e($r->lname_en); ?></h5>
                                 <?php endif; ?>
-                                <p class="card-text-1"><?php echo e(trans('message.expertise')); ?></p>
-                                <div class="card-expertise">
-                                    <?php $__currentLoopData = $r->expertise->sortBy('expert_name'); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $exper): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                    <p class="card-text"> <?php echo e($exper->expert_name); ?></p>
-                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                </div>
+                                <h5 class="card-title-2"><?php echo e($r->academic_ranks_cn); ?></h5>
+                            <?php else: ?>
+                                <?php if($r->doctoral_degree == 'Ph.D.'): ?>
+                                    <h5 class="card-title"><?php echo e($r->fname_th); ?> <?php echo e($r->lname_th); ?>, <?php echo e($r->doctoral_degree); ?></h5>
+                                <?php else: ?>
+                                    <h5 class="card-title"><?php echo e($r->fname_th); ?> <?php echo e($r->lname_th); ?></h5>
+                                <?php endif; ?>
+                                <h5 class="card-title-2"><?php echo e($r->academic_ranks_th); ?></h5>
+                            <?php endif; ?>
+
+                            <p class="card-text-1"><?php echo e(trans('message.expertise')); ?></p>
+                            <div class="card-expertise">
+                                <?php $__currentLoopData = $r->expertise->sortBy('expert_name_' .app()->getLocale()); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $exper): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                    <p class="card-text"> <?php echo e($exper->{'expert_name_' .app()->getLocale()}); ?></p>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                            </div>
                         </div>
                     </diV>
                 </div>

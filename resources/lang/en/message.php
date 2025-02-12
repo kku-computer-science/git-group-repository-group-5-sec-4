@@ -34,4 +34,11 @@ return [
     'number_chart' => 'Number',
     'search' => 'Search',
     'show_entries' => 'Showing :entries entries',
+    'showing_entries' => 'Showing :start to :end of :total entries',
+    'first' => 'First Page',
+    'last' => 'Last Page',
+    'next' => 'Next',
+    'previous' => 'Previous',
+    'research_interests' => 'Research Interests',
+
 ];

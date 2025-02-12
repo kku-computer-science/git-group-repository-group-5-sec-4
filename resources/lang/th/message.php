@@ -33,7 +33,13 @@ return [
 'total_articles_report' => 'รายงานจำนวนบทความทั้งหมด (5 ปี: สะสม)',
 'number_chart' => 'จำนวนงานวิจัย',
 'search' => 'ค้นหา',
-'show_entries' => 'แสดง :entries รายการ', 
+'show_entries' => 'แสดง :entries รายการ',
+'showing_entries' => 'แสดง :start ถึง :end จากทั้งหมด :total รายการ',
+'first' => 'หน้าแรก',
+'last' => 'หน้าสุดท้าย',
+'next' => 'ถัดไป',
+'previous' => 'ก่อนหน้า',
+'research_interests' => 'หัวข้อที่สนใจในการวิจัย',
 
 ];
 
