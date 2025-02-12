@@ -21,6 +21,7 @@ class LocalizationController extends Controller
     {
         if (array_key_exists($lang, Config::get('languages'))) {
             Session::put('applocale', $lang);
+            App::setLocale($lang);
         }
         return redirect()->back();
     }

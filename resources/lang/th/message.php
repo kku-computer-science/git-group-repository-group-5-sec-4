@@ -40,6 +40,9 @@ return [
 'next' => 'ถัดไป',
 'previous' => 'ก่อนหน้า',
 'research_interests' => 'หัวข้อที่สนใจในการวิจัย',
+'before' => 'ก่อน',
+'reference' => 'อ้างอิง',
+'summary' => 'สรุป',
 
 ];
 

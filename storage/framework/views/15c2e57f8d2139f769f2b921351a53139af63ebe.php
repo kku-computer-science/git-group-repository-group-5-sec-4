@@ -54,11 +54,11 @@
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
+                <span class="visually-hidden"><?php echo e(__('message.previous')); ?></span>
             </button>
             <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
+                <span class="visually-hidden"><?php echo e(__('message.next')); ?></span>
             </button>
         </div>
     </div>
@@ -140,7 +140,7 @@
                         <?php echo e($n); ?>
 
                         <?php else: ?>
-                        Before <?php echo e($n); ?>
+                        <?php echo e(__('message.before')); ?> <?php echo e($n); ?>
 
                         <?php endif; ?>
 
@@ -162,7 +162,7 @@
                                     <!-- <a href="<?php echo e(route('bibtex',['id'=>$p['id']])); ?>">
                                         [อ้างอิง]
                                     </a> -->
-                                    <button style="padding: 0;"class="btn btn-link open_modal" value="<?php echo e($p['id']); ?>">[อ้างอิง]</button>
+                                    <button style="padding: 0;"class="btn btn-link open_modal" value="<?php echo e($p['id']); ?>">[<?php echo e(__('message.reference')); ?>]</button>
                                 </p>
                             </div>
                         </div>
@@ -308,7 +308,7 @@
         document.getElementById("all").innerHTML += `
                 <i class="count-icon fa fa-book fa-2x"></i>
                 <h2 class="timer count-title count-number" data-to="${sum}" data-speed="1500"></h2>
-                <p class="count-text ">SUMMARY</p>`
+                <p class="count-text "><?php echo e(__('message.summary')); ?></p>`
         document.getElementById("scopus").innerHTML += `
                 <i class="count-icon fa fa-book fa-2x"></i>
                 <h2 class="timer count-title count-number" data-to="${sumsco}" data-speed="1500"></h2>

@@ -42,22 +42,22 @@
                     <div class="col-sm-8 overflow-hidden" style="text-overflow: clip; <?php if(app()->getLocale() == 'en' || app()->getLocale() == 'cn' || app()->getLocale() == 'th'): ?> max-height: 220px; <?php else: ?> max-height: 210px;<?php endif; ?>">
                         <div class="card-body">
                             <?php if(app()->getLocale() == 'en'): ?>
-                                <?php if($r->doctoral_degree == 'Ph.D.'): ?>
-                                    <h5 class="card-title"><?php echo e($r->fname_en); ?> <?php echo e($r->lname_en); ?>, <?php echo e($r->doctoral_degree); ?></h5>
+                                <?php if($r->doctoral_degree_en == 'Ph.D.'): ?>
+                                    <h5 class="card-title"><?php echo e($r->fname_en); ?> <?php echo e($r->lname_en); ?>, <?php echo e($r->doctoral_degree_en); ?></h5>
                                 <?php else: ?>
                                     <h5 class="card-title"><?php echo e($r->fname_en); ?> <?php echo e($r->lname_en); ?></h5>
                                 <?php endif; ?>
                                 <h5 class="card-title-2"><?php echo e($r->academic_ranks_en); ?></h5>
                             <?php elseif(app()->getLocale() == 'cn'): ?>
-                                <?php if($r->doctoral_degree == 'Ph.D.'): ?>
-                                    <h5 class="card-title"><?php echo e($r->fname_en); ?> <?php echo e($r->lname_en); ?>, <?php echo e($r->doctoral_degree); ?></h5>
+                                <?php if($r->doctoral_degree_cn == '博士'): ?>
+                                    <h5 class="card-title"><?php echo e($r->fname_en); ?> <?php echo e($r->lname_en); ?>, <?php echo e($r->doctoral_degree_cn); ?></h5>
                                 <?php else: ?>
                                     <h5 class="card-title"><?php echo e($r->fname_en); ?> <?php echo e($r->lname_en); ?></h5>
                                 <?php endif; ?>
                                 <h5 class="card-title-2"><?php echo e($r->academic_ranks_cn); ?></h5>
                             <?php else: ?>
-                                <?php if($r->doctoral_degree == 'Ph.D.'): ?>
-                                    <h5 class="card-title"><?php echo e($r->fname_th); ?> <?php echo e($r->lname_th); ?>, <?php echo e($r->doctoral_degree); ?></h5>
+                                <?php if($r->doctoral_degree_th == 'ดร.'): ?>
+                                    <h5 class="card-title"><?php echo e($r->doctoral_degree_th); ?> <?php echo e($r->fname_th); ?> <?php echo e($r->lname_th); ?></h5>
                                 <?php else: ?>
                                     <h5 class="card-title"><?php echo e($r->fname_th); ?> <?php echo e($r->lname_th); ?></h5>
                                 <?php endif; ?>

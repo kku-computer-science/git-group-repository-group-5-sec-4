@@ -42,22 +42,22 @@
                     <div class="col-sm-8 overflow-hidden" style="text-overflow: clip; @if(app()->getLocale() == 'en' || app()->getLocale() == 'cn' || app()->getLocale() == 'th') max-height: 220px; @else max-height: 210px;@endif">
                         <div class="card-body">
                             @if(app()->getLocale() == 'en')
-                                @if($r->doctoral_degree == 'Ph.D.')
-                                    <h5 class="card-title">{{ $r->fname_en }} {{ $r->lname_en }}, {{$r->doctoral_degree}}</h5>
+                                @if($r->doctoral_degree_en == 'Ph.D.')
+                                    <h5 class="card-title">{{ $r->fname_en }} {{ $r->lname_en }}, {{$r->doctoral_degree_en}}</h5>
                                 @else
                                     <h5 class="card-title">{{ $r->fname_en }} {{ $r->lname_en }}</h5>
                                 @endif
                                 <h5 class="card-title-2">{{ $r->academic_ranks_en }}</h5>
                             @elseif(app()->getLocale() == 'cn')
-                                @if($r->doctoral_degree == 'Ph.D.')
-                                    <h5 class="card-title">{{ $r->fname_en }} {{ $r->lname_en }}, {{$r->doctoral_degree}}</h5>
+                                @if($r->doctoral_degree_cn == '博士')
+                                    <h5 class="card-title">{{ $r->fname_en }} {{ $r->lname_en }}, {{$r->doctoral_degree_cn}}</h5>
                                 @else
                                     <h5 class="card-title">{{ $r->fname_en }} {{ $r->lname_en }}</h5>
                                 @endif
                                 <h5 class="card-title-2">{{ $r->academic_ranks_cn }}</h5>
                             @else
-                                @if($r->doctoral_degree == 'Ph.D.')
-                                    <h5 class="card-title">{{ $r->fname_th }} {{ $r->lname_th }}, {{$r->doctoral_degree}}</h5>
+                                @if($r->doctoral_degree_th == 'ดร.')
+                                    <h5 class="card-title">{{$r->doctoral_degree_th}} {{ $r->fname_th }} {{ $r->lname_th }}</h5>
                                 @else
                                     <h5 class="card-title">{{ $r->fname_th }} {{ $r->lname_th }}</h5>
                                 @endif

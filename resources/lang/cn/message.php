@@ -40,6 +40,9 @@ return [
 'next' => '下一页',
 'previous' => '上一页',
 'research_interests' => '研究兴趣',
+'before' => '之前',
+'reference' => '参考',
+'summary' => '总结',
 
 ];
     

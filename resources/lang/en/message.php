@@ -40,5 +40,7 @@ return [
     'next' => 'Next',
     'previous' => 'Previous',
     'research_interests' => 'Research Interests',
-
+    'before' => 'Before',
+    'reference' => 'Reference',
+    'summary' => 'Summary',
 ];
