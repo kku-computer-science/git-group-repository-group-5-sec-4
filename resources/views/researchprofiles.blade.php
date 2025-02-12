@@ -139,7 +139,7 @@
 
     <ul class="nav nav-tabs" id="myTab" role="tablist">
         <li class="nav-item" role="presentation">
-            <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">{{trans('message.Summary' )}}</button>
+            <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">{{trans('message.summary' )}}</button>
         </li>
         <li class="nav-item" role="presentation">
             <button class="nav-link" id="scopus-tab" data-bs-toggle="tab" data-bs-target="#scopus" type="button" role="tab" aria-controls="scopus" aria-selected="false">SCOPUS</button>
@@ -588,21 +588,87 @@
 
         var table1 = $('#example1').DataTable({
             responsive: true,
+            language: {
+                search: "{{ __('message.search') }}" ,
+                lengthMenu: "{{ __('message.show_entries', ['entries' => '_MENU_']) }}",
+                info: "{{ __('message.showing_entries', ['start' => '_START_', 'end' => '_END_', 'total' => '_TOTAL_']) }}",
+                paginate: {
+                    first: "{{ __('message.first') }}",
+                    last: "{{ __('message.last') }}",
+                    next: "{{ __('message.next') }}",
+                    previous: "{{ __('message.previous') }}"
+                }
+            }
         });
         var table2 = $('#example2').DataTable({
             responsive: true,
+            language: {
+                search: "{{ __('message.search') }}" ,
+                lengthMenu: "{{ __('message.show_entries', ['entries' => '_MENU_']) }}",
+                info: "{{ __('message.showing_entries', ['start' => '_START_', 'end' => '_END_', 'total' => '_TOTAL_']) }}",
+                paginate: {
+                    first: "{{ __('message.first') }}",
+                    last: "{{ __('message.last') }}",
+                    next: "{{ __('message.next') }}",
+                    previous: "{{ __('message.previous') }}"
+                }
+            }
         });
         var table3 = $('#example3').DataTable({
             responsive: true,
+            language: {
+                search: "{{ __('message.search') }}" ,
+                lengthMenu: "{{ __('message.show_entries', ['entries' => '_MENU_']) }}",
+                info: "{{ __('message.showing_entries', ['start' => '_START_', 'end' => '_END_', 'total' => '_TOTAL_']) }}",
+                paginate: {
+                    first: "{{ __('message.first') }}",
+                    last: "{{ __('message.last') }}",
+                    next: "{{ __('message.next') }}",
+                    previous: "{{ __('message.previous') }}"
+                }
+            }
         });
         var table4 = $('#example4').DataTable({
             responsive: true,
+            language: {
+                search: "{{ __('message.search') }}" ,
+                lengthMenu: "{{ __('message.show_entries', ['entries' => '_MENU_']) }}",
+                info: "{{ __('message.showing_entries', ['start' => '_START_', 'end' => '_END_', 'total' => '_TOTAL_']) }}",
+                paginate: {
+                    first: "{{ __('message.first') }}",
+                    last: "{{ __('message.last') }}",
+                    next: "{{ __('message.next') }}",
+                    previous: "{{ __('message.previous') }}"
+                }
+            }
         });
         var table5 = $('#example5').DataTable({
             responsive: true,
+            language: {
+                search: "{{ __('message.search') }}" ,
+                lengthMenu: "{{ __('message.show_entries', ['entries' => '_MENU_']) }}",
+                info: "{{ __('message.showing_entries', ['start' => '_START_', 'end' => '_END_', 'total' => '_TOTAL_']) }}",
+                paginate: {
+                    first: "{{ __('message.first') }}",
+                    last: "{{ __('message.last') }}",
+                    next: "{{ __('message.next') }}",
+                    previous: "{{ __('message.previous') }}"
+                }
+            }
         });
         var table6 = $('#example6').DataTable({
             responsive: true,
+            language: {
+                search: "{{ __('message.search') }}" ,
+                lengthMenu: "{{ __('message.show_entries', ['entries' => '_MENU_']) }}",
+                info: "{{ __('message.showing_entries', ['start' => '_START_', 'end' => '_END_', 'total' => '_TOTAL_']) }}",
+                paginate: {
+                    first: "{{ __('message.first') }}",
+                    last: "{{ __('message.last') }}",
+                    next: "{{ __('message.next') }}",
+                    previous: "{{ __('message.previous') }}"
+                }
+            }
         });
 
 
@@ -782,7 +848,7 @@
         //$("#scopus").append('data-to="100"');
         document.getElementById("all").innerHTML += `   
                 <h2 class="timer count-title count-number" data-to="${sum}" data-speed="1500"></h2>
-                <p class="count-text ">SUMMARY</p>`
+                <p class="count-text ">{{ __('message.summary') }}</p>`
 
         document.getElementById("scopus_sum").innerHTML += `   
                 <h2 class="timer count-title count-number" data-to="${sumsco}" data-speed="1500"></h2>

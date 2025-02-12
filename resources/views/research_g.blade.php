@@ -1,20 +1,20 @@
 @extends('layouts.layout')
 @section('content')
 <div class="container card-3 ">
-    <p>Research Group</p>
+    <p>{{ __('message.ResearchGroup')}}</p>
     @foreach ($resg as $rg)
     <div class="card mb-4">
         <div class="row g-0">
             <div class="col-md-4">
                 <div class="card-body">
                     <img src="{{asset('img/'.$rg->group_image)}}" alt="...">
-                    <h2 class="card-text-1"> Laboratory Supervisor </h2>
+                    <h2 class="card-text-1">{{ __('message.laboratory_supervisor') }}</h2>
                     
                     <h2 class="card-text-2">
                         @foreach ($rg->user as $r)
                         @if($r->hasRole('teacher'))
                         @if(app()->getLocale() == 'en' and $r->academic_ranks_en == 'Lecturer' and $r->doctoral_degree == 'Ph.D.')
-                             {{ $r->{'fname_'.app()->getLocale()} }} {{ $r->{'lname_'.app()->getLocale()} }}, Ph.D.
+                             {{ $r->{'fname_'.app()->getLocale()} }} {{ $r->{'lname_'.app()->getLocale()} }}, {{ $r->{'doctoral_degree_'.app()->getLocale()} }}
                             <br>
                             @elseif(app()->getLocale() == 'en' and $r->academic_ranks_en == 'Lecturer')
                             {{ $r->{'fname_'.app()->getLocale()} }} {{ $r->{'lname_'.app()->getLocale()} }}

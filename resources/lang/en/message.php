@@ -63,5 +63,8 @@ return [
     'Search' => 'Search',
     'Book' => 'Book',
     'Otheracademicworks' => 'Other academic works',
+    'laboratory_supervisor' => 'Laboratory Supervisor',
+    'student' => 'Student',
+    
     
 ];

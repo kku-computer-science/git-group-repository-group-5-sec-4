@@ -81,5 +81,7 @@ return [
     'Book' => '书',
     'Otheracademicworks' => '其他学术成果',
     'Search' => '搜索',
+    'laboratory_supervisor' => '实验室主管',
+    'student' => '学生',
     ];
     

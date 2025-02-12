@@ -63,11 +63,21 @@
                     </td>
 
                     <td style="vertical-align: top;text-align: left;">
-                        <div style="padding-bottom: 10px;">
-                            <span>@foreach($re->user as $user)
-                                {{$user->position_th }} {{$user->fname_th}} {{$user->lname_th}}<br>
-                                @endforeach</span>
-                        </div>
+                    <div style="padding-bottom: 10px;">
+                        <span>
+                            @foreach($re->user as $user)
+                                @if(app()->getLocale() == 'th')
+                                    {{ $user->position_th }} {{ $user->fname_th }} {{ $user->lname_th }}
+                                @elseif(app()->getLocale() == 'en' || app()->getLocale() == 'cn')
+                                    {{ $user->position_en }} {{ $user->fname_en }} {{ $user->lname_en }}
+                                @else
+                                    {{ $user->position_en }} {{ $user->fname_en }} {{ $user->lname_en }} <!-- กรณี fallback -->
+                                @endif
+                                <br>
+                            @endforeach
+                        </span>
+                    </div>
+
                     </td>
                     @if($re->status == 1)
                     <td style="vertical-align: top;text-align: left;">

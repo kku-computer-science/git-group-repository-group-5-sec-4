@@ -1,19 +1,20 @@
 <?php $__env->startSection('content'); ?>
 <div class="container card-3 ">
-    <p>Research Group</p>
+    <p><?php echo e(__('message.ResearchGroup')); ?></p>
     <?php $__currentLoopData = $resg; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $rg): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
     <div class="card mb-4">
         <div class="row g-0">
             <div class="col-md-4">
                 <div class="card-body">
                     <img src="<?php echo e(asset('img/'.$rg->group_image)); ?>" alt="...">
-                    <h2 class="card-text-1"> Laboratory Supervisor </h2>
+                    <h2 class="card-text-1"><?php echo e(__('message.laboratory_supervisor')); ?></h2>
                     
                     <h2 class="card-text-2">
                         <?php $__currentLoopData = $rg->user; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $r): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <?php if($r->hasRole('teacher')): ?>
                         <?php if(app()->getLocale() == 'en' and $r->academic_ranks_en == 'Lecturer' and $r->doctoral_degree == 'Ph.D.'): ?>
-                             <?php echo e($r->{'fname_'.app()->getLocale()}); ?> <?php echo e($r->{'lname_'.app()->getLocale()}); ?>, Ph.D.
+                             <?php echo e($r->{'fname_'.app()->getLocale()}); ?> <?php echo e($r->{'lname_'.app()->getLocale()}); ?>, <?php echo e($r->{'doctoral_degree_'.app()->getLocale()}); ?>
+
                             <br>
                             <?php elseif(app()->getLocale() == 'en' and $r->academic_ranks_en == 'Lecturer'): ?>
                             <?php echo e($r->{'fname_'.app()->getLocale()}); ?> <?php echo e($r->{'lname_'.app()->getLocale()}); ?>

@@ -56,7 +56,15 @@
                         <!-- <h6 class="card-text1">Department of <?php echo e($res->program->program_name_en); ?></h6> -->
                         <!-- <h6 class="card-text1">College of Computing</h6>
                     <h6 class="card-text1">Khon Kaen University</h6> -->
-                        <h6 class="card-text1">E-mail: <?php echo e($res->email); ?></h6>
+                        <?php if(app()->getLocale() == 'en'): ?>
+                            <h6 class="card-text1">E-mail: <?php echo e($res->email); ?></h6>
+                        <?php elseif(app()->getLocale() == 'th'): ?>
+                            <h6 class="card-text1">อีเมล: <?php echo e($res->email); ?></h6>
+                        <?php elseif(app()->getLocale() == 'cn'): ?>
+                            <h6 class="card-text1">电子邮件: <?php echo e($res->email); ?></h6>
+                        <?php else: ?>
+                            <h6 class="card-text1">E-mail: <?php echo e($res->email); ?></h6> 
+                        <?php endif; ?>
                         <h6 class="card-title"><?php echo e(trans('message.education')); ?></h6>
                         <?php $__currentLoopData = $res->education; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $edu): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <h6 class="card-text2 col-sm-10"> <?php echo e($edu->year); ?> <?php echo e($edu->qua_name); ?> <?php echo e($edu->uname); ?></h6>
@@ -131,7 +139,7 @@
 
     <ul class="nav nav-tabs" id="myTab" role="tablist">
         <li class="nav-item" role="presentation">
-            <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Summary</button>
+            <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true"><?php echo e(trans('message.summary' )); ?></button>
         </li>
         <li class="nav-item" role="presentation">
             <button class="nav-link" id="scopus-tab" data-bs-toggle="tab" data-bs-target="#scopus" type="button" role="tab" aria-controls="scopus" aria-selected="false">SCOPUS</button>
@@ -143,10 +151,10 @@
             <button class="nav-link" id="tci-tab" data-bs-toggle="tab" data-bs-target="#tci" type="button" role="tab" aria-controls="tci" aria-selected="false">TCI</button>
         </li>
         <li class="nav-item" role="presentation">
-            <button class="nav-link" id="book-tab" data-bs-toggle="tab" data-bs-target="#book" type="button" role="tab" aria-controls="book" aria-selected="false">หนังสือ</button>
+            <button class="nav-link" id="book-tab" data-bs-toggle="tab" data-bs-target="#book" type="button" role="tab" aria-controls="book" aria-selected="false"><?php echo e(trans('message.Book' )); ?></button>
         </li>
         <li class="nav-item" role="presentation">
-            <button class="nav-link" id="patent-tab" data-bs-toggle="tab" data-bs-target="#patent" type="button" role="tab" aria-controls="patent" aria-selected="false">ผลงานวิชาการด้านอื่นๆ</button>
+            <button class="nav-link" id="patent-tab" data-bs-toggle="tab" data-bs-target="#patent" type="button" role="tab" aria-controls="patent" aria-selected="false"><?php echo e(trans('message.Otheracademicworks' )); ?></button>
         </li>
     </ul>
     <br>
@@ -154,7 +162,7 @@
 
         <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
             <div class="tab-content" style="padding-bottom: 20px;">
-                <a class="btn btn-success" href="<?php echo e(route('excel', ['id' => $res->id])); ?>" target="_blank">Export To Excel</a>
+                <a class="btn btn-success" href="<?php echo e(route('excel', ['id' => $res->id])); ?>" target="_blank"><?php echo e(trans('message.ExportToExcel' )); ?></a>
             </div>
             <table id="example1" class="table table-striped" style="width:100%">
                 <thead>
@@ -162,16 +170,16 @@
                         <th><a href="<?php echo e(route('excel', ['id' => $res->id])); ?>" target="_blank">#Export</a></td>
                     </tr> -->
                     <tr>
-                        <th>No.</th>
-                        <th>Year</th>
-                        <th>Paper Name</th>
-                        <th>Author</th>
-                        <th>Document Type</th>
-                        <th>Page</th>
-                        <th>Journals/Transactions</th>
-                        <th>Ciations</th>
-                        <th>Doi</th>
-                        <th>Source</th>
+                        <th><?php echo e(trans('message.No' )); ?></th>
+                        <th><?php echo e(trans('message.Year' )); ?></th>
+                        <th><?php echo e(trans('message.PaperName' )); ?> </th>
+                        <th><?php echo e(trans('message.Author' )); ?></th>
+                        <th><?php echo e(trans('message.DocumentType' )); ?></th>
+                        <th><?php echo e(trans('message.Page' )); ?></th>
+                        <th><?php echo e(trans('message.Journals/Transactions' )); ?></th>
+                        <th><?php echo e(trans('message.Ciations' )); ?></th>
+                        <th><?php echo e(trans('message.Doi' )); ?></th>
+                        <th><?php echo e(trans('message.Source' )); ?></th>
                     </tr>
                 </thead>
 
@@ -179,23 +187,51 @@
                     <?php $__currentLoopData = $papers; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $n => $paper): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <tr>
                         <td> <?php echo e($n+1); ?></td>
-                        <td><?php echo e($paper->paper_yearpub); ?></td>
+                        <td> 
+                            <?php if(app()->getLocale() == 'th'): ?>
+                            <?php echo e($paper->paper_yearpub + 543); ?>
+
+                            <?php else: ?>
+                            <?php echo e($paper->paper_yearpub); ?>
+
+                            <?php endif; ?>
+                        </td>
                         <!-- <td style="width:90%;"><?php echo e($paper->paper_name); ?></td> -->
                         <td style="width:90%;"><?php echo html_entity_decode(preg_replace('<inf>', 'sub', $paper->paper_name)); ?></td>
                         <td>
-                            <?php $__currentLoopData = $paper->author; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $author): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <?php $__currentLoopData = $paper->author; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $author): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <span>
-                                <a><?php echo e($author -> author_fname); ?> <?php echo e($author -> author_lname); ?></a>
+                                <a>
+                                    <?php echo e(app()->getLocale() == 'th' ? ($author->fname_th ?? $author->author_fname) : $author->author_fname); ?>
+
+                                    <?php echo e(app()->getLocale() == 'th' ? ($author->lname_th ?? $author->author_lname) : $author->author_lname); ?>
+
+                                </a>
                             </span>
-                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                            <?php $__currentLoopData = $paper->teacher; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $author): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                            <span >
-                                <a href="<?php echo e(route('detail',Crypt::encrypt($author->id))); ?>">
-                                    <teacher><?php echo e($author -> fname_en); ?> <?php echo e($author -> lname_en); ?></teacher></a>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+
+                        <?php $__currentLoopData = $paper->teacher; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $author): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <span>
+                                <a href="<?php echo e(route('detail', Crypt::encrypt($author->id))); ?>">
+                                    <teacher>
+                                        <?php echo e(app()->getLocale() == 'th' ? ($author->fname_th ?? $author->fname_en) : $author->fname_en); ?>
+
+                                        <?php echo e(app()->getLocale() == 'th' ? ($author->lname_th ?? $author->lname_en) : $author->lname_en); ?>
+
+                                    </teacher>
+                                </a>
                             </span>
-                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                    </td>
+                        <td>
+                        <?php if(app()->getLocale() == 'th'): ?>
+                            <?php echo e(str_replace(['Conference Proceeding', 'Journal'], ['การประชุมวิชาการ', 'วารสาร'], $paper->paper_type)); ?>
+
+                        <?php else: ?>
+                            <?php echo e($paper->paper_type); ?>
+
+                        <?php endif; ?>
                         </td>
-                        <td><?php echo e($paper->paper_type); ?></td>
                         <td style="width:100%;"><?php echo e($paper->paper_page); ?></td>
                         <td><?php echo e($paper->paper_sourcetitle); ?></td>
                         <td><?php echo e($paper->paper_citation); ?></td>
@@ -220,38 +256,66 @@
             <table id="example2" class="table table-striped" style="width:100%">
                 <thead>
                     <tr>
-                        <th>No.</th>
-                        <th>Year</th>
-                        <th style="width:90%;">Paper Name</th>
-                        <th>Author</th>
-                        <th>Document Type</th>
-                        <th style="width:100%;">Page</th>
-                        <th>Journals/Transactions</th>
-                        <th>Ciations</th>
-                        <th>Doi</th>
+                        <th><?php echo e(trans('message.No' )); ?></th>
+                        <th><?php echo e(trans('message.Year' )); ?></th>
+                        <th style="width:90%;"><?php echo e(trans('message.PaperName' )); ?></th>
+                        <th><?php echo e(trans('message.Author' )); ?></th>
+                        <th><?php echo e(trans('message.DocumentType' )); ?></th>
+                        <th style="width:100%;"><?php echo e(trans('message.Page' )); ?></th>
+                        <th><?php echo e(trans('message.Journals/Transactions' )); ?></th>
+                        <th><?php echo e(trans('message.Ciations' )); ?></th>
+                        <th><?php echo e(trans('message.Doi' )); ?></th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php $__currentLoopData = $papers_scopus; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $n => $paper): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <tr>
                         <td> <?php echo e($n+1); ?></td>
-                        <td><?php echo e($paper->paper_yearpub); ?></td>
+                        <td> 
+                            <?php if(app()->getLocale() == 'th'): ?>
+                            <?php echo e($paper->paper_yearpub + 543); ?>
+
+                            <?php else: ?>
+                            <?php echo e($paper->paper_yearpub); ?>
+
+                            <?php endif; ?>
+                        </td>
                         <!-- <td style="width:90%;"><?php echo e($paper->paper_name); ?></td> -->
                         <td style="width:90%;"><?php echo html_entity_decode(preg_replace('<inf>', 'sub', $paper->paper_name)); ?></td>
                         <td>
-                            <?php $__currentLoopData = $paper->author; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $author): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <?php $__currentLoopData = $paper->author; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $author): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <span>
-                                <a><?php echo e($author -> author_fname); ?> <?php echo e($author -> author_lname); ?></a>
+                                <a>
+                                    <?php echo e(app()->getLocale() == 'th' ? ($author->fname_th ?? $author->author_fname) : $author->author_fname); ?>
+
+                                    <?php echo e(app()->getLocale() == 'th' ? ($author->lname_th ?? $author->author_lname) : $author->author_lname); ?>
+
+                                </a>
                             </span>
-                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                            <?php $__currentLoopData = $paper->teacher; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $author): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+
+                        <?php $__currentLoopData = $paper->teacher; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $author): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <span>
-                                <a href="<?php echo e(route('detail',Crypt::encrypt($author->id))); ?>">
-                                    <teacher><?php echo e($author -> fname_en); ?> <?php echo e($author -> lname_en); ?></teacher></a>
+                                <a href="<?php echo e(route('detail', Crypt::encrypt($author->id))); ?>">
+                                    <teacher>
+                                        <?php echo e(app()->getLocale() == 'th' ? ($author->fname_th ?? $author->fname_en) : $author->fname_en); ?>
+
+                                        <?php echo e(app()->getLocale() == 'th' ? ($author->lname_th ?? $author->lname_en) : $author->lname_en); ?>
+
+                                    </teacher>
+                                </a>
                             </span>
-                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </td>
-                        <td><?php echo e($paper->paper_type); ?></td>
+                        <td>
+                        <?php if(app()->getLocale() == 'th'): ?>
+                            <?php echo e(str_replace(['Conference Proceeding', 'Journal'], ['การประชุมวิชาการ', 'วารสาร'], $paper->paper_type)); ?>
+
+                        <?php else: ?>
+                            <?php echo e($paper->paper_type); ?>
+
+                        <?php endif; ?>
+                        </td>
                         <td style="width:100%;"><?php echo e($paper->paper_page); ?></td>
                         <td><?php echo e($paper->paper_sourcetitle); ?></td>
                         <td><?php echo e($paper->paper_citation); ?></td>
@@ -271,15 +335,15 @@
             <table id="example3" class="table table-striped" style="width:100%">
                 <thead>
                     <tr>
-                        <th>No.</th>
-                        <th>Year</th>
-                        <th style="width:90%;">Paper Name</th>
-                        <th>Author</th>
-                        <th>Document Type</th>
-                        <th style="width:100%;">Page</th>
-                        <th>Journals/Transactions</th>
-                        <th>Ciations</th>
-                        <th>Doi</th>
+                        <th><?php echo e(trans('message.No' )); ?></th>
+                        <th><?php echo e(trans('message.Year' )); ?></th>
+                        <th style="width:90%;"><?php echo e(trans('message.PaperName' )); ?></th>
+                        <th><?php echo e(trans('message.Author' )); ?></th>
+                        <th><?php echo e(trans('message.DocumentType' )); ?></th>
+                        <th style="width:100%;"><?php echo e(trans('message.Page' )); ?></th>
+                        <th><?php echo e(trans('message.Journals/Transactions' )); ?></th>
+                        <th><?php echo e(trans('message.Ciations' )); ?></th>
+                        <th><?php echo e(trans('message.Doi' )); ?></th>
                     </tr>
                 </thead>
 
@@ -287,23 +351,51 @@
                     <?php $__currentLoopData = $papers_wos; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $n => $paper): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <tr>
                         <td> <?php echo e($n+1); ?></td>
-                        <td><?php echo e($paper->paper_yearpub); ?></td>
+                        <td> 
+                            <?php if(app()->getLocale() == 'th'): ?>
+                            <?php echo e($paper->paper_yearpub + 543); ?>
+
+                            <?php else: ?>
+                            <?php echo e($paper->paper_yearpub); ?>
+
+                            <?php endif; ?>
+                        </td>
                         <!-- <td style="width:90%;"><?php echo e($paper->paper_name); ?></td> -->
                         <td style="width:90%;"><?php echo html_entity_decode(preg_replace('<inf>', 'sub', $paper->paper_name)); ?></td>
                         <td>
-                            <?php $__currentLoopData = $paper->author; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $author): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <?php $__currentLoopData = $paper->author; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $author): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <span>
-                                <a><?php echo e($author -> author_fname); ?> <?php echo e($author -> author_lname); ?></a>
+                                <a>
+                                    <?php echo e(app()->getLocale() == 'th' ? ($author->fname_th ?? $author->author_fname) : $author->author_fname); ?>
+
+                                    <?php echo e(app()->getLocale() == 'th' ? ($author->lname_th ?? $author->author_lname) : $author->author_lname); ?>
+
+                                </a>
                             </span>
-                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                            <?php $__currentLoopData = $paper->teacher; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $author): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+
+                        <?php $__currentLoopData = $paper->teacher; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $author): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <span>
-                                <a href="<?php echo e(route('detail',Crypt::encrypt($author->id))); ?>">
-                                    <teacher><?php echo e($author -> fname_en); ?> <?php echo e($author -> lname_en); ?></teacher></a>
+                                <a href="<?php echo e(route('detail', Crypt::encrypt($author->id))); ?>">
+                                    <teacher>
+                                        <?php echo e(app()->getLocale() == 'th' ? ($author->fname_th ?? $author->fname_en) : $author->fname_en); ?>
+
+                                        <?php echo e(app()->getLocale() == 'th' ? ($author->lname_th ?? $author->lname_en) : $author->lname_en); ?>
+
+                                    </teacher>
+                                </a>
                             </span>
-                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </td>
-                        <td><?php echo e($paper->paper_type); ?></td>
+                        <td>
+                        <?php if(app()->getLocale() == 'th'): ?>
+                            <?php echo e(str_replace(['Conference Proceeding', 'Journal'], ['การประชุมวิชาการ', 'วารสาร'], $paper->paper_type)); ?>
+
+                        <?php else: ?>
+                            <?php echo e($paper->paper_type); ?>
+
+                        <?php endif; ?>
+                        </td>
                         <td style="width:100%;"><?php echo e($paper->paper_page); ?></td>
                         <td><?php echo e($paper->paper_sourcetitle); ?></td>
                         <td><?php echo e($paper->paper_citation); ?></td>
@@ -323,15 +415,15 @@
             <table id="example4" class="table table-striped" style="width:100%">
                 <thead>
                     <tr>
-                        <th>No.</th>
-                        <th>Year</th>
-                        <th style="width:90%;">Paper Name</th>
-                        <th>Author</th>
-                        <th>Document Type</th>
-                        <th style="width:100%;">Page</th>
-                        <th>Journals/Transactions</th>
-                        <th>Ciations</th>
-                        <th>Doi</th>
+                        <th><?php echo e(trans('message.No' )); ?></th>
+                        <th><?php echo e(trans('message.Year' )); ?></th>
+                        <th style="width:90%;"><?php echo e(trans('message.PaperName' )); ?></th>
+                        <th><?php echo e(trans('message.Author' )); ?></th>
+                        <th><?php echo e(trans('message.DocumentType' )); ?></th>
+                        <th style="width:100%;"><?php echo e(trans('message.Page' )); ?></th>
+                        <th><?php echo e(trans('message.Journals/Transactions' )); ?></th>
+                        <th><?php echo e(trans('message.Ciations' )); ?></th>
+                        <th><?php echo e(trans('message.Doi' )); ?></th>
                     </tr>
                 </thead>
 
@@ -339,23 +431,51 @@
                     <?php $__currentLoopData = $papers_tci; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $n => $paper): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <tr>
                         <td> <?php echo e($n+1); ?></td>
-                        <td><?php echo e($paper->paper_yearpub); ?></td>
+                        <td> 
+                            <?php if(app()->getLocale() == 'th'): ?>
+                            <?php echo e($paper->paper_yearpub + 543); ?>
+
+                            <?php else: ?>
+                            <?php echo e($paper->paper_yearpub); ?>
+
+                            <?php endif; ?>
+                        </td>
                         <!-- <td style="width:90%;"><?php echo e($paper->paper_name); ?></td> -->
                         <td style="width:90%;"><?php echo html_entity_decode(preg_replace('<inf>', 'sub', $paper->paper_name)); ?></td>
                         <td>
-                            <?php $__currentLoopData = $paper->author; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $author): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <?php $__currentLoopData = $paper->author; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $author): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <span>
-                                <a><?php echo e($author -> author_fname); ?> <?php echo e($author -> author_lname); ?></a>
+                                <a>
+                                    <?php echo e(app()->getLocale() == 'th' ? ($author->fname_th ?? $author->author_fname) : $author->author_fname); ?>
+
+                                    <?php echo e(app()->getLocale() == 'th' ? ($author->lname_th ?? $author->author_lname) : $author->author_lname); ?>
+
+                                </a>
                             </span>
-                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                            <?php $__currentLoopData = $paper->teacher; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $author): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+
+                        <?php $__currentLoopData = $paper->teacher; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $author): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <span>
-                                <a href="<?php echo e(route('detail',Crypt::encrypt($author->id))); ?>">
-                                    <teacher><?php echo e($author -> fname_en); ?> <?php echo e($author -> lname_en); ?></teacher></a>
+                                <a href="<?php echo e(route('detail', Crypt::encrypt($author->id))); ?>">
+                                    <teacher>
+                                        <?php echo e(app()->getLocale() == 'th' ? ($author->fname_th ?? $author->fname_en) : $author->fname_en); ?>
+
+                                        <?php echo e(app()->getLocale() == 'th' ? ($author->lname_th ?? $author->lname_en) : $author->lname_en); ?>
+
+                                    </teacher>
+                                </a>
                             </span>
-                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </td>
-                        <td><?php echo e($paper->paper_type); ?></td>
+                        <td>
+                        <?php if(app()->getLocale() == 'th'): ?>
+                            <?php echo e(str_replace(['Conference Proceeding', 'Journal'], ['การประชุมวิชาการ', 'วารสาร'], $paper->paper_type)); ?>
+
+                        <?php else: ?>
+                            <?php echo e($paper->paper_type); ?>
+
+                        <?php endif; ?>
+                        </td>
                         <td style="width:100%;"><?php echo e($paper->paper_page); ?></td>
                         <td><?php echo e($paper->paper_sourcetitle); ?></td>
                         <td><?php echo e($paper->paper_citation); ?></td>
@@ -371,12 +491,12 @@
             <table id="example5" class="table table-striped" style="width:100%">
                 <thead>
                     <tr>
-                        <th scope="col">Number</th>
-                        <th scope="col">Year</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Author</th>
-                        <th scope="col">สถานที่พิมพ์</th>
-                        <th scope="col">Page</th>
+                        <th scope="col"><?php echo e(trans('message.Number' )); ?></th>
+                        <th scope="col"><?php echo e(trans('message.Year' )); ?></th>
+                        <th scope="col"><?php echo e(trans('message.Name' )); ?></th>
+                        <th scope="col"><?php echo e(trans('message.Author' )); ?></th>
+                        <th scope="col"><?php echo e(trans('message.Placeofpublication' )); ?></th>
+                        <th scope="col"><?php echo e(trans('message.Page' )); ?></th>
 
                     </tr>
                 </thead>
@@ -385,22 +505,43 @@
                     <?php $__currentLoopData = $book_chapter; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $n => $paper): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <tr>
                         <td><?php echo e($n+1); ?></td>
-                        <td style="width:80px"><?php echo e(date('Y', strtotime($paper->ac_year))+543); ?></td>
+                        <td style="width:80px">
+                        <?php if(app()->getLocale() == 'th'): ?>
+                            <?php echo e(date('Y', strtotime($paper->ac_year)) + 543); ?>
+
+                        <?php else: ?>
+                            <?php echo e(date('Y', strtotime($paper->ac_year))); ?>
+
+                        <?php endif; ?>
+                    </td>
                         <td><?php echo e($paper->ac_name); ?></td>
                         <td>
                             <?php $__currentLoopData = $paper->author; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $author): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                            <span>
-                                <a><?php echo e($author -> author_fname); ?> <?php echo e($author -> author_lname); ?></a>
+                                <span>
+                                    <a>
+                                        <?php echo e(app()->getLocale() == 'th' ? ($author->fname_th ?? $author->author_fname) : $author->author_fname); ?>
 
-                            </span>
+                                        <?php echo e(app()->getLocale() == 'th' ? ($author->lname_th ?? $author->author_lname) : $author->author_lname); ?>
+
+                                    </a>
+                                </span>
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+
                             <?php $__currentLoopData = $paper->user; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $author): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                            <span>
-                                <a> <?php echo e($author -> fname_en); ?> <?php echo e($author -> lname_en); ?></a>
-                            </span>
+                                <span>
+                                    <a>
+                                        <?php echo e(app()->getLocale() == 'th' ? ($author->fname_th ?? $author->fname_en) : $author->fname_en); ?>
+
+                                        <?php echo e(app()->getLocale() == 'th' ? ($author->lname_th ?? $author->lname_en) : $author->lname_en); ?>
+
+                                    </a>
+                                </span>
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </td>
-                        <td><?php echo e($paper->ac_sourcetitle); ?></td>
+                        <td>
+                            <?php echo e(app()->getLocale() == 'th' ? ($paper->ac_sourcetitle_th ?? $paper->ac_sourcetitle) : $paper->ac_sourcetitle); ?>
+
+                        </td>
                         <td><?php echo e($paper->ac_page); ?></td>
 
                     </tr>
@@ -413,12 +554,12 @@
             <table id="example6" class="table table-striped" style="width:100%">
                 <thead>
                     <tr>
-                        <th scope="col">Number</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Author</th>
-                        <th scope="col">ประเภท</th>
-                        <th scope="col">หมายเลขทะเบียน</th>
-                        <th scope="col">วันที่จดทะเบียน</th>
+                        <th scope="col"><?php echo e(trans('message.Number' )); ?></th>
+                        <th scope="col"><?php echo e(trans('message.Name' )); ?></th>
+                        <th scope="col"><?php echo e(trans('message.Author' )); ?></th>
+                        <th scope="col"><?php echo e(trans('message.Type' )); ?></th>
+                        <th scope="col"><?php echo e(trans('message.Registrationnumber' )); ?></th>
+                        <th scope="col"><?php echo e(trans('message.Dateofregistration' )); ?></th>
 
                     </tr>
                 </thead>
@@ -430,22 +571,48 @@
                         <td><?php echo e($paper->ac_name); ?></td>
                         <td>
                             <?php $__currentLoopData = $paper->author; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $author): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                            <span>
-                                <a><?php echo e($author -> author_fname); ?> <?php echo e($author -> author_lname); ?></a>
+                                <span>
+                                    <a>
+                                        <?php echo e(app()->getLocale() == 'th' ? ($author->fname_th ?? $author->author_fname) : $author->author_fname); ?>
 
-                            </span>
+                                        <?php echo e(app()->getLocale() == 'th' ? ($author->lname_th ?? $author->author_lname) : $author->author_lname); ?>
+
+                                    </a>
+                                </span>
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                            <?php $__currentLoopData = $paper->user; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $author): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                            <span>
-                                <a href="<?php echo e(route('detail',Crypt::encrypt($author->id))); ?>">
-                                    <teacher><?php echo e($author -> fname_en); ?> <?php echo e($author -> lname_en); ?></teacher></a>
 
-                            </span>
+                            <?php $__currentLoopData = $paper->user; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $author): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <span>
+                                    <a href="<?php echo e(route('detail', Crypt::encrypt($author->id))); ?>">
+                                        <teacher>
+                                            <?php echo e(app()->getLocale() == 'th' ? ($author->fname_th ?? $author->fname_en) : $author->fname_en); ?>
+
+                                            <?php echo e(app()->getLocale() == 'th' ? ($author->lname_th ?? $author->lname_en) : $author->lname_en); ?>
+
+                                        </teacher>
+                                    </a>
+                                </span>
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </td>
-                        <td><?php echo e($paper->ac_type); ?></td>
+                        <td>
+                            <?php if(app()->getLocale() == 'th'): ?>
+                                <?php echo e(str_replace(['Patent', 'Utility Model'], ['สิทธิบัตร', 'อนุสิทธิบัตร'], $paper->ac_type)); ?>
+
+                            <?php else: ?>
+                                <?php echo e($paper->ac_type); ?>
+
+                            <?php endif; ?>
+                        </td>
                         <td><?php echo e($paper->ac_refnumber); ?></td>
-                        <td><?php echo e($paper->ac_year); ?></td>
+                        <td>
+                            <?php if(app()->getLocale() == 'th'): ?>
+                                <?php echo e(date('Y', strtotime($paper->ac_year)) + 543); ?>
+
+                            <?php else: ?>
+                                <?php echo e(date('Y', strtotime($paper->ac_year))); ?>
+
+                            <?php endif; ?>
+                        </td>
 
                     </tr>
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -468,22 +635,87 @@
 
         var table1 = $('#example1').DataTable({
             responsive: true,
+            language: {
+                search: "<?php echo e(__('message.search')); ?>" ,
+                lengthMenu: "<?php echo e(__('message.show_entries', ['entries' => '_MENU_'])); ?>",
+                info: "<?php echo e(__('message.showing_entries', ['start' => '_START_', 'end' => '_END_', 'total' => '_TOTAL_'])); ?>",
+                paginate: {
+                    first: "<?php echo e(__('message.first')); ?>",
+                    last: "<?php echo e(__('message.last')); ?>",
+                    next: "<?php echo e(__('message.next')); ?>",
+                    previous: "<?php echo e(__('message.previous')); ?>"
+                }
+            }
         });
-
         var table2 = $('#example2').DataTable({
             responsive: true,
+            language: {
+                search: "<?php echo e(__('message.search')); ?>" ,
+                lengthMenu: "<?php echo e(__('message.show_entries', ['entries' => '_MENU_'])); ?>",
+                info: "<?php echo e(__('message.showing_entries', ['start' => '_START_', 'end' => '_END_', 'total' => '_TOTAL_'])); ?>",
+                paginate: {
+                    first: "<?php echo e(__('message.first')); ?>",
+                    last: "<?php echo e(__('message.last')); ?>",
+                    next: "<?php echo e(__('message.next')); ?>",
+                    previous: "<?php echo e(__('message.previous')); ?>"
+                }
+            }
         });
         var table3 = $('#example3').DataTable({
             responsive: true,
+            language: {
+                search: "<?php echo e(__('message.search')); ?>" ,
+                lengthMenu: "<?php echo e(__('message.show_entries', ['entries' => '_MENU_'])); ?>",
+                info: "<?php echo e(__('message.showing_entries', ['start' => '_START_', 'end' => '_END_', 'total' => '_TOTAL_'])); ?>",
+                paginate: {
+                    first: "<?php echo e(__('message.first')); ?>",
+                    last: "<?php echo e(__('message.last')); ?>",
+                    next: "<?php echo e(__('message.next')); ?>",
+                    previous: "<?php echo e(__('message.previous')); ?>"
+                }
+            }
         });
         var table4 = $('#example4').DataTable({
             responsive: true,
+            language: {
+                search: "<?php echo e(__('message.search')); ?>" ,
+                lengthMenu: "<?php echo e(__('message.show_entries', ['entries' => '_MENU_'])); ?>",
+                info: "<?php echo e(__('message.showing_entries', ['start' => '_START_', 'end' => '_END_', 'total' => '_TOTAL_'])); ?>",
+                paginate: {
+                    first: "<?php echo e(__('message.first')); ?>",
+                    last: "<?php echo e(__('message.last')); ?>",
+                    next: "<?php echo e(__('message.next')); ?>",
+                    previous: "<?php echo e(__('message.previous')); ?>"
+                }
+            }
         });
         var table5 = $('#example5').DataTable({
             responsive: true,
+            language: {
+                search: "<?php echo e(__('message.search')); ?>" ,
+                lengthMenu: "<?php echo e(__('message.show_entries', ['entries' => '_MENU_'])); ?>",
+                info: "<?php echo e(__('message.showing_entries', ['start' => '_START_', 'end' => '_END_', 'total' => '_TOTAL_'])); ?>",
+                paginate: {
+                    first: "<?php echo e(__('message.first')); ?>",
+                    last: "<?php echo e(__('message.last')); ?>",
+                    next: "<?php echo e(__('message.next')); ?>",
+                    previous: "<?php echo e(__('message.previous')); ?>"
+                }
+            }
         });
         var table6 = $('#example6').DataTable({
             responsive: true,
+            language: {
+                search: "<?php echo e(__('message.search')); ?>" ,
+                lengthMenu: "<?php echo e(__('message.show_entries', ['entries' => '_MENU_'])); ?>",
+                info: "<?php echo e(__('message.showing_entries', ['start' => '_START_', 'end' => '_END_', 'total' => '_TOTAL_'])); ?>",
+                paginate: {
+                    first: "<?php echo e(__('message.first')); ?>",
+                    last: "<?php echo e(__('message.last')); ?>",
+                    next: "<?php echo e(__('message.next')); ?>",
+                    previous: "<?php echo e(__('message.previous')); ?>"
+                }
+            }
         });
 
 
@@ -663,7 +895,7 @@
         //$("#scopus").append('data-to="100"');
         document.getElementById("all").innerHTML += `   
                 <h2 class="timer count-title count-number" data-to="${sum}" data-speed="1500"></h2>
-                <p class="count-text ">SUMMARY</p>`
+                <p class="count-text "><?php echo e(__('message.summary')); ?></p>`
 
         document.getElementById("scopus_sum").innerHTML += `   
                 <h2 class="timer count-title count-number" data-to="${sumsco}" data-speed="1500"></h2>

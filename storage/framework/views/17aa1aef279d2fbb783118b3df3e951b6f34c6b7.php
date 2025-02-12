@@ -67,11 +67,23 @@
                     </td>
 
                     <td style="vertical-align: top;text-align: left;">
-                        <div style="padding-bottom: 10px;">
-                            <span><?php $__currentLoopData = $re->user; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $user): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                <?php echo e($user->position_th); ?> <?php echo e($user->fname_th); ?> <?php echo e($user->lname_th); ?><br>
-                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?></span>
-                        </div>
+                    <div style="padding-bottom: 10px;">
+                        <span>
+                            <?php $__currentLoopData = $re->user; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $user): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <?php if(app()->getLocale() == 'th'): ?>
+                                    <?php echo e($user->position_th); ?> <?php echo e($user->fname_th); ?> <?php echo e($user->lname_th); ?>
+
+                                <?php elseif(app()->getLocale() == 'en' || app()->getLocale() == 'cn'): ?>
+                                    <?php echo e($user->position_en); ?> <?php echo e($user->fname_en); ?> <?php echo e($user->lname_en); ?>
+
+                                <?php else: ?>
+                                    <?php echo e($user->position_en); ?> <?php echo e($user->fname_en); ?> <?php echo e($user->lname_en); ?> <!-- กรณี fallback -->
+                                <?php endif; ?>
+                                <br>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                        </span>
+                    </div>
+
                     </td>
                     <?php if($re->status == 1): ?>
                     <td style="vertical-align: top;text-align: left;">

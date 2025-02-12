@@ -14,34 +14,47 @@
             <div class="col-md-4">
                 <div class="card-body">
                     <img src="{{asset('img/'.$rg->group_image)}}" alt="...">
-                    <h1 class="card-text-1"> Laboratory Supervisor </h1>
+                    <h1 class="card-text-1">{{ __('message.laboratory_supervisor') }}</h1>
                     <h2 class="card-text-2">
                         @foreach ($rg->user as $r)
                         @if($r->hasRole('teacher'))
-                        @if(app()->getLocale() == 'en' and $r->academic_ranks_en == 'Lecturer' and $r->doctoral_degree == 'Ph.D.')
-                             {{ $r->{'fname_'.app()->getLocale()} }} {{ $r->{'lname_'.app()->getLocale()} }}, Ph.D.
-                            <br>
-                            @elseif(app()->getLocale() == 'en' and $r->academic_ranks_en == 'Lecturer')
-                            {{ $r->{'fname_'.app()->getLocale()} }} {{ $r->{'lname_'.app()->getLocale()} }}
-                            <br>
-                            @elseif(app()->getLocale() == 'en' and $r->doctoral_degree == 'Ph.D.')
-                            {{ str_replace('Dr.', ' ', $r->{'position_'.app()->getLocale()}) }} {{ $r->{'fname_'.app()->getLocale()} }} {{ $r->{'lname_'.app()->getLocale()} }}, Ph.D.
-                            <br>
-                            @else                            
-                            {{ $r->{'position_'.app()->getLocale()} }} {{ $r->{'fname_'.app()->getLocale()} }} {{ $r->{'lname_'.app()->getLocale()} }}
+                            @if(app()->getLocale() == 'en' and $r->academic_ranks_en == 'Lecturer' and $r->doctoral_degree_en == 'Ph.D.')
+                                {{ $r->{'fname_'.app()->getLocale()} }} {{ $r->{'lname_'.app()->getLocale()} }}, Ph.D.
+                                <br>
+                                @elseif(app()->getLocale() == 'en' and $r->academic_ranks_en == 'Lecturer')
+                                {{ $r->{'fname_'.app()->getLocale()} }} {{ $r->{'lname_'.app()->getLocale()} }}
+                                <br>
+                                @elseif(app()->getLocale() == 'en' and $r->doctoral_degree_en == 'Ph.D.')
+                                {{ str_replace('Dr.', ' ', $r->{'position_'.app()->getLocale()}) }} {{ $r->{'fname_'.app()->getLocale()} }} {{ $r->{'lname_'.app()->getLocale()} }}, Ph.D.
+                                <br>
+                                @else                            
+                                {{ $r->{'position_'.app()->getLocale()} }} {{ $r->{'fname_'.app()->getLocale()} }} {{ $r->{'lname_'.app()->getLocale()} }}
+                                <br>
+                                @endif
+                            @elseif(app()->getLocale() == 'cn' and $r->academic_ranks_cn == '讲师' and $r->doctoral_degree_cn == '博士')
+                                {{ $r->fname_en }} {{ $r->lname_en }}, 博士
+                                <br>
+                                @elseif(app()->getLocale() == 'cn' and $r->academic_ranks_cn == '讲师')
+                                {{ $r->fname_en }} {{ $r->lname_en }}
+                                <br>
+                                @elseif(app()->getLocale() == 'cn' and $r->doctoral_degree_cn == '博士')
+                                {{ str_replace('Dr.',' ', $r->{'position_'.app()->getLocale()}) }} {{ $r->fname_en }} {{ $r->lname_en }}, 博士
+                                <br>
+                                @else                            
+                                {{ $r->{'position_' .app()->getLocale()} }} {{ $r->{'fname_' .app()->getLocale()} }} {{ $r->{'lname_' .app()->getLocale()} }}
+                                <br>
+                                @endif
+                            
+                        
+                        @endforeach
+                        </h2>
+                        <h1 class="card-text-1">{{ __('message.student') }}</h1>
+                        <h2 class="card-text-2">
+                            @foreach ($rg->user as $user)
+                            @if($user->hasRole('student'))
+                            {{$user->{'position_'.app()->getLocale()} }} {{$user->{'fname_'.app()->getLocale()} }} {{$user->{'lname_'.app()->getLocale()} }}
                             <br>
                             @endif
-                        
-                        @endif
-                        @endforeach
-                    </h2>
-                    <h1 class="card-text-1"> Student </h1>
-                    <h2 class="card-text-2">
-                        @foreach ($rg->user as $user)
-                        @if($user->hasRole('student'))
-                        {{$user->{'position_'.app()->getLocale()} }} {{$user->{'fname_'.app()->getLocale()} }} {{$user->{'lname_'.app()->getLocale()} }}
-                        <br>
-                        @endif
                         @endforeach
                     </h2>
                 </div>
