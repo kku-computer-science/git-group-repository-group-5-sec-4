@@ -120,7 +120,6 @@
                         </div>
                     </li>
 
-
                 </ul>
                 <?php if(Route::has('login')): ?>
                 <?php if(auth()->guard()->check()): ?>
