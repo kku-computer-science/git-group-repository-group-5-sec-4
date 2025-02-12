@@ -39,20 +39,56 @@
 <?php $__env->startSection('content'); ?>
 
 <div class="container cardprofile mt-5">
-    <div class="card">
-        <div class="row g-0">
-            <div class="col-md-2">
-                <img class="card-image" src="<?php echo e($res->picture); ?>" alt="">
-            </div>
-            <div class="col-md-6">
-                <div class="card-body">
-                    <h6 class="card-text"><b><?php echo e($res->position_th); ?> <?php echo e($res->fname_th); ?> <?php echo e($res->lname_th); ?></b></h6>
-                    <?php if($res->doctoral_degree == 'Ph.D.'): ?>
-                    <h6 class="card-text"><b><?php echo e($res->fname_en); ?> <?php echo e($res->lname_en); ?>, <?php echo e($res->doctoral_degree); ?> </b>
-                        <?php else: ?>
-                        <h6 class="card-text"><b><?php echo e($res->fname_en); ?> <?php echo e($res->lname_en); ?></b>
-                            <?php endif; ?></h6>
-                        <h6 class="card-text1"><b><?php echo e($res->academic_ranks_en); ?></b></h6>
+                <div class="card">
+                    <div class="row g-0">
+                        <div class="col-md-2">
+                            <img class="card-image" src="<?php echo e($res->picture); ?>" alt="">
+                        </div>
+                        <div class="col-md-6">
+                        <div class="card-body">
+                <?php if(app()->getLocale() == 'th'): ?>
+                    <h6 class="card-text">
+                        <b><?php echo e($res->position_th); ?> <?php echo e($res->fname_th); ?> <?php echo e($res->lname_th); ?></b>
+                    </h6>
+
+                    
+
+                    <h6 class="card-text1"><b><?php echo e($res->academic_ranks_th); ?></b></h6>
+
+                <?php elseif(app()->getLocale() == 'en'): ?>
+                    <h6 class="card-text">
+                        <b><?php echo e($res->position_en); ?> <?php echo e($res->fname_en); ?> <?php echo e($res->lname_en); ?></b>
+                    </h6>
+
+                    
+
+                    <h6 class="card-text1"><b><?php echo e($res->academic_ranks_en); ?></b></h6>
+
+                <?php elseif(app()->getLocale() == 'cn'): ?>
+                    <h6 class="card-text">
+                        <b><?php echo e($res->position_cn); ?> <?php echo e($res->fname_en); ?> <?php echo e($res->lname_en); ?></b>
+                    </h6>
+
+                    
+
+                    <h6 class="card-text1"><b><?php echo e($res->academic_ranks_cn); ?></b></h6>
+
+                <?php else: ?>
+                    <!-- กรณีที่ไม่มีค่า locale ที่กำหนดไว้ ใช้ค่าเริ่มต้นเป็นภาษาอังกฤษ -->
+                    <h6 class="card-text">
+                        <b><?php echo e($res->position_en); ?> <?php echo e($res->fname_en); ?> <?php echo e($res->lname_en); ?></b>
+                    </h6>
+
+                    <?php if($res->doctoral_degree_en == 'Ph.D.'): ?>
+                        <h6 class="card-text"><b><?php echo e($res->fname_en); ?> <?php echo e($res->lname_en); ?>, Ph.D. </b></h6>
+                    <?php else: ?>
+                        <h6 class="card-text"><b><?php echo e($res->fname_en); ?> <?php echo e($res->lname_en); ?></b></h6>
+                    <?php endif; ?>
+
+                    <h6 class="card-text1"><b><?php echo e($res->academic_ranks_en); ?></b></h6>
+                <?php endif; ?>
+
+
                         <!-- <h6 class="card-text1">Department of <?php echo e($res->program->program_name_en); ?></h6> -->
                         <!-- <h6 class="card-text1">College of Computing</h6>
                     <h6 class="card-text1">Khon Kaen University</h6> -->
@@ -67,8 +103,30 @@
                         <?php endif; ?>
                         <h6 class="card-title"><?php echo e(trans('message.education')); ?></h6>
                         <?php $__currentLoopData = $res->education; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $edu): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                        <h6 class="card-text2 col-sm-10"> <?php echo e($edu->year); ?> <?php echo e($edu->qua_name); ?> <?php echo e($edu->uname); ?></h6>
+                            <?php if(app()->getLocale() == 'th'): ?>
+                                <h6 class="card-text2 col-sm-10"> 
+                                    <?php echo e($edu->year); ?> <?php echo e($edu->qua_name); ?> <?php echo e($edu->uname); ?>
+
+                                </h6>
+                            <?php elseif(app()->getLocale() == 'en'): ?>
+                                <h6 class="card-text2 col-sm-10"> 
+                                    <?php echo e($edu->year); ?> <?php echo e($edu->qua_name_en); ?> <?php echo e($edu->uname_en); ?>
+
+                                </h6>
+                            <?php elseif(app()->getLocale() == 'cn'): ?>
+                                <h6 class="card-text2 col-sm-10"> 
+                                    <?php echo e($edu->year); ?> <?php echo e($edu->qua_name_cn); ?> <?php echo e($edu->uname_cn); ?>
+
+                                </h6>
+                            <?php else: ?>
+                                <!-- fallback เป็นภาษาอังกฤษกรณีที่ locale ไม่มีข้อมูล -->
+                                <h6 class="card-text2 col-sm-10"> 
+                                    <?php echo e($edu->year); ?> <?php echo e($edu->qua_name_en); ?> <?php echo e($edu->uname_en); ?>
+
+                                </h6>
+                            <?php endif; ?>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+
                         <!-- <button type="button" class="btn btn-secondary btn-sm" data-bs-toggle="modal"
                             data-bs-target="#exampleModal">
                             <?php echo e(trans('message.expertise')); ?>

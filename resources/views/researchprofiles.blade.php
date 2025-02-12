@@ -40,20 +40,56 @@
 @section('content')
 
 <div class="container cardprofile mt-5">
-    <div class="card">
-        <div class="row g-0">
-            <div class="col-md-2">
-                <img class="card-image" src="{{$res->picture}}" alt="">
-            </div>
-            <div class="col-md-6">
-                <div class="card-body">
-                    <h6 class="card-text"><b>{{$res->position_th}} {{$res->fname_th}} {{$res->lname_th}}</b></h6>
-                    @if($res->doctoral_degree == 'Ph.D.')
-                    <h6 class="card-text"><b>{{$res->fname_en}} {{$res->lname_en}}, {{$res->doctoral_degree}} </b>
-                        @else
-                        <h6 class="card-text"><b>{{$res->fname_en}} {{$res->lname_en}}</b>
-                            @endif</h6>
-                        <h6 class="card-text1"><b>{{$res->academic_ranks_en}}</b></h6>
+                <div class="card">
+                    <div class="row g-0">
+                        <div class="col-md-2">
+                            <img class="card-image" src="{{$res->picture}}" alt="">
+                        </div>
+                        <div class="col-md-6">
+                        <div class="card-body">
+                @if(app()->getLocale() == 'th')
+                    <h6 class="card-text">
+                        <b>{{ $res->position_th }} {{ $res->fname_th }} {{ $res->lname_th }}</b>
+                    </h6>
+
+                    
+
+                    <h6 class="card-text1"><b>{{ $res->academic_ranks_th }}</b></h6>
+
+                @elseif(app()->getLocale() == 'en')
+                    <h6 class="card-text">
+                        <b>{{ $res->position_en }} {{ $res->fname_en }} {{ $res->lname_en }}</b>
+                    </h6>
+
+                    
+
+                    <h6 class="card-text1"><b>{{ $res->academic_ranks_en }}</b></h6>
+
+                @elseif(app()->getLocale() == 'cn')
+                    <h6 class="card-text">
+                        <b>{{ $res->position_cn }} {{ $res->fname_en }} {{ $res->lname_en }}</b>
+                    </h6>
+
+                    
+
+                    <h6 class="card-text1"><b>{{ $res->academic_ranks_cn }}</b></h6>
+
+                @else
+                    <!-- กรณีที่ไม่มีค่า locale ที่กำหนดไว้ ใช้ค่าเริ่มต้นเป็นภาษาอังกฤษ -->
+                    <h6 class="card-text">
+                        <b>{{ $res->position_en }} {{ $res->fname_en }} {{ $res->lname_en }}</b>
+                    </h6>
+
+                    @if($res->doctoral_degree_en == 'Ph.D.')
+                        <h6 class="card-text"><b>{{ $res->fname_en }} {{ $res->lname_en }}, Ph.D. </b></h6>
+                    @else
+                        <h6 class="card-text"><b>{{ $res->fname_en }} {{ $res->lname_en }}</b></h6>
+                    @endif
+
+                    <h6 class="card-text1"><b>{{ $res->academic_ranks_en }}</b></h6>
+                @endif
+
+
                         <!-- <h6 class="card-text1">Department of {{$res->program->program_name_en}}</h6> -->
                         <!-- <h6 class="card-text1">College of Computing</h6>
                     <h6 class="card-text1">Khon Kaen University</h6> -->
@@ -67,9 +103,27 @@
                             <h6 class="card-text1">E-mail: {{ $res->email }}</h6> {{-- ค่าเริ่มต้นเป็นภาษาอังกฤษ --}}
                         @endif
                         <h6 class="card-title">{{ trans('message.education') }}</h6>
-                        @foreach( $res->education as $edu)
-                        <h6 class="card-text2 col-sm-10"> {{$edu->year}} {{$edu->qua_name}} {{$edu->uname}}</h6>
+                        @foreach($res->education as $edu)
+                            @if(app()->getLocale() == 'th')
+                                <h6 class="card-text2 col-sm-10"> 
+                                    {{$edu->year}} {{$edu->qua_name}} {{$edu->uname}}
+                                </h6>
+                            @elseif(app()->getLocale() == 'en')
+                                <h6 class="card-text2 col-sm-10"> 
+                                    {{$edu->year}} {{$edu->qua_name_en}} {{$edu->uname_en}}
+                                </h6>
+                            @elseif(app()->getLocale() == 'cn')
+                                <h6 class="card-text2 col-sm-10"> 
+                                    {{$edu->year}} {{$edu->qua_name_cn}} {{$edu->uname_cn}}
+                                </h6>
+                            @else
+                                <!-- fallback เป็นภาษาอังกฤษกรณีที่ locale ไม่มีข้อมูล -->
+                                <h6 class="card-text2 col-sm-10"> 
+                                    {{$edu->year}} {{$edu->qua_name_en}} {{$edu->uname_en}}
+                                </h6>
+                            @endif
                         @endforeach
+
                         <!-- <button type="button" class="btn btn-secondary btn-sm" data-bs-toggle="modal"
                             data-bs-target="#exampleModal">
                             {{ trans('message.expertise') }}
