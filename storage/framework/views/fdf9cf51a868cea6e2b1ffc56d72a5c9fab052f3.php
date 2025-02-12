@@ -57,7 +57,15 @@
     <!-- Navigation -->
     <nav id="navbar" class="navbar navbar-expand-lg navbar-light">
         <div class="container-fluid">
-            <a class="navbar-brand logo-image" href="#"><img src="<?php echo e(asset('img/logo2.png')); ?>" alt="alternative"></a>
+            <a class="navbar-brand logo-image" href="#">
+                <?php if(app()->getLocale() == 'en'): ?>
+                <img src="<?php echo e(asset('img/logo2-en.png')); ?>" alt="alternative">
+                <?php elseif(app()->getLocale() == 'th'): ?>
+                <img src="<?php echo e(asset('img/logo2-th.png')); ?>" alt="alternative">
+                <?php elseif(app()->getLocale() == 'cn'): ?>
+                <img src="<?php echo e(asset('img/logo2-cn.png')); ?>" alt="alternative">
+                <?php endif; ?>
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>

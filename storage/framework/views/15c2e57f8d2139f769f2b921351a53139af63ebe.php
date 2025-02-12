@@ -43,10 +43,22 @@
             </div>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="<?php echo e(asset('img/Banner1.png')); ?>" class="d-block w-100" alt="...">
+                    <?php if(app()->getLocale() == 'en'): ?>
+                    <img src="<?php echo e(asset('img/banner1-en.png')); ?>" class="d-block w-100" alt="...">
+                    <?php elseif(app()->getLocale() == 'th'): ?>
+                    <img src="<?php echo e(asset('img/banner1-th.png')); ?>" class="d-block w-100" alt="...">
+                    <?php elseif(app()->getLocale() == 'cn'): ?>
+                    <img src="<?php echo e(asset('img/banner1-cn.png')); ?>" class="d-block w-100" alt="...">
+                    <?php endif; ?>
                 </div>
                 <div class="carousel-item">
-                    <img src="<?php echo e(asset('img/Banner2.png')); ?>" class="d-block w-100" alt="...">
+                    <?php if(app()->getLocale() == 'en'): ?>
+                    <img src="<?php echo e(asset('img/banner2-en.png')); ?>" class="d-block w-100" alt="...">
+                    <?php elseif(app()->getLocale() == 'th'): ?>
+                    <img src="<?php echo e(asset('img/banner2-th.png')); ?>" class="d-block w-100" alt="...">
+                    <?php elseif(app()->getLocale() == 'cn'): ?>
+                    <img src="<?php echo e(asset('img/banner2-cn.png')); ?>" class="d-block w-100" alt="...">
+                    <?php endif; ?>
                 </div>
                 <!-- <div class="carousel-item">
                 <img src="..." class="d-block w-100" alt="...">
