@@ -28,6 +28,16 @@ class ResearcherController extends Controller
             })
             ->orderBy('fname_en')->get();
 
-        return view('researchers', compact('data', 'users'));
+        // เพิ่มการส่งตัวแปร $request ไปที่ view
+        $request = Program::where('id', $id)->get();
+        if ($locale == 'cn') {
+            foreach ($users as $user) {
+                $user->fname_cn = TranslateHelper::translate($user->fname_en ?? '', 'zh-CN');
+                $user->lname_cn = TranslateHelper::translate($user->lname_en ?? '', 'zh-CN');
+            }
+        }
+
+        return view('researchers', compact('data', 'users', 'request'));
     }
+
 }

@@ -34,13 +34,48 @@ class HomeController extends Controller
         // })->get();
         $p2 = Paper::with([
             'teacher' => function ($query) {
-                $query->select(DB::raw("CONCAT(concat(left(fname_en,1),'.'),' ',lname_en) as full_name"))->addSelect('user_papers.author_type');
+                $locale = app()->getLocale();
+        
+                $query->select([
+                    'users.id as user_id',
+                    'users.fname_en', 'users.lname_en',
+                    'users.fname_th', 'users.lname_th',
+                    DB::raw("
+                        CASE 
+                            WHEN '{$locale}' = 'cn' THEN users.fname_en 
+                            ELSE COALESCE(users.fname_cn, users.fname_en) 
+                        END AS fname
+                    "),
+                    DB::raw("
+                        CASE 
+                            WHEN '{$locale}' = 'cn' THEN users.lname_en 
+                            ELSE COALESCE(users.lname_cn, users.lname_en) 
+                        END AS lname
+                    "),
+                    'user_papers.author_type'
+                ]);
             },
             'author' => function ($query) {
-                $query->select(DB::raw("CONCAT(concat(left(author_fname,1),'.'),' ',author_lname) as full_name"))->addSelect('author_of_papers.author_type');
+                $query->select([
+                    'authors.id as author_id',
+                    DB::raw("COALESCE(authors.author_fname_en, '') as author_fname_en"),
+                    DB::raw("COALESCE(authors.author_lname_en, '') as author_lname_en"),
+                    DB::raw("COALESCE(authors.author_fname_th, authors.author_fname_en, '') as author_fname_th"),
+                    DB::raw("COALESCE(authors.author_lname_th, authors.author_lname_en, '') as author_lname_th"),
+                    DB::raw("COALESCE(authors.author_fname_cn, authors.author_fname_en, '') as author_fname_cn"),
+                    DB::raw("COALESCE(authors.author_lname_cn, authors.author_lname_en, '') as author_lname_cn"),
+                    DB::raw("COALESCE(aop.author_type, 'Unknown') as pivot_author_type") // ป้องกัน NULL
+                ])
+                ->leftJoin('author_of_papers as aop', 'authors.id', '=', 'aop.author_id');
             },
-
-        ])->whereBetween('paper_yearpub', [$from, $to])->orderBy('paper_yearpub', 'desc')->get()->toArray();
+        ])
+        ->whereBetween('paper_yearpub', [$from, $to])
+        ->orderBy('paper_yearpub', 'desc')
+        ->get()
+        ->toArray();
+        
+        
+        
 
         $paper2 = array_map(function ($tag) {
             $t = collect($tag['teacher']);
@@ -251,4 +286,4 @@ class HomeController extends Controller
 
         return response()->json($key, $bb);
     }
-}
+} 

@@ -1,4 +1,7 @@
 <?php $__env->startSection('content'); ?>
+
+<?php use App\Helpers\TranslateHelper; ?>
+
 <div class="container card-2">
     <p class="title"><?php echo e(__('message.Researchers')); ?></p>
     <?php $__currentLoopData = $request; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $res): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
@@ -41,28 +44,59 @@
                     </div>
                     <div class="col-sm-8 overflow-hidden" style="text-overflow: clip; <?php if(app()->getLocale() == 'en' || app()->getLocale() == 'cn' || app()->getLocale() == 'th'): ?> max-height: 220px; <?php else: ?> max-height: 210px;<?php endif; ?>">
                         <div class="card-body">
-                            <?php if(app()->getLocale() == 'en'): ?>
-                                <?php if($r->doctoral_degree_en == 'Ph.D.'): ?>
-                                    <h5 class="card-title"><?php echo e($r->fname_en); ?> <?php echo e($r->lname_en); ?>, <?php echo e($r->doctoral_degree_en); ?></h5>
-                                <?php else: ?>
-                                    <h5 class="card-title"><?php echo e($r->fname_en); ?> <?php echo e($r->lname_en); ?></h5>
-                                <?php endif; ?>
-                                <h5 class="card-title-2"><?php echo e($r->academic_ranks_en); ?></h5>
-                            <?php elseif(app()->getLocale() == 'cn'): ?>
-                                <?php if($r->doctoral_degree_cn == '博士'): ?>
-                                    <h5 class="card-title"><?php echo e($r->fname_en); ?> <?php echo e($r->lname_en); ?>, <?php echo e($r->doctoral_degree_cn); ?></h5>
-                                <?php else: ?>
-                                    <h5 class="card-title"><?php echo e($r->fname_en); ?> <?php echo e($r->lname_en); ?></h5>
-                                <?php endif; ?>
-                                <h5 class="card-title-2"><?php echo e($r->academic_ranks_cn); ?></h5>
+                        <?php if(app()->getLocale() == 'en'): ?>
+                            <?php if($r->doctoral_degree_en == 'Ph.D.'): ?>
+                                <h5 class="card-title">
+                                    <?php echo e($r->fname_en); ?> 
+                                    <?php echo e($r->lname_en); ?>, 
+                                    <?php echo e($r->doctoral_degree_en); ?>
+
+                                </h5>
                             <?php else: ?>
-                                <?php if($r->doctoral_degree_th == 'ดร.'): ?>
-                                    <h5 class="card-title"><?php echo e($r->doctoral_degree_th); ?> <?php echo e($r->fname_th); ?> <?php echo e($r->lname_th); ?></h5>
-                                <?php else: ?>
-                                    <h5 class="card-title"><?php echo e($r->fname_th); ?> <?php echo e($r->lname_th); ?></h5>
-                                <?php endif; ?>
-                                <h5 class="card-title-2"><?php echo e($r->academic_ranks_th); ?></h5>
+                                <h5 class="card-title">
+                                    <?php echo e($r->fname_en); ?> 
+                                    <?php echo e($r->lname_en); ?>
+
+                                </h5>
                             <?php endif; ?>
+                            <h5 class="card-title-2"><?php echo e($r->academic_ranks_en); ?></h5>
+
+                        <?php elseif(app()->getLocale() == 'cn'): ?>
+                            <?php if($r->doctoral_degree_cn == '博士'): ?>
+                                <h5 class="card-title">
+                                    <?php echo e(TranslateHelper::translate($r->fname_en, 'zh-CN')); ?> 
+                                    <?php echo e(TranslateHelper::translate($r->lname_en, 'zh-CN')); ?>, 
+                                    <?php echo e($r->doctoral_degree_cn); ?>
+
+                                </h5>
+                            <?php else: ?>
+                                <h5 class="card-title">
+                                    <?php echo e(TranslateHelper::translate($r->fname_en, 'zh-CN')); ?> 
+                                    <?php echo e(TranslateHelper::translate($r->lname_en, 'zh-CN')); ?>
+
+                                </h5>
+                            <?php endif; ?>
+                            <h5 class="card-title-2"><?php echo e($r->academic_ranks_cn); ?></h5>
+
+                        <?php else: ?>
+                            <?php if($r->doctoral_degree_th == 'ดร.'): ?>
+                                <h5 class="card-title">
+                                    <?php echo e($r->doctoral_degree_th); ?> 
+                                    <?php echo e(TranslateHelper::translate($r->fname_th, 'th')); ?> 
+                                    <?php echo e(TranslateHelper::translate($r->lname_th, 'th')); ?>
+
+                                </h5>
+                            <?php else: ?>
+                                <h5 class="card-title">
+                                    <?php echo e(TranslateHelper::translate($r->fname_th, 'th')); ?> 
+                                    <?php echo e(TranslateHelper::translate($r->lname_th, 'th')); ?>
+
+                                </h5>
+                            <?php endif; ?>
+                        
+
+                                <h5 class="card-title-2"><?php echo e($r->academic_ranks_th); ?></h5>
+                        <?php endif; ?>
 
                             <p class="card-text-1"><?php echo e(trans('message.expertise')); ?></p>
                             <div class="card-expertise">
