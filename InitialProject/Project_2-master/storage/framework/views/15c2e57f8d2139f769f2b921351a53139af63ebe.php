@@ -175,6 +175,7 @@
 
                                             <?php echo e($p['author_lname_' . app()->getLocale()] ?? ($p['author_lname_en'] ?? 'N/A')); ?>
 
+
                                         </link>), <?php echo e($p['paper_sourcetitle']); ?>, <?php echo e($p['paper_volume']); ?>,
                                     <?php echo e($p['paper_yearpub']); ?>.
                                     <a href="<?php echo e($p['paper_url']); ?> " target="_blank">[url]</a> <a href="https://doi.org/<?php echo e($p['paper_doi']); ?>" target="_blank">[doi]</a>

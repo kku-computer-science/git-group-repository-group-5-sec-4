@@ -98,9 +98,9 @@
     <?php endif; ?>
     <div class="card" style="padding: 16px;">
         <div class="card-body">
-            <h4 class="card-title">Users</h4>
-            <a class="btn btn-primary btn-icon-text btn-sm" href="<?php echo e(route('users.create')); ?>"><i class="ti-plus btn-icon-prepend icon-sm"></i>New User</a>
-            <a class="btn btn-primary btn-icon-text btn-sm" href="<?php echo e(route('importfiles')); ?>"><i class="ti-download btn-icon-prepend icon-sm"></i>Import New User</a>
+            <h4 class="card-title"><?php echo e(trans('message.User_navbar_title')); ?></h4>
+            <a class="btn btn-primary btn-icon-text btn-sm" href="<?php echo e(route('users.create')); ?>"><i class="ti-plus btn-icon-prepend icon-sm"></i><?php echo e(trans('message.Add_user')); ?></a>
+            <a class="btn btn-primary btn-icon-text btn-sm" href="<?php echo e(route('importfiles')); ?>"><i class="ti-download btn-icon-prepend icon-sm"></i><?php echo e(trans('message.Import_new_user')); ?></a>
             <!-- <div class="search-box">
                 <div class="input-group">
                     <input type="text" id="search" class="form-control" placeholder="Search by Name">
@@ -113,11 +113,11 @@
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Name</th>
-                            <th>Department</th>
-                            <th>Email</th>
-                            <th>Roles</th>
-                            <th width="280px">Action</th>
+                            <th><?php echo e(trans('message.User_name')); ?></th>
+                            <th><?php echo e(trans('message.User_department')); ?></th>
+                            <th><?php echo e(trans('message.User_email')); ?></th>
+                            <th><?php echo e(trans('message.User_role')); ?></th>
+                            <th width="280px"><?php echo e(trans('message.User_action')); ?></th>
                         </tr>
                     </thead>
 
@@ -178,7 +178,19 @@
 <script>
     $(document).ready(function() {
         var table = $('#example1').DataTable({
-            fixedHeader: true
+            fixedHeader: true,
+            language: {
+                "emptyTable": "<?php echo e(trans('message.No_data_avalible')); ?>",
+                "info": "<?php echo e(trans('message.info')); ?>",
+                "infoEmpty": "<?php echo e(trans('message.infoEmpty')); ?>",
+                "infoFiltered": "<?php echo e(trans('message.infoFiltered')); ?>",    
+                "lengthMenu": "<?php echo e(trans('message.lengthMenu')); ?>",            
+                "search": "<?php echo e(trans('message.search')); ?>",
+                "paginate": {                    
+                    "next": "<?php echo e(trans('message.Next')); ?>",
+                    "previous": "<?php echo e(trans('message.Previous')); ?>"
+                }
+            }
         });
     });
 </script>
@@ -188,8 +200,8 @@
         var name = $(this).data("name");
         event.preventDefault();
         swal({
-                title: `Are you sure?`,
-                text: "If you delete this, it will be gone forever.",
+                title: `<?php echo e(trans('message.Fund_warning_delete.warning_title')); ?>`,
+                text: "<?php echo e(trans('message.Fund_warning_delete.warning_text')); ?>",
                 icon: "warning",
                 buttons: true,
                 dangerMode: true,
