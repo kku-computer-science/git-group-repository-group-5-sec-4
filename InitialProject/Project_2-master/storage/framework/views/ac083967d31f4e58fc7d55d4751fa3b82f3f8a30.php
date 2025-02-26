@@ -1,4 +1,3 @@
-
 <link rel="stylesheet" href="https://cdn.datatables.net/fixedheader/3.2.3/css/fixedHeader.bootstrap4.min.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/1.12.0/css/dataTables.bootstrap4.min.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/fixedheader/3.2.3/css/fixedHeader.bootstrap4.min.css">
@@ -33,17 +32,17 @@
     <?php endif; ?>
     <div class="card" style="padding: 16px;">
         <div class="card-body">
-            <h4 class="card-title" style="text-align: center;">ความเชี่ยวชาญของอาจารย์</h4>
+            <h4 class="card-title" style="text-align: center;"><?php echo e(trans('message.Manage_Expertise_navbar_title')); ?> </h4>
             <table id="example1" class="table table-striped">
                 <thead>
                     <tr>
-                        <th>ID</th>
+                        <th><?php echo e(trans('message.Expertise_no')); ?> </th>
                         <?php if(Auth::user()->hasRole('admin')): ?>
-                        <th>Teacher Name</th>
+                        <th><?php echo e(trans('message.Expertise_teacher_name')); ?></th>
                         <?php endif; ?>
-                        <th>Name</th>
+                        <th><?php echo e(trans('message.Expertise_name')); ?></th>
 
-                        <th>Action</th>
+                        <th><?php echo e(trans('message.Expertise_action')); ?></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -51,9 +50,18 @@
                     <tr id="expert_id_<?php echo e($expert->id); ?>">
                         <td><?php echo e($i+1); ?></td>
                         <?php if(Auth::user()->hasRole('admin')): ?>
-                        <td><?php echo e($expert->user->fname_en); ?> <?php echo e($expert->user->lname_en); ?></td>
+                        <td>
+                            <?php echo e($expert->user->{'fname_' . app()->getLocale()} ?? $expert->user->fname_en); ?> 
+                            <?php echo e($expert->user->{'lname_' . app()->getLocale()} ?? $expert->user->lname_en); ?>
+
+                        </td>
                         <?php endif; ?>
-                        <td><?php echo e($expert->expert_name); ?></td>
+
+                        <!-- แสดงชื่อความเชี่ยวชาญตามภาษา -->
+                        <td>
+                            <p><?php echo e($expert->{'expert_name_' . app()->getLocale()} ?? $expert->expert_name_en); ?></p>
+                        </td>
+
 
                         <td>
                             <form action="<?php echo e(route('experts.destroy',$expert->id)); ?>" method="POST">
@@ -96,14 +104,18 @@
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
-                                <strong>Name:</strong>
+                                <strong>Name in English :</strong>
                                 <input type="text" name="expert_name" id="expert_name" class="form-control" placeholder="Expert_name" onchange="validate()">
+                                <strong>Name in Thai :</strong>
+                                <input type="text" name="expert_name_th" id="expert_name_th" class="form-control" placeholder="Expert_name" onchange="validate()">
+                                <strong>Name in Chinese :</strong>
+                                <input type="text" name="expert_name_cn" id="expert_name_cn" class="form-control" placeholder="Expert_name" onchange="validate()">
                             </div>
                         </div>
 
                         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                            <button type="submit" id="btn-save" name="btnsave" class="btn btn-primary " disabled>Submit</button>
-                            <a href="<?php echo e(route('experts.index')); ?>" class="btn btn-danger">Cancel</a>
+                            <button type="submit" id="btn-save" name="btnsave" class="btn btn-primary " disabled><?php echo e(trans('message.Submit_button')); ?></button>
+                            <a href="<?php echo e(route('experts.index')); ?>" class="btn btn-danger"><?php echo e(trans('message.Cancle_button')); ?></a>
                         </div>
                     </div>
                 </form>
@@ -125,6 +137,18 @@
             ],
             rowGroup: {
                 dataSrc: 1
+            },
+            language: {
+                "emptyTable": "<?php echo e(trans('message.No_data_avalible')); ?>",
+                "info": "<?php echo e(trans('message.info')); ?>",
+                "infoEmpty": "<?php echo e(trans('message.infoEmpty')); ?>",
+                "infoFiltered": "<?php echo e(trans('message.infoFiltered')); ?>",
+                "lengthMenu": "<?php echo e(trans('message.lengthMenu')); ?>",
+                "search": "<?php echo e(trans('message.search')); ?>",
+                "paginate": {
+                    "next": "<?php echo e(trans('message.Next')); ?>",
+                    "previous": "<?php echo e(trans('message.Previous')); ?>"
+                }
             }
         });
     });
@@ -140,7 +164,7 @@
         $('#new-expertise').click(function() {
             $('#btn-save').val("create-expertise");
             $('#expertise').trigger("reset");
-            $('#expertiseCrudModal').html("Add New Expertise");
+            $('#expertiseCrudModal').html("<?php echo e(trans('message.Add_new_expertise')); ?>");
             $('#crud-modal').modal('show');
         });
 
@@ -148,12 +172,14 @@
         $('body').on('click', '#edit-expertise', function() {
             var expert_id = $(this).data('id');
             $.get('experts/' + expert_id + '/edit', function(data) {
-                $('#expertiseCrudModal').html("Edit Expertise");
+                $('#expertiseCrudModal').html("<?php echo e(trans('message.Edit_expertise')); ?>");
                 $('#btn-update').val("Update");
                 $('#btn-save').prop('disabled', false);
                 $('#crud-modal').modal('show');
                 $('#exp_id').val(data.id);
                 $('#expert_name').val(data.expert_name);
+                $('#expert_name_th').val(data.expert_name_th);
+                $('#expert_name_cn').val(data.expert_name_cn);
 
             })
         });
@@ -167,14 +193,14 @@
             e.preventDefault();
             //confirm("Are You sure want to delete !");
             swal({
-                title: "Are you sure?",
-                text: "You will not be able to recover this imaginary file!",
+                title: `<?php echo e(trans('message.Fund_warning_delete.warning_title')); ?>`,
+                text: "<?php echo e(trans('message.Fund_warning_delete.warning_text')); ?>",
                 type: "warning",
                 buttons: true,
                 dangerMode: true,
             }).then((willDelete) => {
                 if (willDelete) {
-                    swal("Delete Successfully", {
+                    swal("<?php echo e(trans('message.Delete_successfully')); ?>", {
                         icon: "success",
                     }).then(function() {
                         location.reload();
@@ -186,7 +212,7 @@
                                 "_token": token,
                             },
                             success: function(data) {
-                                $('#msg').html('program entry deleted successfully');
+                                $('#msg').html('<?php echo e(trans('message.Program_entry_deleted')); ?>');
                                 $("#expert_id_" + expert_id).remove();
                             },
                             error: function(data) {

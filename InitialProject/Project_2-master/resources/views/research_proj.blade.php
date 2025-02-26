@@ -1,6 +1,8 @@
 @extends('layouts.layout')
 @section('content')
 
+@php use App\Helpers\TranslateHelper; @endphp
+
 <div class="container refund">
     <p>{{ __('message.project_service') }}</p>
 
@@ -53,7 +55,7 @@
                         <div style="padding-bottom: 10px;">
                             <span style="font-weight: bold;">{{ __('message.responsible_department') }}</span>
                             <span style="padding-left: 10px;">
-                                {{$re->responsible_department}}
+                                {{ TranslateHelper::translate($re->responsible_department, app()->getLocale()) }}
                             </span>
                         </div>
                         <div style="padding-bottom: 10px;">

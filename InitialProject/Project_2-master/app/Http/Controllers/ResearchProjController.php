@@ -11,5 +11,6 @@ class ResearchProjController extends Controller
         $resp = ResearchProject::with('User','Fund')->orderBy('project_year', 'desc')->get();
         //AcademicworkController.phpreturn $resp;
         return view('research_proj',compact('resp'));
+
     }
 }

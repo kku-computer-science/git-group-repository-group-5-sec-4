@@ -43,6 +43,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
         href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" />
         <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"> -->
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.1.0/css/flag-icon.min.css" rel="stylesheet">
+        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        
 </head>
 
 <body>
@@ -63,12 +69,32 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <div class="navbar-menu-wrapper d-flex align-items-top">
                 <ul class="navbar-nav">
                     <li class="nav-item font-weight-semibold d-none d-lg-block ms-0">
-                        <h1 class="welcome-text">Research Information Management System <span
+                        <h1 class="welcome-text"><?php echo e(trans('message.Project_title')); ?> <span
                                 class="text-black fw-bold"></span></h1>
                         <h3 class="welcome-sub-text"> </h3>
                     </li>
                 </ul>
-                <ul class="navbar-nav ms-auto">
+                <ul class="navbar-nav ms-auto">                    
+                
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            <span
+                                class="flag-icon flag-icon-<?php echo e(Config::get('languages')[App::getLocale()]['flag-icon']); ?>"></span>
+                            <?php echo e(Config::get('languages')[App::getLocale()]['display']); ?>
+
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <?php $__currentLoopData = Config::get('languages'); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $lang => $language): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <?php if($lang != App::getLocale()): ?>
+                                    <a class="dropdown-item" href="<?php echo e(route('langswitch', $lang)); ?>"><span
+                                            class="flag-icon flag-icon-<?php echo e($language['flag-icon']); ?>"></span>
+                                        <?php echo e($language['display']); ?></a>
+                                <?php endif; ?>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                        </div>
+                    </li>                
+
                     <li class="nav-item d-none d-lg-block">
                         <div id="datepicker-popup" class="input-group date datepicker navbar-date-picker">
                             <span class="input-group-addon input-group-prepend border-right">
@@ -80,7 +106,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <li class="nav-item">
                         <form class="search-form" action="#">
                             <i class="icon-search"></i>
-                            <input type="search" class="form-control" placeholder="Search Here" title="Search here">
+                            <input type="search" class="form-control" placeholder="<?php echo e(trans('message.Search_here')); ?>" title="Search here">
                         </form>
                     </li>
                     <!-- <li class="nav-item dropdown">
@@ -117,26 +143,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 FAQ</a>
                             <a class="dropdown-item"><i
                                     class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Sign Out</a> -->
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"aria-haspopup="true" aria-expanded="false">
-                                <i class="mdi mdi-translate"></i>
-                                <span class="flag-icon flag-icon-<?php echo e(Config::get('languages')[App::getLocale()]['flag-icon']); ?>"></span>
-                                <?php echo e(Config::get('languages')[App::getLocale()]['display']); ?>
-
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="navbarDropdownMenuLink">
-                                <?php $__currentLoopData = Config::get('languages'); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $lang => $language): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                <?php if($lang != App::getLocale()): ?>
-                                <a class="dropdown-item" href="<?php echo e(route('langswitch', $lang)); ?>"><span
-                                        class="flag-icon flag-icon-<?php echo e($language['flag-icon']); ?>"></span>
-                                    <?php echo e($language['display']); ?></a>
-                                <?php endif; ?>
-                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                            </div>
-                        </li>
                     <li class="nav-item d-none d-sm-inline-block">
                         <a class="nav-link" href="<?php echo e(route('logout')); ?>" onclick="event.preventDefault(); 
-                        document.getElementById ('logout-form').submit();"> <?php echo e(__('Logout')); ?> <i class="mdi mdi-logout"></i></a>
+                        document.getElementById ('logout-form').submit();"> <?php echo e(trans('message.Logout')); ?> <i class="mdi mdi-logout"></i></a>
                         <form id="logout-form" action="<?php echo e(route('logout')); ?>" method="POST" class="d-none">
                             <?php echo csrf_field(); ?>
                         </form>
@@ -161,15 +170,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <a class="nav-link <?php echo e((request()->is('dashboard*')) ? 'active' : ''); ?>"
                             href="<?php echo e(route('dashboard')); ?>">
                             <i class="menu-icon mdi mdi-grid-large"></i>
-                            <span class="menu-title">Dashboard</span>
+                            <span class="menu-title"><?php echo e(trans('message.Dashboard_navbar_title')); ?></span>
                         </a>
                     </li>
-                    <li class="nav-item nav-category">Profile</li>
+                    <li class="nav-item nav-category"><?php echo e(trans('message.Profile_navbar_title')); ?></li>
                     <li class="nav-item">
                         <a class="nav-link <?php echo e((request()->is('admin/profile*')) ? 'active' : ''); ?>"
                             href="<?php echo e(route('profile')); ?>">
                             <i class="menu-icon mdi mdi-account-circle-outline"></i>
-                            <span class="menu-title">User Profile</span>
+                            <span class="menu-title"><?php echo e(trans('message.User_Profile_navbar_title')); ?></span>
 
                         </a>
                     </li>
@@ -181,12 +190,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
                         </a>
                     </li> -->
-                    <li class="nav-item nav-category">Option</li>
+                    <li class="nav-item nav-category"><?php echo e(trans('message.Option_navbar_title')); ?></li>
                     <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('funds-list')): ?>
                     <li class="nav-item">
                         <a class="nav-link" href="<?php echo e(route('funds.index')); ?>">
                             <i class="menu-icon mdi mdi-file-document-box-outline"></i>
-                            <span class="menu-title">Manage Fund</span>
+                            <span class="menu-title"><?php echo e(trans('message.Manage_Fund_navbar_title')); ?></span>
 
                         </a>
                     </li>
@@ -195,7 +204,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <li class="nav-item">
                         <a class="nav-link" href="<?php echo e(route('researchProjects.index')); ?>">
                             <i class="menu-icon mdi mdi-book-outline"></i>
-                            <span class="menu-title">Research Project</span>
+                            <span class="menu-title"><?php echo e(trans('message.Research_Project_navbar_title')); ?></span>
 
                         </a>
                     </li>
@@ -204,7 +213,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <li class="nav-item">
                         <a class="nav-link" href="<?php echo e(route('researchGroups.index')); ?>">
                             <i class="menu-icon mdi mdi-view-dashboard-outline"></i>
-                            <span class="menu-title">Research Group</span>
+                            <span class="menu-title"><?php echo e(trans('message.Research_Group_navbar_title')); ?></span>
 
                         </a>
                     </li>
@@ -213,14 +222,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <li class="nav-item">
                         <a class="nav-link" data-bs-toggle="collapse" href="#ManagePublications" aria-expanded="false" aria-controls="ManagePublications">
                             <i class="menu-icon mdi mdi-book-open-page-variant"></i>
-                            <span class="menu-title">Manage Publications</span>
+                            <span class="menu-title"><?php echo e(trans('message.Manage_Publication_navbar_title')); ?></span>
                             <i class="menu-arrow"></i>
                         </a>
                         <div class="collapse" id="ManagePublications">
                             <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" href="<?php echo e(route('papers.index')); ?>">Published research</a></li>
-                                <li class="nav-item"> <a class="nav-link" href="/books">Book</a></li>
-                                <li class="nav-item"> <a class="nav-link" href="/patents">ผลงานวิชาการอื่นๆ</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="<?php echo e(route('papers.index')); ?>"><?php echo e(trans('message.Published_research_navbar_title')); ?></a></li>
+                                <li class="nav-item"> <a class="nav-link" href="/books"><?php echo e(trans('message.Book_navbar_title')); ?></a></li>
+                                <li class="nav-item"> <a class="nav-link" href="/patents"><?php echo e(trans('message.Other_academic_works_navbar_title')); ?></a></li>
                             </ul>
                         </div>
                     </li>
@@ -229,16 +238,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <li class="nav-item">
                         <a class="nav-link" href="<?php echo e(route('exportfile')); ?>" >
                             <i class="menu-icon mdi mdi-file-export"></i>
-                            <span class="menu-title">Export</span>
+                            <span class="menu-title"><?php echo e(trans('message.Export_navbar_title')); ?></span>
                         </a>
                     </li>
                     <?php endif; ?>
                     <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('user-list')): ?>
-                    <li class="nav-item nav-category">Admin</li>
+                    <li class="nav-item nav-category"><?php echo e(trans('message.Admin_navbar_title')); ?></li>
                     <li class="nav-item">
                         <a class="nav-link" href="<?php echo e(route('users.index')); ?>">
                             <i class="menu-icon mdi mdi-account-multiple-outline"></i>
-                            <span class="menu-title">Users</span>
+                            <span class="menu-title"><?php echo e(trans('message.User_navbar_title')); ?></span>
 
                         </a>
                     </li>
@@ -247,7 +256,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <li class="nav-item">
                         <a class="nav-link" href="<?php echo e(route('roles.index')); ?>">
                             <i class="menu-icon mdi mdi-chart-gantt"></i>
-                            <span class="menu-title">Roles</span>
+                            <span class="menu-title"><?php echo e(trans('message.Role_navbar_title')); ?></span>
 
                         </a>
                     </li>
@@ -256,7 +265,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <li class="nav-item">
                         <a class="nav-link" href="<?php echo e(route('permissions.index')); ?>">
                             <i class="menu-icon mdi mdi-checkbox-marked-circle-outline"></i>
-                            <span class="menu-title">Permission</span>
+                            <span class="menu-title"><?php echo e(trans('message.Permission_navbar_title')); ?></span>
 
                         </a>
                     </li>
@@ -265,7 +274,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <li class="nav-item">
                         <a class="nav-link" href="<?php echo e(route('departments.index')); ?>">
                             <i class="menu-icon mdi mdi-animation-outline"></i>
-                            <span class="menu-title">Departments</span>
+                            <span class="menu-title"><?php echo e(trans('message.Department_navbar_title')); ?></span>
 
                         </a>
                     </li>
@@ -275,7 +284,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <li class="nav-item">
                         <a class="nav-link" href="<?php echo e(route('programs.index')); ?>">
                             <i class="menu-icon mdi mdi-format-list-bulleted"></i>
-                            <span class="menu-title">Manage Programs</span>
+                            <span class="menu-title"><?php echo e(trans('message.Manage_Program_navbar_title')); ?></span>
 
                         </a>
                     </li>
@@ -284,7 +293,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <li class="nav-item">
                         <a class="nav-link" href="<?php echo e(route('experts.index')); ?>">
                             <i class="menu-icon mdi mdi-buffer"></i>
-                            <span class="menu-title">Manage Expertise</span>
+                            <span class="menu-title"><?php echo e(trans('message.Manage_Expertise_navbar_title')); ?></span>
 
                         </a>
                     </li>

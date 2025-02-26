@@ -58,12 +58,12 @@
     <nav id="navbar" class="navbar navbar-expand-lg navbar-light">
         <div class="container-fluid">
             <a class="navbar-brand logo-image" href="#">
-                @if(app()->getLocale() == 'en')
-                <img src="{{asset('img/logo2-en.png')}}" alt="alternative">
-                @elseif (app()->getLocale() == 'th')
-                <img src="{{asset('img/logo2-th.png')}}" alt="alternative">
-                @elseif (app()->getLocale() == 'cn')
-                <img src="{{asset('img/logo2-cn.png')}}" alt="alternative">
+                @if(App::getLocale() == 'th')
+            <img src="{{ asset('img/logo2_th.png') }}" alt="alternative">
+                @elseif(App::getLocale() == 'cn')
+            <img src="{{ asset('img/logo2_cn.png') }}" alt="alternative">
+                @else
+            <img src="{{ asset('img/logo2.png') }}" alt="alternative">
                 @endif
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar"
@@ -84,7 +84,13 @@
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             @foreach($dn as $department)
                             <li><a class="dropdown-item" href="{{ route('researchers',['id'=>$department->id])}}">
-                                {{ $department->{'program_name_' . App::getLocale()} }}</a>
+                                @if(App::getLocale() == 'en')
+                                {{$department->program_name_en}}
+                            @elseif(App::getLocale() == 'th')
+                                {{$department->program_name_th}}
+                            @elseif(App::getLocale() == 'cn')
+                                {{$department->program_name_cn}}
+                            @endif</a>
                             </li>
                             @endforeach
                         </ul>
@@ -118,6 +124,7 @@
                         </div>
                     </li>
 
+
                 </ul>
                 @if (Route::has('login'))
                 @auth
@@ -126,7 +133,8 @@
                 </span>
                 @else
                 <span class="nav-item">
-                    <a class="btn-solid-sm" href="/login" target="_blank">{{ trans('message.Login') }}</a>
+                    <a class="btn-solid-sm" href="/login" target="_blank">{{ trans('message.Login_button') }}</a>
+                    
                 </span>
                 @endauth
                 @endif

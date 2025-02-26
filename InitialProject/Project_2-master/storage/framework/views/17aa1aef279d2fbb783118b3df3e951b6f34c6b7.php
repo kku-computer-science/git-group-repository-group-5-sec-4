@@ -1,5 +1,7 @@
 <?php $__env->startSection('content'); ?>
 
+<?php use App\Helpers\TranslateHelper; ?>
+
 <div class="container refund">
     <p><?php echo e(__('message.project_service')); ?></p>
 
@@ -56,7 +58,7 @@
                         <div style="padding-bottom: 10px;">
                             <span style="font-weight: bold;"><?php echo e(__('message.responsible_department')); ?></span>
                             <span style="padding-left: 10px;">
-                                <?php echo e($re->responsible_department); ?>
+                                <?php echo e(TranslateHelper::translate($re->responsible_department, app()->getLocale())); ?>
 
                             </span>
                         </div>

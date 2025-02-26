@@ -58,12 +58,12 @@
     <nav id="navbar" class="navbar navbar-expand-lg navbar-light">
         <div class="container-fluid">
             <a class="navbar-brand logo-image" href="#">
-                <?php if(app()->getLocale() == 'en'): ?>
-                <img src="<?php echo e(asset('img/logo2-en.png')); ?>" alt="alternative">
-                <?php elseif(app()->getLocale() == 'th'): ?>
-                <img src="<?php echo e(asset('img/logo2-th.png')); ?>" alt="alternative">
-                <?php elseif(app()->getLocale() == 'cn'): ?>
-                <img src="<?php echo e(asset('img/logo2-cn.png')); ?>" alt="alternative">
+                <?php if(App::getLocale() == 'th'): ?>
+            <img src="<?php echo e(asset('img/logo2_th.png')); ?>" alt="alternative">
+                <?php elseif(App::getLocale() == 'cn'): ?>
+            <img src="<?php echo e(asset('img/logo2_cn.png')); ?>" alt="alternative">
+                <?php else: ?>
+            <img src="<?php echo e(asset('img/logo2.png')); ?>" alt="alternative">
                 <?php endif; ?>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar"
@@ -85,7 +85,16 @@
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <?php $__currentLoopData = $dn; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $department): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <li><a class="dropdown-item" href="<?php echo e(route('researchers',['id'=>$department->id])); ?>">
-                                <?php echo e($department->{'program_name_' . App::getLocale()}); ?></a>
+                                <?php if(App::getLocale() == 'en'): ?>
+                                <?php echo e($department->program_name_en); ?>
+
+                            <?php elseif(App::getLocale() == 'th'): ?>
+                                <?php echo e($department->program_name_th); ?>
+
+                            <?php elseif(App::getLocale() == 'cn'): ?>
+                                <?php echo e($department->program_name_cn); ?>
+
+                            <?php endif; ?></a>
                             </li>
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </ul>
@@ -120,6 +129,7 @@
                         </div>
                     </li>
 
+
                 </ul>
                 <?php if(Route::has('login')): ?>
                 <?php if(auth()->guard()->check()): ?>
@@ -128,7 +138,8 @@
                 </span>
                 <?php else: ?>
                 <span class="nav-item">
-                    <a class="btn-solid-sm" href="/login" target="_blank"><?php echo e(trans('message.Login')); ?></a>
+                    <a class="btn-solid-sm" href="/login" target="_blank"><?php echo e(trans('message.Login_button')); ?></a>
+                    
                 </span>
                 <?php endif; ?>
                 <?php endif; ?>

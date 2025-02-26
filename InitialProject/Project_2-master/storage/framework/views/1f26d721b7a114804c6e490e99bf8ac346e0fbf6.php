@@ -1,4 +1,3 @@
-
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <?php $__env->startSection('content'); ?>
 <style type="text/css">
@@ -35,7 +34,7 @@
 
     <?php if($errors->any()): ?>
     <div class="alert alert-danger">
-        <strong>Whoops!</strong> There were some problems with your input.<br><br>
+        <strong><?php echo e(trans('message.error_input.Whoops')); ?></strong> <?php echo e(trans('message.error_input.Error_problem')); ?><br><br>
         <ul>
             <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <li><?php echo e($error); ?></li>
@@ -48,14 +47,14 @@
     <div class="col-md-10 grid-margin stretch-card">
         <div class="card" style="padding: 16px;">
             <div class="card-body">
-                <h4 class="card-title">เพิ่มวารผลงานตีพิมพ์</h4>
-                <p class="card-description">กรอกข้อมูลรายละเอียดงานวิจัย</p>
+                <h4 class="card-title"><?php echo e(trans('message.Create_published_research')); ?></h4>
+                <p class="card-description"><?php echo e(trans('message.Input_published_research_detail')); ?></p>
                 <form class="forms-sample" action="<?php echo e(route('papers.store')); ?>" method="POST">
                     <?php echo csrf_field(); ?>
                     <div class="form-group row">
-                        <label for="exampleInputpaper_name" class="col-sm-3 col-form-label"><b>แหล่งเผยแพร่งานวิจัย</b></label>
+                        <label for="exampleInputpaper_name" class="col-sm-3 col-form-label"><b><?php echo e(trans('message.Published_research_source')); ?></b></label>
                         <div class="col-sm-9">
-                            <select class="selectpicker" multiple data-live-search="true" name="cat[]">
+                            <select class="selectpicker" multiple data-live-search="true" name="cat[]">                                
                                 <?php $__currentLoopData = $source; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $s): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <option value='<?php echo e($s->id); ?>'><?php echo e($s->source_name); ?></option>
                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -65,9 +64,9 @@
                     </div>
 
                     <div class="form-group row">
-                        <label for="exampleInputpaper_name" class="col-sm-3 col-form-label"><b>ชื่องานวิจัย</b></label>
+                        <label for="exampleInputpaper_name" class="col-sm-3 col-form-label"><b><?php echo e(trans('message.Published_research_title')); ?></b></label>
                         <div class="col-sm-9">
-                            <input type="text" name="paper_name" class="form-control" placeholder="ชื่อเรื่อง">
+                            <input type="text" name="paper_name" class="form-control" placeholder="<?php echo e(trans('message.Published_research_title')); ?>">
                         </div>
                     </div>
                     
@@ -79,135 +78,133 @@
                     </div> -->
 
                     <div class="form-group row">
-                        <label for="exampleInputabstract" class="col-sm-3 col-form-label"><b>abstract</b></label>
+                        <label for="exampleInputabstract" class="col-sm-3 col-form-label"><b><?php echo e(trans('message.Published_research_abstract')); ?></b></label>
                         <div class="col-sm-9">
-                            <textarea type="text" name="abstract" class="form-control form-control-lg" style="height:150px" placeholder="abstract"></textarea>
+                            <textarea type="text" name="abstract" class="form-control form-control-lg" style="height:150px" placeholder="<?php echo e(trans('message.Published_research_abstract')); ?>"></textarea>
                             <!-- <input type=" text" name="abstract" class="form-control" placeholder="abstract"> -->
                         </div>
                     </div>
 
                     <div class="form-group row">
-                        <label for="exampleInputkeyword" class="col-sm-3 col-form-label"><b>Keyword</b></label>
+                        <label for="exampleInputkeyword" class="col-sm-3 col-form-label"><b><?php echo e(trans('message.Published_research_keyword')); ?></b></label>
                         <!-- <div class="col-sm-9">
                             <p>แต่ละคําต้องคั่นด้วยเครื่องหมายเซมิโคลอน (;) แล้วเว้นวรรคหนึ่งครั้ง</p>
                         </div> -->
                         <div class="col-sm-9">
-                            <input type="text" name="keyword" class="form-control" placeholder="keyword">
-                            <p class="text-danger">***แต่ละคําต้องคั่นด้วยเครื่องหมายเซมิโคลอน (;) แล้วเว้นวรรคหนึ่งครั้ง</p>
+                            <input type="text" name="keyword" class="form-control" placeholder="<?php echo e(trans('message.Published_research_keyword')); ?>">
+                            <p class="text-danger">***<?php echo e(trans('message.Published_research_keyword_suggested')); ?></p>
                         </div>
 
                     </div>
                     <div class="form-group row">
-                        <label for="exampleInputpaper_type" class="col-sm-3 col-form-label"><b>ประเภทของเอกสาร
-                                (Type)</b></label>
+                        <label for="exampleInputpaper_type" class="col-sm-3 col-form-label"><b><?php echo e(trans('message.Published_research_journalType')); ?>
+
+                                </b></label>
                         <div class="col-sm-9">
                             <select id='paper_type' class="custom-select my-select" style='width: 200px;' name="paper_type">
-                                <option value="" disabled selected> โปรดระบุประเภท </option>
-                                <option value="Journal">Journal</option>
-                                <option value="Conference Proceeding">Conference Proceeding</option>
-                                <option value="Book Series">Book Series</option>
-                                <option value="Book">Book</option>
+                                <option value="" disabled selected> <?php echo e(trans('message.Choose_paper_type')); ?> </option>
+                                <option value="Journal"><?php echo e(trans('message.Published_research_journal')); ?></option>
+                                <option value="Conference Proceeding"><?php echo e(trans('message.Published_research_conference')); ?></option>
+                                <option value="Book Series"><?php echo e(trans('message.Published_research_book_series')); ?></option>
+                                <option value="Book"><?php echo e(trans('message.Published_research_book')); ?></option>
                             </select>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="exampleInputpaper_subtype" class="col-sm-3 col-form-label"><b>ประเภทของเอกสาร
-                                (Subtype)</b></label>
+                        <label for="exampleInputpaper_subtype" class="col-sm-3 col-form-label"><b><?php echo e(trans('message.Published_research_documentType')); ?></b></label>
                         <div class="col-sm-9">
                             <select id='paper_subtype' class="custom-select my-select" style='width: 200px;' name="paper_subtype">
-                                <option value="" disabled selected> โปรดระบุประเภทย่อย </option>
-                                <option value="Article">Article</option>
-                                <option value="Conference Paper">Conference Paper</option>
-                                <option value="Editorial">Editorial</option>
-                                <option value="Book Chapter">Book Chapter</option>
-                                <option value="Erratum">Erratum</option>
-                                <option value="Review">Review</option>
+                                <option value="" disabled selected> <?php echo e(trans('message.Choose_paper_subtype')); ?> </option>
+                                <option value="Article"><?php echo e(trans('message.Published_research_document_type_article')); ?></option>
+                                <option value="Conference Paper"><?php echo e(trans('message.Published_research_document_type_conference')); ?></option>
+                                <option value="Editorial"><?php echo e(trans('message.Published_research_document_type_editorial')); ?></option>
+                                <option value="Book Chapter"><?php echo e(trans('message.Published_research_document_type_bookchapter')); ?></option>
+                                <option value="Erratum"><?php echo e(trans('message.Published_research_document_type_erratum')); ?></option>
+                                <option value="Review"><?php echo e(trans('message.Published_research_document_type_review')); ?></option>
                             </select>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="exampleInputpublicatione" class="col-sm-3 col-form-label"><b>Publication
+                        <label for="exampleInputpublicatione" class="col-sm-3 col-form-label"><b><?php echo e(trans('message.Published_research_publication')); ?>
+
                                 </b></label>
                         <div class="col-sm-9">
                             <select id='publication' class="custom-select my-select" style='width: 200px;' name="publication">
-                                <option value="" disabled selected> โปรดระบุประเภท </option>
-                                <option value="International Journal">International Journal</option>
-                                <option value="International Book">International Book</option>
-                                <option value="International Conference">International Conference</option>
-                                <option value="National Conference">National Conference</option>
-                                <option value="National Journal"> National Journal</option>
-                                <option value="National Book"> National Book</option>
-                                <option value="National Magazine">National Magazine</option>
-                                <option value="Book Chapter"> Book Chapter</option>
+                                <option value="" disabled selected> <?php echo e(trans('message.Choose_publication')); ?> </option>
+                                <option value="International Journal"><?php echo e(trans('message.Published_research_publication_international_journal')); ?></option>
+                                <option value="International Book"><?php echo e(trans('message.Published_research_publication_international_book')); ?></option>
+                                <option value="International Conference"><?php echo e(trans('message.Published_research_publication_international_conference')); ?></option>
+                                <option value="National Conference"><?php echo e(trans('message.Published_research_publication_national_conference')); ?></option>
+                                <option value="National Journal"> <?php echo e(trans('message.Published_research_publication_national_journal')); ?></option>
+                                <option value="National Book"> <?php echo e(trans('message.Published_research_publication_national_book')); ?></option>
+                                <option value="National Magazine"><?php echo e(trans('message.Published_research_publication_national_magazine')); ?></option>
+                                <option value="Book Chapter"> <?php echo e(trans('message.Published_research_publication_book_chapter')); ?></option>
                             </select>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="exampleInputpaper_sourcetitle" class="col-sm-3 col-form-label"><b>ชื่อวารสาร</b></label>
+                        <label for="exampleInputpaper_sourcetitle" class="col-sm-3 col-form-label"><b><?php echo e(trans('message.Published_research_journalName')); ?></b></label>
                         <div class="col-sm-9">
-                            <input type="text" name="paper_sourcetitle" class="form-control" placeholder="sourcetitle">
+                            <input type="text" name="paper_sourcetitle" class="form-control" placeholder="<?php echo e(trans('message.Published_research_journalName')); ?>">
                         </div>
                     </div>
             
                     <div class="form-group row">
-                        <label for="exampleInputpaper_yearpub" class="col-sm-3 col-form-label"><b>ปีที่ตีพิมพ์</b></label>
+                        <label for="exampleInputpaper_yearpub" class="col-sm-3 col-form-label"><b><?php echo e(trans('message.Published_research_year')); ?></b></label>
                         <div class="col-sm-4">
-                            <input type="text" name="paper_yearpub" class="form-control" placeholder="ปีที่ตีพิมพ์">
+                            <input type="text" name="paper_yearpub" class="form-control" placeholder="<?php echo e(trans('message.Published_research_year')); ?>">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="exampleInputpaper_volume" class="col-sm-3 col-form-label"><b>วารสารพิมพ์เป็นปีที่
-                                (Volume)</b></label>
+                        <label for="exampleInputpaper_volume" class="col-sm-3 col-form-label"><b><?php echo e(trans('message.Published_research_volume')); ?></b></label>
                         <div class="col-sm-4">
-                            <input type="text" name="paper_volume" class="form-control" placeholder="Volume">
+                            <input type="text" name="paper_volume" class="form-control" placeholder="<?php echo e(trans('message.Published_research_volume')); ?>">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="exampleInputpaper_issue" class="col-sm-3 col-form-label"><b>ฉบับที่ (Issue
-                                number)</b></label>
+                        <label for="exampleInputpaper_issue" class="col-sm-3 col-form-label"><b><?php echo e(trans('message.Published_research_issue')); ?></b></label>
                         <div class="col-sm-4">
-                            <input type="text" name="paper_issue" class="form-control" placeholder="Issue">
+                            <input type="text" name="paper_issue" class="form-control" placeholder="<?php echo e(trans('message.Published_research_issue')); ?>">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="exampleInputpaper_citation" class="col-sm-3 col-form-label"><b>การอ้างอิง
-                                (Citation)</b></label>
+                        <label for="exampleInputpaper_citation" class="col-sm-3 col-form-label"><b><?php echo e(trans('message.Published_research_citation_count')); ?></b></label>
                         <div class="col-sm-4">
-                            <input type="text" name="paper_citation" class="form-control" placeholder="จำนวนการอ้างอิง">
+                            <input type="text" name="paper_citation" class="form-control" placeholder="<?php echo e(trans('message.Published_research_citation_count')); ?>">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="exampleInputpaper_page" class="col-sm-3 col-form-label"><b>หน้า (Page)</b></label>
+                        <label for="exampleInputpaper_page" class="col-sm-3 col-form-label"><b><?php echo e(trans('message.Published_research_page')); ?></b></label>
                         <div class="col-sm-4">
                             <input type="text" name="paper_page" class="form-control" placeholder="01-99">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="exampleInputpaper_doi" class="col-sm-3 col-form-label"><b>Doi</b></label>
+                        <label for="exampleInputpaper_doi" class="col-sm-3 col-form-label"><b><?php echo e(trans('message.Published_research_doi')); ?></b></label>
                         <div class="col-sm-9">
-                            <input type="text" name="paper_doi" class="form-control" placeholder="doi">
+                            <input type="text" name="paper_doi" class="form-control" placeholder="<?php echo e(trans('message.Published_research_doi')); ?>">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="exampleInputpaper_funder" class="col-sm-3 col-form-label"><b>ทุนสนับสนุน</b></label>
+                        <label for="exampleInputpaper_funder" class="col-sm-3 col-form-label"><b><?php echo e(trans('message.Published_research_funder')); ?></b></label>
                         <div class="col-sm-9">
-                            <input type="int" name="paper_funder" class="form-control" placeholder="Funder">
+                            <input type="int" name="paper_funder" class="form-control" placeholder="<?php echo e(trans('message.Published_research_funder')); ?>">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="exampleInputpaper_url" class="col-sm-3 col-form-label"><b>URL</b></label>
+                        <label for="exampleInputpaper_url" class="col-sm-3 col-form-label"><b><?php echo e(trans('message.Published_research_url')); ?></b></label>
                         <div class="col-sm-9">
-                            <input type="text" name="paper_url" class="form-control" placeholder="url">
+                            <input type="text" name="paper_url" class="form-control" placeholder="<?php echo e(trans('message.Published_research_url')); ?>">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="exampleInputpaper_doi" class="col-sm-3 "><b>Author Name (บุลคลภายในสาขา)</b></label>
+                        <label for="exampleInputpaper_doi" class="col-sm-3 "><b><?php echo e(trans('message.Published_research_internal_author')); ?></b></label>
                         <div class="col-sm-9">
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dynamicAddRemove">
                                     <tr>
                                         <td><select id='selUser0' style='width: 200px;' name="moreFields[0][userid]">
-                                                <option value=''>Select User</option><?php $__currentLoopData = $users; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $user): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?><option value="<?php echo e($user->id); ?>"><?php echo e($user->fname_th); ?> <?php echo e($user->lname_th); ?>
+                                                <option value=''><?php echo e(trans('message.Select_user_option')); ?></option><?php $__currentLoopData = $users; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $user): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?><option value="<?php echo e($user->id); ?>"><?php echo e($user->fname_th); ?> <?php echo e($user->lname_th); ?>
 
                                                 </option><?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                             </select>
@@ -227,14 +224,13 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="exampleInputpaper_doi" class="col-sm-3 col-form-label"><b>Author Name
-                                (บุลคลภายนอก)</b></label>
+                        <label for="exampleInputpaper_doi" class="col-sm-3 col-form-label"><b><?php echo e(trans('message.Published_research_external_author')); ?></b></label>
                         <div class="col-sm-9">
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dynamic_field">
                                     <tr>
-                                        <td><input type="text" name="fname[]" placeholder="ชื่อ (First name)" class="form-control name_list" /></td>
-                                        <td><input type="text" name="lname[]" placeholder="นามสกุล (Last name)" class="form-control name_list" /></td>
+                                        <td><input type="text" name="fname[]" placeholder="<?php echo e(trans('message.First_name')); ?>" class="form-control name_list" /></td>
+                                        <td><input type="text" name="lname[]" placeholder="<?php echo e(trans('message.Last_name')); ?>" class="form-control name_list" /></td>
                                         <td><select id='pos2' class="custom-select my-select" style='width: 200px;' name="pos2[]">
                                                 <option value="1">First Author</option>
                                                 <option value="2">Co-Author</option>
@@ -249,8 +245,8 @@
                             </div>
                         </div>
                     </div>
-                    <button type="submit" name="submit" id="submit" class="btn btn-primary me-2">Submit</button>
-                    <a class="btn btn-light" href="<?php echo e(route('papers.index')); ?>">Cancel</a>
+                    <button type="submit" name="submit" id="submit" class="btn btn-primary me-2"><?php echo e(trans('message.Submit_button')); ?></button>
+                    <a class="btn btn-light" href="<?php echo e(route('papers.index')); ?>"><?php echo e(trans('message.Cancle_button')); ?></a>
                 </form>
             </div>
         </div>
@@ -267,7 +263,7 @@
 
             ++i;
             $("#dynamicAddRemove").append('<tr><td><select id="selUser' + i + '" name="moreFields[' + i +
-                '][userid]"  style="width: 200px;"><option value="">Select User</option><?php $__currentLoopData = $users; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $user): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?><option value="<?php echo e($user->id); ?>"><?php echo e($user->fname_th); ?> <?php echo e($user->lname_th); ?></option><?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?></select></td><td><select id="pos" class="custom-select my-select" style="width: 200px;" name="pos[]"><option value="1">First Author</option><option value="2">Co-Author</option><option value="3">Corresponding Author</option></select></td><td><button type="button" class="btn btn-danger btn-sm remove-tr">X</i></button></td></tr>'
+                '][userid]"  style="width: 200px;"><option value=""><?php echo e(trans('message.Select_user_option')); ?></option><?php $__currentLoopData = $users; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $user): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?><option value="<?php echo e($user->id); ?>"><?php echo e($user->fname_th); ?> <?php echo e($user->lname_th); ?></option><?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?></select></td><td><select id="pos" class="custom-select my-select" style="width: 200px;" name="pos[]"><option value="1">First Author</option><option value="2">Co-Author</option><option value="3">Corresponding Author</option></select></td><td><button type="button" class="btn btn-danger btn-sm remove-tr">X</i></button></td></tr>'
             );
             $("#selUser" + i).select2()
         });
@@ -286,7 +282,7 @@
         $('#add').click(function() {
             i++;
             $('#dynamic_field').append('<tr id="row' + i +
-                '" class="dynamic-added"><td><input type="text" name="fname[]" placeholder="Enter your Name" class="form-control name_list" /></td><td><input type="text" name="lname[]" placeholder="Enter your Name" class="form-control name_list" /></td><td><select id="pos2" class="custom-select my-select" style="width: 200px;" name="pos2[]"><option value="1">First Author</option><option value="2">Co-Author</option><option value="3">Corresponding Author</option></select></td><td><button type="button" name="remove" id="' +
+                '" class="dynamic-added"><td><input type="text" name="fname[]" placeholder="<?php echo e(trans('message.Enter_your_name')); ?>" class="form-control name_list" /></td><td><input type="text" name="lname[]" placeholder="<?php echo e(trans('message.Enter_your_name')); ?>" class="form-control name_list" /></td><td><select id="pos2" class="custom-select my-select" style="width: 200px;" name="pos2[]"><option value="1">First Author</option><option value="2">Co-Author</option><option value="3">Corresponding Author</option></select></td><td><button type="button" name="remove" id="' +
                 i + '" class="btn btn-danger btn-sm btn_remove">X</button></td></tr>');
         });
 
@@ -321,7 +317,7 @@
                         $(".print-success-msg").css('display', 'block');
                         $(".print-error-msg").css('display', 'none');
                         $(".print-success-msg").find("ul").append(
-                            '<li>Record Inserted Successfully.</li>');
+                            '<li><?php echo e(trans('message.Record_inserted_successfully')); ?></li>');
                     }
                 }
             });

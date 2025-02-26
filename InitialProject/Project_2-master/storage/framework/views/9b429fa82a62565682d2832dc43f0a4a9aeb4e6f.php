@@ -1,4 +1,3 @@
-
 <link rel="stylesheet" href="https://cdn.datatables.net/fixedheader/3.2.3/css/fixedHeader.bootstrap4.min.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/1.12.0/css/dataTables.bootstrap4.min.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/fixedheader/3.2.3/css/fixedHeader.bootstrap4.min.css">
@@ -12,18 +11,18 @@
     <?php endif; ?>
     <div class="card" style="padding: 16px;">
         <div class="card-body">
-            <h4 class="card-title">กลุ่มวิจัย</h4>
+            <h4 class="card-title"><?php echo e(trans('message.Research_Group_navbar_title')); ?></h4>
             <a class="btn btn-primary btn-menu btn-icon-text btn-sm mb-3" href="<?php echo e(route('researchGroups.create')); ?>"><i
-                    class="mdi mdi-plus btn-icon-prepend"></i> ADD</a>
+                    class="mdi mdi-plus btn-icon-prepend"></i> <?php echo e(trans('message.Add_research_group')); ?></a>
             <!-- <div class="table-responsive"> -->
                 <table id ="example1" class="table table-striped">
                     <thead>
                         <tr>
-                            <th>No.</th>
-                            <th>Group name (ไทย)</th>
-                            <th>Head</th>
-                            <th>Member</th>
-                            <th width="280px">Action</th>
+                            <th><?php echo e(trans('message.Research_group_no')); ?></th>
+                            <th><?php echo e(trans('message.Research_group_name')); ?></th>
+                            <th><?php echo e(trans('message.Research_group_head')); ?></th>
+                            <th><?php echo e(trans('message.Research_group_member')); ?></th>
+                            <th width="280px"><?php echo e(trans('message.Research_group_action')); ?></th>
                         </tr>
                     </thead>
                     
@@ -31,14 +30,31 @@
                         <?php $__currentLoopData = $researchGroups; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $i=>$researchGroup): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <tr>
                             <td><?php echo e($i+1); ?></td>
-                            <td><?php echo e(Str::limit($researchGroup->group_name_th,50)); ?></td>
+                            <!--<td><?php echo e(Str::limit($researchGroup->group_name_th,50)); ?></td> -->
+                            <td>
+                            <?php if(App::getLocale() == 'en'): ?>
+                            <?php echo e(Str::limit($researchGroup->group_name_en,50)); ?>
+
+                            <?php elseif(App::getLocale() == 'th'): ?>
+                            <?php echo e(Str::limit($researchGroup->group_name_th,50)); ?>
+
+                            <?php elseif(App::getLocale() == 'cn'): ?>
+                            <?php echo e(Str::limit($researchGroup->group_name_cn,50)); ?>                                       
+                            <?php endif; ?>
+                            </td>
                             <td>
                                 <?php $__currentLoopData = $researchGroup->user; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $user): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <?php if( $user->pivot->role == 1): ?>
+                                    <?php if(App::getLocale() == 'en'): ?>
+                                        <?php echo e($user->fname_en); ?>
 
-                                <?php echo e($user->fname_th); ?>
+                                    <?php elseif(App::getLocale() == 'th'): ?>
+                                        <?php echo e($user->fname_th); ?>
 
+                                    <?php elseif(App::getLocale() == 'cn'): ?>
+                                        <?php echo e($user->fname_cn); ?>
 
+                                    <?php endif; ?>
                                 <?php endif; ?>
 
                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -46,8 +62,16 @@
                             <td>
                                 <?php $__currentLoopData = $researchGroup->user; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $user): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <?php if( $user->pivot->role == 2): ?>
-                                <?php echo e($user->fname_th); ?>
+                                    <?php if(App::getLocale() == 'en'): ?>
+                                        <?php echo e($user->fname_en); ?>
 
+                                    <?php elseif(App::getLocale() == 'th'): ?>
+                                        <?php echo e($user->fname_th); ?>
+
+                                    <?php elseif(App::getLocale() == 'cn'): ?>
+                                        <?php echo e($user->fname_cn); ?>
+
+                                    <?php endif; ?>
                                 <?php if(!$loop->last): ?>,<?php endif; ?>
                                 <?php endif; ?>
 
@@ -95,6 +119,18 @@
     $(document).ready(function() {
         var table1 = $('#example1').DataTable({
             responsive: true,
+            language: {
+                "emptyTable": "<?php echo e(trans('message.No_data_avalible')); ?>",
+                "info": "<?php echo e(trans('message.info')); ?>",
+                "infoEmpty": "<?php echo e(trans('message.infoEmpty')); ?>",
+                "infoFiltered": "<?php echo e(trans('message.infoFiltered')); ?>",    
+                "lengthMenu": "<?php echo e(trans('message.lengthMenu')); ?>",            
+                "search": "<?php echo e(trans('message.search')); ?>",
+                "paginate": {                    
+                    "next": "<?php echo e(trans('message.Next')); ?>",
+                    "previous": "<?php echo e(trans('message.Previous')); ?>"
+                }
+            }
         });
     });
 </script>
@@ -104,15 +140,15 @@
         var name = $(this).data("name");
         event.preventDefault();
         swal({
-                title: `Are you sure?`,
-                text: "If you delete this, it will be gone forever.",
+                title: `<?php echo e(trans('message.Fund_warning_delete.warning_title')); ?>`,
+                text: "<?php echo e(trans('message.Fund_warning_delete.warning_text')); ?>",
                 icon: "warning",
                 buttons: true,
                 dangerMode: true,
             })
             .then((willDelete) => {
                 if (willDelete) {
-                    swal("Delete Successfully", {
+                    swal("<?php echo e(trans('message.Delete_successfully')); ?>", {
                         icon: "success",
                     }).then(function() {
                         location.reload();

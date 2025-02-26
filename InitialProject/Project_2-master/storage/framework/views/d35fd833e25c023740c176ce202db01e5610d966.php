@@ -16,10 +16,11 @@
         </div>
         <?php endif; ?>
         <div class="card">
-            <div class="card-header">Departments
+            <div class="card-header"><?php echo e(trans('message.Department_navbar_title')); ?>
+
                 <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('departments-create')): ?>
 
-                <a class="btn btn-primary" href="<?php echo e(route('departments.create')); ?>">New department</a>
+                <a class="btn btn-primary" href="<?php echo e(route('departments.create')); ?>"><?php echo e(trans('message.Add_department')); ?></a>
 
                 <?php endif; ?>
             </div>
@@ -28,15 +29,29 @@
                     <thead class="thead-dark">
                         <tr>
                             <th>#</th>
-                            <th>Name</th>
-                            <th width="280px">Action</th>
+                            <th><?php echo e(trans('message.Department_name')); ?></th>
+                            <th width="280px"><?php echo e(trans('message.Department_action')); ?></th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php $__currentLoopData = $data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $department): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <tr>
                             <td><?php echo e($department->id); ?></td>
-                            <td><?php echo e($department->department_name_th); ?></td>
+                            <td>
+                                <?php if(app()->getLocale() == 'th'): ?>
+                                    <?php echo e($department->department_name_th); ?>
+
+                                <?php elseif(app()->getLocale() == 'en'): ?>
+                                    <?php echo e($department->department_name_en); ?>
+
+                                <?php elseif(app()->getLocale() == 'cn'): ?>
+                                    <?php echo e($department->department_name_cn); ?>
+
+                                <?php else: ?>
+                                    <?php echo e($department->department_name_en); ?>  
+                                <?php endif; ?>
+                            </td>
+
                             <td>
                                 <form action="<?php echo e(route('departments.destroy',$department->id)); ?>" method="POST">
                                     
@@ -84,15 +99,15 @@
         var name = $(this).data("name");
         event.preventDefault();
         swal({
-                title: `Are you sure?`,
-                text: "If you delete this, it will be gone forever.",
+                title: `<?php echo e(trans('message.Fund_warning_delete.warning_title')); ?>`,
+                text: "<?php echo e(trans('message.Fund_warning_delete.warning_text')); ?>",
                 icon: "warning",
                 buttons: true,
                 dangerMode: true,
             })
             .then((willDelete) => {
                 if (willDelete) {
-                    swal("Delete Successfully", {
+                    swal("<?php echo e(trans('message.Delete_successfully')); ?>", {
                         icon: "success",
                     }).then(function() {
                         location.reload();

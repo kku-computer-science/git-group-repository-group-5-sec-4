@@ -23,82 +23,118 @@
             <div class="p-4">
                 <div class="img-circle text-center mb-3">
                     <div class="text-center">
-                        <img class="profile-user-img img-fluid img-circle admin_picture" src="<?php echo e(Auth::user()->picture); ?>" alt="User profile picture">
+                        <img class="profile-user-img img-fluid img-circle admin_picture" src="<?php echo e(Auth::user()->picture); ?>" alt="<?php echo e(trans('message.User_profile_picture')); ?>">
                     </div>
                     <h4 class="text-center p-2"><?php echo e(Auth::user()->fname); ?> <?php echo e(Auth::user()->lname); ?></h4>
                     <input type="file" name="admin_image" id="admin_image" style="opacity: 0;height:1px;display:none">
-                    <a href="javascript:void(0)" class="btn btn-primary btn-block btn-sm" id="change_picture_btn"><b>Change picture</b></a>
+                    <a href="javascript:void(0)" class="btn btn-primary btn-block btn-sm" id="change_picture_btn"><b><?php echo e(trans('message.Change_picture')); ?></b></a>
                 </div>
 
             </div>
             <div class="nav flex-column nav-pills-1" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                 <a class="nav-link " id="account-tab" data-toggle="pill" href="#account" role="tab" aria-controls="account" aria-selected="true">
                     <i class="mdi mdi-account-card-details"></i>
-                    <span class="menu-title"> Account </span>
+                    <span class="menu-title"> <?php echo e(trans('message.Account_tab')); ?> </span>
                 </a>
                 <a class="nav-link " id="password-tab" data-toggle="pill" href="#password" role="tab" aria-controls="password" aria-selected="false">
                     <i class="mdi mdi-key-variant"></i>
-                    <span class="menu-title"> Password </span>
+                    <span class="menu-title"> <?php echo e(trans('message.Password_tab')); ?> </span>
                 </a>
                 <?php if(Auth::user()->hasRole('teacher')): ?>
                 <a class="nav-link <?php echo e(old('tab') == 'expertise' ? ' active' : null); ?>" id="expertise-tab" data-toggle="pill" href="#expertise" role="tab" aria-controls="expertise" aria-selected="false">
                     <i class="mdi mdi-account-star"></i>
-                    <span class="menu-title"> Expertise </span>
+                    <span class="menu-title"> <?php echo e(trans('message.Expertise_tab')); ?> </span>
                 </a>
                 <a class="nav-link" id="education-tab" data-toggle="pill" href="#education" role="tab" aria-controls="education" aria-selected="false">
                     <i class="mdi mdi-school"></i>
-                    <span class="menu-title"> Education </span>
+                    <span class="menu-title"> <?php echo e(trans('message.Education_tab')); ?> </span>
                 </a>
                 <?php endif; ?>
             </div>
         </div>
         <div class="tab-content p-4 p-md-5" id="v-pills-tabContent">
             <!-- <div class="tab-pane fade show active" id="account" role="tabpanel" aria-labelledby="account-tab"> -->
+            <div class="tab-content p-4 p-md-5" id="v-pills-tabContent">
+            <!-- <div class="tab-pane fade show active" id="account" role="tabpanel" aria-labelledby="account-tab"> -->
             <div class="tab-pane " id="account" role="tabpanel" aria-labelledby="account-tab">
-                <h3 class="mb-4">Profile Settings</h3>
+                <h3 class="mb-4"><?php echo e(trans('message.Profile_Account_ProfileSetting')); ?></h3>
                 <form class="form-horizontal" method="POST" action="<?php echo e(route('adminUpdateInfo')); ?>" id="AdminInfoForm">
                     <div class="row">
                         <div class="col-md-12">
+                            <?php if(app()->getLocale() == 'th'): ?>
                             <div class="form-group col-sm-4">
-                                <label>Name title</label>
+                                <label><?php echo e(trans('message.Profile_Account_pronouns')); ?></label>
+                                <select class="custom-select my-select " name="title_name_en">
+                                    <option value="Mr." <?php echo e(Auth::user()->title_name_th == 'Mr.' ? 'selected' : ''); ?>>นาย</option>
+                                    <option value="Miss" <?php echo e(Auth::user()->title_name_th == 'Miss' ? 'selected' : ''); ?>>นาง</option>
+                                    <option value="Mrs." <?php echo e(Auth::user()->title_name_th == 'Mrs.' ? 'selected' : ''); ?>>นางสาว</option>
+                                </select>
+                            </div>
+                            <?php elseif(app()->getLocale() == 'en'): ?>
+                            <div class="form-group col-sm-4">
+                                <label><?php echo e(trans('message.Profile_Account_pronouns')); ?></label>
                                 <select class="custom-select my-select " name="title_name_en">
                                     <option value="Mr." <?php echo e(Auth::user()->title_name_en == 'Mr.' ? 'selected' : ''); ?>>Mr.</option>
                                     <option value="Miss" <?php echo e(Auth::user()->title_name_en == 'Miss' ? 'selected' : ''); ?>>Miss</option>
                                     <option value="Mrs." <?php echo e(Auth::user()->title_name_en == 'Mrs.' ? 'selected' : ''); ?>>Mrs.</option>
                                 </select>
                             </div>
+                            <?php elseif(app()->getLocale() == 'cn'): ?>
+                            <div class="form-group col-sm-4">
+                                <label><?php echo e(trans('message.Profile_Account_pronouns')); ?></label>
+                                <select class="custom-select my-select" name="title_name_en">
+                                    <option value="Mr." <?php echo e(Auth::user()->title_name_cn == 'Mr.' ? 'selected' : ''); ?>>先生</option>
+                                    <option value="Miss" <?php echo e(Auth::user()->title_name_cn == 'Miss' ? 'selected' : ''); ?>>女士</option>
+                                    <option value="Mrs." <?php echo e(Auth::user()->title_name_cn == 'Mrs.' ? 'selected' : ''); ?>>小姐</option>
+                                </select>
+                            </div>
+                            <?php endif; ?>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label>First name (English)</label>
+                                <label><?php echo e(trans('message.Profile_Account_firstnameEng')); ?></label>
                                 <input type="text" class="form-control" id="inputfNameEN" placeholder="Name" value="<?php echo e(Auth::user()->fname_en); ?>" name="fname_en">
                                 <span class="text-danger error-text name_error"></span>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label>Last name (English)</label>
+                                <label><?php echo e(trans('message.Profile_Account_lastnameEng')); ?></label>
                                 <input type="text" class="form-control" id="inputlNameEN" placeholder="Name" value="<?php echo e(Auth::user()->lname_en); ?>" name="lname_en">
                                 <span class="text-danger error-text name_error"></span>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label>ชื่อ (ภาษาไทย)</label>
+                                <label><?php echo e(trans('message.Profile_Account_firstnameTH')); ?></label>
                                 <input type="text" class="form-control" id="inputfNameTH" placeholder="Name" value="<?php echo e(Auth::user()->fname_th); ?>" name="fname_th">
                                 <span class="text-danger error-text name_error"></span>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label>นามสกุล (ภาษาไทย)</label>
+                                <label><?php echo e(trans('message.Profile_Account_lastnameTH')); ?></label>
                                 <input type="text" class="form-control" id="inputlNameTH" placeholder="Name" value="<?php echo e(Auth::user()->lname_th); ?>" name="lname_th">
                                 <span class="text-danger error-text name_error"></span>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label>Email</label>
+                                <label><?php echo e(trans('message.Profile_Account_firstnameCN')); ?></label>
+                                <input type="text" class="form-control" id="inputfNameCN" placeholder="Name" value="<?php echo e(Auth::user()->fname_cn); ?>" name="fname_cn">
+                                <span class="text-danger error-text name_error"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label><?php echo e(trans('message.Profile_Account_lastnameCN')); ?></label>
+                                <input type="text" class="form-control" id="inputlNameCN" placeholder="Name" value="<?php echo e(Auth::user()->lname_cn); ?>" name="lname_cn">
+                                <span class="text-danger error-text name_error"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label><?php echo e(trans('message.Profile_Account_email')); ?></label>
                                 <input type="text" class="form-control" id="inputEmail" placeholder="Email" value="<?php echo e(Auth::user()->email); ?>" name="email">
                                 <span class="text-danger error-text email_error"></span>
                             </div>
@@ -108,38 +144,104 @@
                         <?php if(Auth::user()->hasRole('teacher')): ?>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label>Academic Ranks</label>
+                                <label><?php echo e(trans('message.Profile_Account_AcademicRank')); ?></label>
+                                <select id="category" class="custom-select my-select" name="academic_ranks_en" onchange="syncAcademicRanks(this)">
+                                    <option value="Professor" <?php echo e(Auth::user()->academic_ranks_en == 'Professor' ? 'selected' : ''); ?>><?php echo e(trans('message.Profile_Account_Professor')); ?></option>
+                                    <option value="Associate Professor" <?php echo e(Auth::user()->academic_ranks_en == 'Associate Professor' ? 'selected' : ''); ?>><?php echo e(trans('message.Profile_Account_AssociateProfessor')); ?></option>
+                                    <option value="Assistant Professor" <?php echo e(Auth::user()->academic_ranks_en == 'Assistant Professor' ? 'selected' : ''); ?>><?php echo e(trans('message.Profile_Account_AssistantProfessor')); ?></option>
+                                    <option value="Lecturer" <?php echo e(Auth::user()->academic_ranks_en == 'Lecturer' ? 'selected' : ''); ?>><?php echo e(trans('message.Profile_Account_Lecturer')); ?></option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group" style="display: none;">
+                                <label><?php echo e(trans('message.Profile_Account_AcademicPosition')); ?></label>
+                                <select name="academic_ranks_th" id="subcategory_th" class="custom-select my-select">
+                                    <option value="ศาสตราจารย์" data-mapping="Professor" <?php echo e(Auth::user()->academic_ranks_th == 'ศาสตราจารย์' ? 'selected' : ''); ?>><?php echo e(trans('message.Profile_Account_Professor')); ?></option>
+                                    <option value="รองศาสตราจารย์" data-mapping="Associate Professor" <?php echo e(Auth::user()->academic_ranks_th == 'รองศาสตราจารย์' ? 'selected' : ''); ?>><?php echo e(trans('message.Profile_Account_AssociateProfessor')); ?></option>
+                                    <option value="ผู้ช่วยศาสตราจารย์" data-mapping="Assistant Professor" <?php echo e(Auth::user()->academic_ranks_th == 'ผู้ช่วยศาสตราจารย์' ? 'selected' : ''); ?>><?php echo e(trans('message.Profile_Account_AssistantProfessor')); ?></option>
+                                    <option value="อาจารย์" data-mapping="Lecturer" <?php echo e(Auth::user()->academic_ranks_th == 'อาจารย์' ? 'selected' : ''); ?>><?php echo e(trans('message.Profile_Account_Lecturer')); ?></option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group" style="display: none;">
+                                <label><?php echo e(trans('message.Profile_Account_AcademicPosition')); ?></label>
+                                <select name="academic_ranks_cn" id="subcategory_cn" class="custom-select my-select">
+                                    <option value="教授" data-mapping="Professor" <?php echo e(Auth::user()->academic_ranks_cn == '教授' ? 'selected' : ''); ?>><?php echo e(trans('message.Profile_Account_Professor')); ?></option>
+                                    <option value="副教授" data-mapping="Associate Professor" <?php echo e(Auth::user()->academic_ranks_cn == '副教授' ? 'selected' : ''); ?>><?php echo e(trans('message.Profile_Account_AssociateProfessor')); ?></option>
+                                    <option value="助理教授" data-mapping="Assistant Professor" <?php echo e(Auth::user()->academic_ranks_cn == '助理教授' ? 'selected' : ''); ?>><?php echo e(trans('message.Profile_Account_AssistantProfessor')); ?></option>
+                                    <option value="讲师" data-mapping="Lecturer" <?php echo e(Auth::user()->academic_ranks_cn == '讲师' ? 'selected' : ''); ?>><?php echo e(trans('message.Profile_Account_Lecturer')); ?></option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <script>
+                            function syncAcademicRanks(select) {
+                                var selectedValue = select.value;
+                                document.querySelectorAll('[data-mapping]').forEach(option => {
+                                    if (option.getAttribute('data-mapping') === selectedValue) {
+                                        option.parentElement.value = option.value;
+                                    }
+                                });
+                            }
+                        </script>
+                        
+                        <!-- <div class="col-md-6">
+                            <div class="form-group">
+                                <label><?php echo e(trans('message.Profile_Account_AcademicRank')); ?></label>
                                 <select id="category" class="custom-select my-select" name="academic_ranks_en">
-                                    <option value="Professor" <?php echo e(Auth::user()->academic_ranks_en == 'Professor' ? 'selected' : ''); ?>>Professor</option>
-                                    <option value="Associate Professor" <?php echo e(Auth::user()->academic_ranks_en == 'Associate Professor' ? 'selected' : ''); ?>>Associate Professor</option>
-                                    <option value="Assistant Professor" <?php echo e(Auth::user()->academic_ranks_en == 'Assistant Professor' ? 'selected' : ''); ?>>Assistant Professor</option>
-                                    <option value="Lecturer" <?php echo e(Auth::user()->academic_ranks_en == 'Lecturer' ? 'selected' : ''); ?>>Lecturer</option>
+                                    <option value="Professor" <?php echo e(Auth::user()->academic_ranks_en == 'Professor' ? 'selected' : ''); ?>><?php echo e(trans('message.Profile_Account_Professor')); ?></option>
+                                    <option value="Associate Professor" <?php echo e(Auth::user()->academic_ranks_en == 'Associate Professor' ? 'selected' : ''); ?>><?php echo e(trans('message.Profile_Account_AssociateProfessor')); ?></option>
+                                    <option value="Assistant Professor" <?php echo e(Auth::user()->academic_ranks_en == 'Assistant Professor' ? 'selected' : ''); ?>><?php echo e(trans('message.Profile_Account_AssistantProfessor')); ?></option>
+                                    <option value="Lecturer" <?php echo e(Auth::user()->academic_ranks_en == 'Lecturer' ? 'selected' : ''); ?>><?php echo e(trans('message.Profile_Account_Lecturer')); ?></option>
                                 </select>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label>ตำแหน่งทางวิชาการ</label>
+                                <label><?php echo e(trans('message.Profile_Account_AcademicPosition')); ?></label>
                                 <select name="academic_ranks_th" id="subcategory" class="custom-select my-select">
                                     <optgroup id="Professor" label="Professor">
-                                        <option value="ศาสตราจารย์" <?php echo e(Auth::user()->academic_ranks_th == 'ศาสตราจารย์' ? 'selected' : ''); ?>>ศาสตราจารย์</option>
+                                        <option value="ศาสตราจารย์" <?php echo e(Auth::user()->academic_ranks_th == 'ศาสตราจารย์' ? 'selected' : ''); ?>><?php echo e(trans('message.Profile_Account_Professor')); ?></option>
                                     </optgroup>
                                     <optgroup id="Associate Professor" label="Associate Professor">
-                                        <option value="รองศาสตราจารย์" <?php echo e(Auth::user()->academic_ranks_th == 'รองศาสตราจารย์' ? 'selected' : ''); ?>>รองศาสตราจารย์</option>
+                                        <option value="รองศาสตราจารย์" <?php echo e(Auth::user()->academic_ranks_th == 'รองศาสตราจารย์' ? 'selected' : ''); ?>><?php echo e(trans('message.Profile_Account_AssociateProfessor')); ?></option>
                                     </optgroup>
                                     <optgroup id="Assistant Professor" label="Assistant Professor">
-                                        <option value="ผู้ช่วยศาสตราจารย์" <?php echo e(Auth::user()->academic_ranks_th == 'ผู้ช่วยศาสตราจารย์' ? 'selected' : ''); ?>>ผู้ช่วยศาสตราจารย์</option>
+                                        <option value="ผู้ช่วยศาสตราจารย์" <?php echo e(Auth::user()->academic_ranks_th == 'ผู้ช่วยศาสตราจารย์' ? 'selected' : ''); ?>><?php echo e(trans('message.Profile_Account_AssistantProfessor')); ?></option>
                                     </optgroup>
                                     <optgroup id="Lecturer" label="Lecturer">
-                                        <option value="อาจารย์" <?php echo e(Auth::user()->academic_ranks_th == 'อาจารย์' ? 'selected' : ''); ?>>อาจารย์</option>
+                                        <option value="อาจารย์" <?php echo e(Auth::user()->academic_ranks_th == 'อาจารย์' ? 'selected' : ''); ?>><?php echo e(trans('message.Profile_Account_Lecturer')); ?></option>
                                     </optgroup>
                                 </select>
                             </div>
                         </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label><?php echo e(trans('message.Profile_Account_AcademicPosition')); ?></label>
+                                <select name="academic_ranks_cn" id="subcategory" class="custom-select my-select">
+                                    <optgroup id="Professor" label="Professor">
+                                        <option value="教授" <?php echo e(Auth::user()->academic_ranks_cn == '教授' ? 'selected' : ''); ?>><?php echo e(trans('message.Profile_Account_Professor')); ?></option>
+                                    </optgroup>
+                                    <optgroup id="Associate Professor" label="Associate Professor">
+                                        <option value="副教授" <?php echo e(Auth::user()->academic_ranks_cn == '副教授' ? 'selected' : ''); ?>><?php echo e(trans('message.Profile_Account_AssociateProfessor')); ?></option>
+                                    </optgroup>
+                                    <optgroup id="Assistant Professor" label="Assistant Professor">
+                                        <option value="助理教授" <?php echo e(Auth::user()->academic_ranks_cn == '助理教授' ? 'selected' : ''); ?>><?php echo e(trans('message.Profile_Account_AssistantProfessor')); ?></option>
+                                    </optgroup>
+                                    <optgroup id="Lecturer" label="Lecturer">
+                                        <option value="讲师" <?php echo e(Auth::user()->academic_ranks_cn == '讲师' ? 'selected' : ''); ?>><?php echo e(trans('message.Profile_Account_Lecturer')); ?></option>
+                                    </optgroup>
+                                </select>
+                            </div>
+                        </div> -->
                         <div class="col-md-4">
                             <div class="form-group">
                                 <div class="checkbox">
-                                    <label><input name="pos" type="checkbox" value="check2" />สำหรับอ.ผู้ที่ไม่มีคุณวุฒิปริญญาเอก โปรดระบุ</label>
+                                    <label><input name="pos" type="checkbox" value="check2" /><?php echo e(trans('message.Profile_Account_TogglePHD')); ?></label>
                                 </div>
 
                             </div>
@@ -147,7 +249,7 @@
                         <?php endif; ?>
                     </div>
                     <div>
-                        <button type="submit" class="btn btn-primary">Update</button>
+                        <button type="submit" class="btn btn-primary"><?php echo e(trans('message.Profile_All_Update')); ?></button>
                     </div>
                 </form>
             </div>
@@ -155,11 +257,11 @@
 
             <div class="tab-pane fade " id="password" role="tabpanel" aria-labelledby="password-tab">
                 <form class="form-horizontal" action="<?php echo e(route('adminChangePassword')); ?>" method="POST" id="changePasswordAdminForm">
-                    <h3 class="mb-4">Password Settings</h3>
+                    <h3 class="mb-4"><?php echo e(trans('message.Password_settings')); ?></h3>
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label>Old password</label>
+                                <label><?php echo e(trans('message.Old_password')); ?></label>
                                 <input type="password" class="form-control" id="inputpassword" placeholder="Enter current password" name="oldpassword">
                                 <span class="text-danger error-text oldpassword_error"></span>
                             </div>
@@ -168,21 +270,21 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label>New password</label>
+                                <label><?php echo e(trans('message.New_password')); ?></label>
                                 <input type="password" class="form-control" id="newpassword" placeholder="Enter new password" name="newpassword">
                                 <span class="text-danger error-text newpassword_error"></span>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label>Confirm new password</label>
+                                <label><?php echo e(trans('message.Confirm_new_password')); ?></label>
                                 <input type="password" class="form-control" id="cnewpassword" placeholder="ReEnter new password" name="cnewpassword">
                                 <span class="text-danger error-text cnewpassword_error"></span>
                             </div>
                         </div>
                     </div>
                     <div>
-                        <button class="btn btn-primary">Update!!</button>
+                        <button class="btn btn-primary"><?php echo e(trans('message.Update_button')); ?></button>
                         <!-- <button class="btn btn-light">Cancel</button> -->
                     </div>
 
@@ -190,12 +292,12 @@
             </div>
             <div class="tab-pane fade" id="education" role="tabpanel" aria-labelledby="education-tab">
                 <form class="form-horizontal" method="POST" action="<?php echo e(route('updateEdInfo')); ?>" id="EdInfoForm">
-                    <h3 class="mb-4">ประวัติการศึกษา</h3>
+                    <h3 class="mb-4"><?php echo e(trans('message.Education_title')); ?></h3>
                     <div class="row">
-                        <label>ปริญญาตรี</label>
+                        <label><?php echo e(trans('message.Bachelor_degree_title')); ?></label>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label>ชื่อมหาวิทยาลัย</label>
+                                <label><?php echo e(trans('message.University_name')); ?></label>
                                 <?php if(empty(Auth::user()->education[0]->uname)): ?>
                                 <input type="text" class="form-control" id="inputlBUName" placeholder="ชื่อมหาวิทยาลัย" value="" name="b_uname">
                                 <?php else: ?>
@@ -206,7 +308,7 @@
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label>ชื่อวุฒิปริญญา</label>
+                                <label><?php echo e(trans('message.Degree_title')); ?></label>
                                 <?php if(empty(Auth::user()->education[0]->qua_name)): ?>
                                 <input type="text" class="form-control" id="inputlBQuName" placeholder="ชื่อวุฒิปริญญา" value="" name="b_qua_name">
                                 <?php else: ?>
@@ -217,7 +319,7 @@
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label>ปี พ.ศ. ที่จบ</label>
+                                <label><?php echo e(trans('message.Year_graduation')); ?></label>
                                 <?php if(empty(Auth::user()->education[0]->year)): ?>
                                 <input type="text" class="form-control" id="inputlYear" placeholder="ปี พ.ศ. ที่จบ" value="" name="b_year">
                                 <?php else: ?>
@@ -228,10 +330,10 @@
                         </div>
                     </div>
                     <div class="row">
-                        <label>ปริญญาโท</label>
+                        <label><?php echo e(trans('message.Master_degree_title')); ?></label>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label>ชื่อมหาวิทยาลัย</label>
+                                <label><?php echo e(trans('message.University_name')); ?></label>
                                 <?php if(empty(Auth::user()->education[1]->uname)): ?>
                                 <input type="text" class="form-control" id="inputlMUName" placeholder="ชื่อมหาวิทยาลัย" value="" name="m_uname">
                                 <?php else: ?>
@@ -242,7 +344,7 @@
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label>ชื่อวุฒิปริญญา</label>
+                                <label><?php echo e(trans('message.Degree_title')); ?></label>
                                 <?php if(empty(Auth::user()->education[1]->qua_name)): ?>
                                 <input type="text" class="form-control" id="inputlMQuName" placeholder="ชื่อวุฒิปริญญา" value="" name="m_qua_name">
                                 <?php else: ?>
@@ -253,7 +355,7 @@
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label>ปี พ.ศ. ที่จบ</label>
+                                <label><?php echo e(trans('message.Year_graduation')); ?></label>
                                 <?php if(empty(Auth::user()->education[1]->year)): ?>
                                 <input type="text" class="form-control" id="inputlYear" placeholder="ปี พ.ศ. ที่จบ" value="" name="m_year">
                                 <?php else: ?>
@@ -264,10 +366,10 @@
                         </div>
                     </div>
                     <div class="row">
-                        <label>ปริญญาเอก</label>
+                        <label><?php echo e(trans('message.Doctoral_degree_title')); ?></label>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label>ชื่อมหาวิทยาลัย</label>
+                                <label><?php echo e(trans('message.University_name')); ?></label>
                                 <?php if(empty(Auth::user()->education[2]->uname)): ?>
                                 <input type="text" class="form-control" id="inputlDUName" placeholder="ชื่อมหาวิทยาลัย" value="" name="d_uname">
                                 <?php else: ?>
@@ -278,7 +380,7 @@
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label>ชื่อวุฒิปริญญา</label>
+                                <label><?php echo e(trans('message.Degree_title')); ?></label>
                                 <?php if(empty(Auth::user()->education[2]->qua_name)): ?>
                                 <input type="text" class="form-control" id="inputlDQuName" placeholder="ชื่อวุฒิปริญญา" value="" name="d_qua_name">
                                 <?php else: ?>
@@ -289,7 +391,7 @@
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label>ปี พ.ศ. ที่จบ</label>
+                                <label><?php echo e(trans('message.Year_graduation')); ?></label>
                                 <?php if(empty(Auth::user()->education[2]->year)): ?>
                                 <input type="text" class="form-control" id="inputlYear" placeholder="ปี พ.ศ. ที่จบ" value="" name="d_year">
                                 <?php else: ?>
@@ -301,7 +403,7 @@
                     </div>
 
                     <div>
-                        <button class="btn btn-primary">Update</button>
+                        <button class="btn btn-primary"><?php echo e(trans('message.Update_button')); ?></button>
                         <!-- <button class="btn btn-light">Cancel</button> -->
                     </div>
 
@@ -309,13 +411,14 @@
 
             </div>
             <div class="tab-pane fade show<?php echo e(old('tab') == 'expertise' ? ' active' : null); ?>" id="expertise" role="tabpanel" aria-labelledby="expertise-tab">
-                <h3 class="mb-4">ความเชี่ยวชาญ</h3>
+                <h3 class="mb-4"><?php echo e(trans('message.Expertise_title')); ?></h3>
                 <div class="row">
                     <div class="col-lg-12 margin-tb">
                         <div class="pull-right">
                             <!-- <a href="javascript:void(0)" class="btn btn-success mb-2" id="new-expertise" data-toggle="modal">Add Expertise</a> -->
                             <button type="button" class="btn btn-primary btn-menu1 btn-icon-text btn-sm mb-3" data-toggle="modal" data-target="#crud-modal">
-                                <i class="mdi mdi-plus btn-icon-prepend"></i>Add Expertise
+                                <i class="mdi mdi-plus btn-icon-prepend"></i><?php echo e(trans('message.Add_expertise_button')); ?>
+
                             </button>
                         </div>
                     </div>
@@ -330,7 +433,7 @@
 
                 <table class="table table-striped table-hover">
                     <tr>
-                        <th colspan="2">Expertise</th>
+                        <th colspan="2"><?php echo e(trans('message.Expertise_title')); ?></th>
 
                     </tr>
                     <?php $__currentLoopData = Auth::user()->expertise; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $expert): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
@@ -373,15 +476,15 @@
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
-                                <strong>Name:</strong>
-                                <input type="text" name="expert_name" id="expert_name" class="form-control" placeholder="Expert_name" onchange="validate()">
+                                <strong><?php echo e(trans('message.Expertise_title_form')); ?> </strong>
+                                <input type="text" name="expert_name" id="expert_name" class="form-control" placeholder="<?php echo e(trans('message.Expertise_placeholder_form')); ?>" onchange="validate()">
                             </div>
                         </div>
 
                         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                            <button type="submit" id="btn-save" name="btnsave" class="btn btn-primary" disabled>Submit</button>
+                            <button type="submit" id="btn-save" name="btnsave" class="btn btn-primary" disabled><?php echo e(trans('message.Submit_button')); ?></button>
                             <!-- <a  href="<?php echo e(URL::previous()); ?>"class="btn btn-danger">Cancel</a>-->
-                            <button class="btn btn-danger" id="btnCancel" data-dismiss="modal">Cancel</button>
+                            <button class="btn btn-danger" id="btnCancel" data-dismiss="modal"><?php echo e(trans('message.Cancle_button')); ?></button>
                             <!-- <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button> -->
                         </div>
                     </div>

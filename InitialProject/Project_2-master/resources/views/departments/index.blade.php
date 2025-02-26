@@ -16,10 +16,10 @@
         </div>
         @endif
         <div class="card">
-            <div class="card-header">Departments
+            <div class="card-header">{{ trans('message.Department_navbar_title') }}
                 @can('departments-create')
 
-                <a class="btn btn-primary" href="{{ route('departments.create') }}">New department</a>
+                <a class="btn btn-primary" href="{{ route('departments.create') }}">{{ trans('message.Add_department') }}</a>
 
                 @endcan
             </div>
@@ -28,15 +28,26 @@
                     <thead class="thead-dark">
                         <tr>
                             <th>#</th>
-                            <th>Name</th>
-                            <th width="280px">Action</th>
+                            <th>{{ trans('message.Department_name') }}</th>
+                            <th width="280px">{{ trans('message.Department_action') }}</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($data as $key => $department)
                         <tr>
                             <td>{{ $department->id }}</td>
-                            <td>{{ $department->department_name_th }}</td>
+                            <td>
+                                @if(app()->getLocale() == 'th')
+                                    {{ $department->department_name_th }}
+                                @elseif(app()->getLocale() == 'en')
+                                    {{ $department->department_name_en }}
+                                @elseif(app()->getLocale() == 'cn')
+                                    {{ $department->department_name_cn }}
+                                @else
+                                    {{ $department->department_name_en }}  
+                                @endif
+                            </td>
+
                             <td>
                                 <form action="{{ route('departments.destroy',$department->id) }}" method="POST">
                                     
@@ -81,15 +92,15 @@
         var name = $(this).data("name");
         event.preventDefault();
         swal({
-                title: `Are you sure?`,
-                text: "If you delete this, it will be gone forever.",
+                title: `{{ trans('message.Fund_warning_delete.warning_title') }}`,
+                text: "{{ trans('message.Fund_warning_delete.warning_text') }}",
                 icon: "warning",
                 buttons: true,
                 dangerMode: true,
             })
             .then((willDelete) => {
                 if (willDelete) {
-                    swal("Delete Successfully", {
+                    swal("{{ trans('message.Delete_successfully') }}", {
                         icon: "success",
                     }).then(function() {
                         location.reload();
