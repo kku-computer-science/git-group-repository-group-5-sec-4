@@ -173,6 +173,7 @@
                                         <link>
                                             {{ $p['author_fname_' . app()->getLocale()] ?? ($p['author_fname_en'] ?? 'N/A') }}
                                             {{ $p['author_lname_' . app()->getLocale()] ?? ($p['author_lname_en'] ?? 'N/A') }}
+
                                         </link>), {{$p['paper_sourcetitle']}}, {{$p['paper_volume']}},
                                     {{$p['paper_yearpub']}}.
                                     <a href="{{$p['paper_url']}} " target="_blank">[url]</a> <a href="https://doi.org/{{$p['paper_doi']}}" target="_blank">[doi]</a>
