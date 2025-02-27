@@ -1,0 +1,54 @@
+UPDATE `funds`
+SET `fund_type_en` = 'Internal Funds'
+WHERE `id` IN (2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 29, 30, 31);
+UPDATE `funds`
+SET `fund_type_cn` = '内部资金'
+WHERE `id` IN (2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 29, 30, 31);
+UPDATE `funds`
+SET `support_resource_en` = 'Khon Kaen University'
+WHERE `id` IN (2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13);
+UPDATE `funds`
+SET `support_resource_cn` = '孔敬大学'
+WHERE `id` IN (2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13);
+
+UPDATE `funds` SET `support_resource_cn` = '国家科学、技术和创新政策委员会办公室' WHERE `funds`.`id` = 14;
+UPDATE `funds` SET `support_resource_en` = 'Office of the National Science, Technology and Innovation Policy Committee' WHERE `funds`.`id` = 14;
+
+UPDATE `funds` SET `support_resource_cn` = ' 高等教育、科学、研究和创新部常务次长办公室' WHERE `funds`.`id` = 15;
+UPDATE `funds` SET `support_resource_en` = 'Office of the Permanent Secretary, Ministry of Higher Education, Science, Research and Innovation' WHERE `funds`.`id` = 15;
+
+UPDATE `funds` SET `support_resource_cn` = '国家研究委员会办公室' WHERE `funds`.`id` = 17;
+UPDATE `funds` SET `support_resource_en` = 'Office of the National Research Council' WHERE `funds`.`id` = 17;
+
+UPDATE `funds` SET `support_resource_en` = 'OU, BOKU, JU, ITC, AIT, YNNU, FNU' WHERE `funds`.`id` = 22;
+UPDATE `funds` SET `support_resource_cn` = 'OU, BOKU, JU, ITC, AIT, YNNU, FNU' WHERE `funds`.`id` = 22;
+
+UPDATE `funds` SET `support_resource_en` = 'Ministry of Science and Technology' WHERE `funds`.`id` = 23;
+UPDATE `funds` SET `support_resource_cn` = '科学技术部' WHERE `funds`.`id` = 23;
+
+UPDATE `funds` SET `support_resource_en` = 'Ministry of Science and Technology' WHERE `funds`.`id` = 24;
+UPDATE `funds` SET `support_resource_cn` = '科学技术部' WHERE `funds`.`id` = 24;
+
+UPDATE `funds` SET `support_resource_en` = 'Geo-Informatics Center for Northeast Development' WHERE `funds`.`id` = 25;
+UPDATE `funds` SET `support_resource_cn` = '东北地区发展地理信息中心' WHERE `funds`.`id` = 25;
+
+UPDATE `funds`
+SET `fund_type_en` = 'External Funds'
+WHERE `id` IN (14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28);
+UPDATE `funds`
+SET `fund_type_cn` = '外部资金'
+WHERE `id` IN (14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28);
+UPDATE `funds`
+SET `support_resource_en` = '-'
+WHERE `id` IN (16, 18, 19, 20, 21, 26, 27, 28);
+UPDATE `funds`
+SET `support_resource_cn` = '-'
+WHERE `id` IN (16, 18, 19, 20, 21, 26, 27, 28);
+
+UPDATE `funds` SET `support_resource_en` = 'Faculty of Science, KKU' WHERE `funds`.`id` = 29;
+UPDATE `funds` SET `support_resource_cn` = '孔敬大学理学院' WHERE `funds`.`id` = 29;
+
+UPDATE `funds` SET `support_resource_en` = 'College of Computing' WHERE `funds`.`id` = 30;
+UPDATE `funds` SET `support_resource_cn` = '计算机学院' WHERE `funds`.`id` = 30;
+UPDATE `funds` SET `support_resource_en` = 'College of Computing' WHERE `funds`.`id` = 31;
+UPDATE `funds` SET `support_resource_cn` = '计算机学院' WHERE `funds`.`id` = 31;

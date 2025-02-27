@@ -1,0 +1,624 @@
+UPDATE `authors` SET `author_fname_th` = 'ชาริญา' WHERE `authors`.`id` = 151;
+UPDATE `authors` SET `author_fname_cn` = '查琳雅' WHERE `authors`.`id` = 151;
+UPDATE `authors` SET `author_lname_th` = 'วังวัจฉระกุล' WHERE `authors`.`id` = 151;
+UPDATE `authors` SET `author_lname_cn` = '王瓦差拉古' WHERE `authors`.`id` = 151;
+
+UPDATE `authors` SET `author_fname_th` = 'พัทธพล' WHERE `authors`.`id` = 152;
+UPDATE `authors` SET `author_fname_cn` = '帕塔蓬' WHERE `authors`.`id` = 152;
+UPDATE `authors` SET `author_lname_cn` = 'วรรณา' WHERE `authors`.`id` = 152;
+UPDATE `authors` SET `author_lname_cn` = '婉娜' WHERE `authors`.`id` = 152;
+
+UPDATE `authors` SET `author_fname_th` = 'ชาร์ลส์ เดวิด' WHERE `authors`.`id` = 153;
+UPDATE `authors` SET `author_fname_cn` = '查尔斯·大卫' WHERE `authors`.`id` = 153;
+UPDATE `authors` SET `author_lname_th` = 'ครัมป์ตัน' WHERE `authors`.`id` = 153;
+UPDATE `authors` SET `author_lname_cn` = '克朗普顿' WHERE `authors`.`id` = 153;
+
+UPDATE `authors` SET `author_fname_th` = 'ศุภวัฒนากร' WHERE `authors`.`id` = 154;
+UPDATE `authors` SET `author_fname_cn` = '苏帕瓦塔纳功' WHERE `authors`.`id` = 154;
+UPDATE `authors` SET `author_lname_th` = 'วงศ์ธนวสุ' WHERE `authors`.`id` = 154;
+UPDATE `authors` SET `author_lname_cn` = '翁塔那瓦素' WHERE `authors`.`id` = 154;
+
+UPDATE `authors` SET `author_fname_th` = 'พีรสิทธิ์' WHERE `authors`.`id` = 155;
+UPDATE `authors` SET `author_fname_cn` = '皮拉西特' WHERE `authors`.`id` = 155;
+UPDATE `authors` SET `author_lname_th` = 'คำนวณศิลป์' WHERE `authors`.`id` = 155;
+UPDATE `authors` SET `author_lname_cn` = '甘暖西拉帕' WHERE `authors`.`id` = 155;
+
+UPDATE `authors` SET `author_fname_th` = 'จอห์น' WHERE `authors`.`id` = 156;
+UPDATE `authors` SET `author_fname_cn` = '约翰' WHERE `authors`.`id` = 156;
+UPDATE `authors` SET `author_lname_th` = 'เดรเปอร์' WHERE `authors`.`id` = 156;
+UPDATE `authors` SET `author_lname_cn` = '德雷珀' WHERE `authors`.`id` = 156;
+
+UPDATE `authors` SET `author_fname_th` = 'อีวา' WHERE `authors`.`id` = 157;
+UPDATE `authors` SET `author_fname_cn` = '伊娃' WHERE `authors`.`id` = 157;
+UPDATE `authors` SET `author_lname_th` = 'เบียโลบรเซสกี' WHERE `authors`.`id` = 157;
+UPDATE `authors` SET `author_lname_cn` = '比亚沃布热斯基' WHERE `authors`.`id` = 157;
+
+UPDATE `authors` SET `author_fname_th` = 'คินซัง' WHERE `authors`.`id` = 158;
+UPDATE `authors` SET `author_fname_cn` = '金桑' WHERE `authors`.`id` = 158;
+UPDATE `authors` SET `author_lname_th` = 'เกลเซ็น' WHERE `authors`.`id` = 158;
+UPDATE `authors` SET `author_lname_cn` = '杰尔钦' WHERE `authors`.`id` = 158;
+
+UPDATE `authors` SET `author_fname_th` = 'สุรศักดิ์' WHERE `authors`.`id` = 159;
+UPDATE `authors` SET `author_fname_cn` = '苏拉萨' WHERE `authors`.`id` = 159;
+UPDATE `authors` SET `author_lname_th` = 'ตั้งสกุล' WHERE `authors`.`id` = 159;
+UPDATE `authors` SET `author_lname_cn` = '唐萨功' WHERE `authors`.`id` = 159;
+
+UPDATE `authors` SET `author_fname_th` = 'ธาราพร' WHERE `authors`.`id` = 160;
+UPDATE `authors` SET `author_fname_cn` = '塔拉蓬' WHERE `authors`.`id` = 160;
+UPDATE `authors` SET `author_lname_th` = 'เฉลิม' WHERE `authors`.`id` = 160;
+UPDATE `authors` SET `author_lname_cn` = '乔隆' WHERE `authors`.`id` = 160;
+
+UPDATE `authors` SET `author_fname_th` = 'สุรเดช' WHERE `authors`.`id` = 161;
+UPDATE `authors` SET `author_fname_cn` = '苏拉德' WHERE `authors`.`id` = 161;
+UPDATE `authors` SET `author_lname_th` = 'ทวีแสงสกุลไทย' WHERE `authors`.`id` = 161;
+UPDATE `authors` SET `author_lname_cn` = '塔威生萨功泰' WHERE `authors`.`id` = 161;
+
+UPDATE `authors` SET `author_fname_th` = 'ศิริศักดิ์' WHERE `authors`.`id` = 162;
+UPDATE `authors` SET `author_fname_cn` = '西里萨' WHERE `authors`.`id` = 162;
+UPDATE `authors` SET `author_lname_th` = 'เหลาจันทร์คำ' WHERE `authors`.`id` = 162;
+UPDATE `authors` SET `author_lname_cn` = '老占堪' WHERE `authors`.`id` = 162;
+
+UPDATE `authors` SET `author_fname_th` = 'ปิง' WHERE `authors`.`id` = 163;
+UPDATE `authors` SET `author_fname_cn` = '平' WHERE `authors`.`id` = 163;
+UPDATE `authors` SET `author_lname_th` = 'เหลียง' WHERE `authors`.`id` = 163;
+UPDATE `authors` SET `author_lname_cn` = '良' WHERE `authors`.`id` = 163;
+
+UPDATE `authors` SET `author_fname_th` = 'วิภาวี' WHERE `authors`.`id` = 164;
+UPDATE `authors` SET `author_fname_cn` = '威帕薇' WHERE `authors`.`id` = 164;
+UPDATE `authors` SET `author_lname_th` = 'ศรีสวัสดิ์' WHERE `authors`.`id` = 164;
+UPDATE `authors` SET `author_lname_cn` = '斯里萨瓦' WHERE `authors`.`id` = 164;
+
+UPDATE `authors` SET `author_fname_th` = 'เจษฎา' WHERE `authors`.`id` = 165;
+UPDATE `authors` SET `author_fname_cn` = '杰萨达' WHERE `authors`.`id` = 165;
+UPDATE `authors` SET `author_lname_th` = 'พรแก้ว' WHERE `authors`.`id` = 165;
+UPDATE `authors` SET `author_lname_cn` = '蓬盖乌' WHERE `authors`.`id` = 165;
+
+UPDATE `authors` SET `author_fname_th` = 'ชัยนันท์' WHERE `authors`.`id` = 166;
+UPDATE `authors` SET `author_fname_cn` = '柴亚南' WHERE `authors`.`id` = 166;
+UPDATE `authors` SET `author_lname_th` = 'สมพงษ์' WHERE `authors`.`id` = 166;
+UPDATE `authors` SET `author_lname_cn` = '颂蓬' WHERE `authors`.`id` = 166;
+
+UPDATE `authors` SET `author_fname_th` = 'โบโร กิชอร์' WHERE `authors`.`id` = 167;
+UPDATE `authors` SET `author_fname_cn` = '布罗若·基索尔' WHERE `authors`.`id` = 167;
+UPDATE `authors` SET `author_lname_th` = 'มิชรา' WHERE `authors`.`id` = 167;
+UPDATE `authors` SET `author_lname_cn` = '米什拉' WHERE `authors`.`id` = 167;
+
+UPDATE `authors` SET `author_fname_th` = 'เฉิงหลง' WHERE `authors`.`id` = 168;
+UPDATE `authors` SET `author_fname_cn` = '盛龙' WHERE `authors`.`id` = 168;
+UPDATE `authors` SET `author_lname_th` = 'เผิง' WHERE `authors`.`id` = 168;
+UPDATE `authors` SET `author_lname_cn` = '彭' WHERE `authors`.`id` = 168;
+
+UPDATE `authors` SET `author_fname_th` = 'พิทยา' WHERE `authors`.`id` = 169;
+UPDATE `authors` SET `author_fname_cn` = '皮塔亚' WHERE `authors`.`id` = 169;
+UPDATE `authors` SET `author_lname_th` = 'หัดชุม' WHERE `authors`.`id` = 169;
+UPDATE `authors` SET `author_lname_cn` = '哈楚姆' WHERE `authors`.`id` = 169;
+
+UPDATE `authors` SET `author_fname_th` = 'ตรีรัตน์' WHERE `authors`.`id` = 170;
+UPDATE `authors` SET `author_fname_cn` = '特里叻' WHERE `authors`.`id` = 170;
+UPDATE `authors` SET `author_lname_th` = 'เสริมทรัพย์' WHERE `authors`.`id` = 170;
+UPDATE `authors` SET `author_lname_cn` = '苏姆萨普' WHERE `authors`.`id` = 170;
+
+UPDATE `authors` SET `author_fname_th` = 'วิชัย' WHERE `authors`.`id` = 171;
+UPDATE `authors` SET `author_fname_cn` = '威猜' WHERE `authors`.`id` = 171;
+UPDATE `authors` SET `author_lname_th` = 'สถิมัย' WHERE `authors`.`id` = 171;
+UPDATE `authors` SET `author_lname_cn` = '萨提迈' WHERE `authors`.`id` = 171;
+
+UPDATE `authors` SET `author_fname_th` = 'เจษฎา' WHERE `authors`.`id` = 172;
+UPDATE `authors` SET `author_fname_cn` = '杰萨达' WHERE `authors`.`id` = 172;
+UPDATE `authors` SET `author_lname_th` = 'พลแก้ว' WHERE `authors`.`id` = 172;
+UPDATE `authors` SET `author_lname_cn` = '蓬盖乌' WHERE `authors`.`id` = 172;
+
+UPDATE `authors` SET `author_fname_th` = 'ทรงพล' WHERE `authors`.`id` = 173;
+UPDATE `authors` SET `author_fname_cn` = '松蓬' WHERE `authors`.`id` = 173;
+UPDATE `authors` SET `author_lname_th` = 'สุพิมพ์รด' WHERE `authors`.`id` = 173;
+UPDATE `authors` SET `author_lname_cn` = '苏拼洛' WHERE `authors`.`id` = 173;
+
+UPDATE `authors` SET `author_fname_th` = 'ทรงพล' WHERE `authors`.`id` = 174;
+UPDATE `authors` SET `author_fname_cn` = '松蓬' WHERE `authors`.`id` = 174;
+UPDATE `authors` SET `author_lname_th` = 'ภัคภูมิ' WHERE `authors`.`id` = 174;
+UPDATE `authors` SET `author_lname_cn` = '帕普姆' WHERE `authors`.`id` = 174;
+
+UPDATE `authors` SET `author_fname_th` = 'ชิดชนก' WHERE `authors`.`id` = 175;
+UPDATE `authors` SET `author_fname_cn` = '奇察诺' WHERE `authors`.`id` = 175;
+UPDATE `authors` SET `author_lname_th` = 'เลิศสินทรัพย์' WHERE `authors`.`id` = 175;
+UPDATE `authors` SET `author_lname_cn` = '乐信萨普' WHERE `authors`.`id` = 175;
+
+UPDATE `authors` SET `author_fname_th` = 'ภัคภูมิ' WHERE `authors`.`id` = 176;
+UPDATE `authors` SET `author_fname_cn` = '帕普姆' WHERE `authors`.`id` = 176;
+UPDATE `authors` SET `author_lname_th` = 'ไคลบูลย์' WHERE `authors`.`id` = 176;
+UPDATE `authors` SET `author_lname_cn` = '克莱本' WHERE `authors`.`id` = 176;
+
+UPDATE `authors` SET `author_fname_th` = 'ฐาปนี' WHERE `authors`.`id` = 177;
+UPDATE `authors` SET `author_fname_cn` = '塔帕妮' WHERE `authors`.`id` = 177;
+UPDATE `authors` SET `author_lname_th` = 'สีหพจน์' WHERE `authors`.`id` = 177;
+UPDATE `authors` SET `author_lname_cn` = '西哈波奇' WHERE `authors`.`id` = 177;
+
+UPDATE `authors` SET `author_fname_th` = 'V.' WHERE `authors`.`id` = 178;
+UPDATE `authors` SET `author_fname_cn` = 'V.' WHERE `authors`.`id` = 178;
+UPDATE `authors` SET `author_lname_th` = 'ทางวราพงศ์ชัย' WHERE `authors`.`id` = 178;
+UPDATE `authors` SET `author_lname_cn` = '唐沃拉蓬猜' WHERE `authors`.`id` = 178;
+
+UPDATE `authors` SET `author_fname_th` = 'สมชาย' WHERE `authors`.`id` = 179;
+UPDATE `authors` SET `author_fname_cn` = '颂柴' WHERE `authors`.`id` = 179;
+UPDATE `authors` SET `author_lname_th` = 'จำปาทอง' WHERE `authors`.`id` = 179;
+UPDATE `authors` SET `author_lname_cn` = '占巴通' WHERE `authors`.`id` = 179;
+
+UPDATE `authors` SET `author_fname_th` = 'C.' WHERE `authors`.`id` = 180;
+UPDATE `authors` SET `author_fname_cn` = 'C.' WHERE `authors`.`id` = 180;
+UPDATE `authors` SET `author_lname_th` = 'เลิศสินทรัพย์' WHERE `authors`.`id` = 180;
+UPDATE `authors` SET `author_lname_cn` = '乐信萨普' WHERE `authors`.`id` = 180;
+
+UPDATE `authors` SET `author_fname_th` = 'R.' WHERE `authors`.`id` = 181;
+UPDATE `authors` SET `author_fname_cn` = 'R.' WHERE `authors`.`id` = 181;
+UPDATE `authors` SET `author_lname_th` = 'สทานันท์' WHERE `authors`.`id` = 181;
+UPDATE `authors` SET `author_lname_cn` = '萨达南达' WHERE `authors`.`id` = 181;
+
+UPDATE `authors` SET `author_fname_th` = 'P.' WHERE `authors`.`id` = 182;
+UPDATE `authors` SET `author_fname_cn` = 'P.' WHERE `authors`.`id` = 182;
+UPDATE `authors` SET `author_lname_th` = 'กรมนวรรณศิลป์' WHERE `authors`.`id` = 182;
+UPDATE `authors` SET `author_lname_cn` = '甘暖西拉帕' WHERE `authors`.`id` = 182;
+
+UPDATE `authors` SET `author_fname_th` = 'J.' WHERE `authors`.`id` = 183;
+UPDATE `authors` SET `author_fname_cn` = 'J.' WHERE `authors`.`id` = 183;
+UPDATE `authors` SET `author_lname_th` = 'ไบรอันต์' WHERE `authors`.`id` = 183;
+UPDATE `authors` SET `author_lname_cn` = '布莱恩特' WHERE `authors`.`id` = 183;
+
+UPDATE `authors` SET `author_fname_th` = 'A.' WHERE `authors`.`id` = 184;
+UPDATE `authors` SET `author_fname_cn` = 'A.' WHERE `authors`.`id` = 184;
+UPDATE `authors` SET `author_lname_th` = 'พรหมโม' WHERE `authors`.`id` = 184;
+UPDATE `authors` SET `author_lname_cn` = '普隆莫' WHERE `authors`.`id` = 184;
+
+UPDATE `authors` SET `author_fname_th` = 'ฟลอเรนตินา ยูนิ' WHERE `authors`.`id` = 185;
+UPDATE `authors` SET `author_fname_cn` = '弗洛伦蒂娜 尤妮' WHERE `authors`.`id` = 185;
+UPDATE `authors` SET `author_lname_th` = 'อารินี' WHERE `authors`.`id` = 185;
+UPDATE `authors` SET `author_lname_cn` = '阿莉妮' WHERE `authors`.`id` = 185;
+
+UPDATE `authors` SET `author_fname_th` = 'วิโรจน์' WHERE `authors`.`id` = 186;
+UPDATE `authors` SET `author_fname_cn` = '威洛' WHERE `authors`.`id` = 186;
+UPDATE `authors` SET `author_lname_th` = 'อภินันทนากร' WHERE `authors`.`id` = 186;
+UPDATE `authors` SET `author_lname_cn` = '阿皮南塔那空' WHERE `authors`.`id` = 186;
+
+UPDATE `authors` SET `author_fname_th` = 'ศุภลิน' WHERE `authors`.`id` = 187;
+UPDATE `authors` SET `author_fname_cn` = '苏派琳' WHERE `authors`.`id` = 187;
+UPDATE `authors` SET `author_lname_th` = 'พิชัย' WHERE `authors`.`id` = 187;
+UPDATE `authors` SET `author_lname_cn` = '皮猜' WHERE `authors`.`id` = 187;
+
+UPDATE `authors` SET `author_fname_th` = 'กวลี' WHERE `authors`.`id` = 188;
+UPDATE `authors` SET `author_fname_cn` = '嘎瓦莉' WHERE `authors`.`id` = 188;
+UPDATE `authors` SET `author_lname_th` = 'ภไท' WHERE `authors`.`id` = 188;
+UPDATE `authors` SET `author_lname_cn` = '帕泰' WHERE `authors`.`id` = 188;
+
+UPDATE `authors` SET `author_fname_th` = 'นิติธร' WHERE `authors`.`id` = 189;
+UPDATE `authors` SET `author_fname_cn` = '尼提' WHERE `authors`.`id` = 189;
+UPDATE `authors` SET `author_lname_th` = 'วังโน' WHERE `authors`.`id` = 189;
+UPDATE `authors` SET `author_lname_cn` = '王诺' WHERE `authors`.`id` = 189;
+
+UPDATE `authors` SET `author_fname_th` = 'นิโพธิพัฒน์' WHERE `authors`.`id` = 190;
+UPDATE `authors` SET `author_fname_cn` = '尼波提帕' WHERE `authors`.`id` = 190;
+UPDATE `authors` SET `author_lname_th` = 'เมืองกษัตริย์' WHERE `authors`.`id` = 190;
+UPDATE `authors` SET `author_lname_cn` = '芒科特' WHERE `authors`.`id` = 190;
+
+UPDATE `authors` SET `author_fname_th` = 'ศิริลักษณ์' WHERE `authors`.`id` = 191;
+UPDATE `authors` SET `author_fname_cn` = '西里拉' WHERE `authors`.`id` = 191;
+UPDATE `authors` SET `author_lname_th` = 'ไกวินิตย์' WHERE `authors`.`id` = 191;
+UPDATE `authors` SET `author_lname_cn` = '凯维尼' WHERE `authors`.`id` = 191;
+
+UPDATE `authors` SET `author_fname_th` = 'พัชรา' WHERE `authors`.`id` = 192;
+UPDATE `authors` SET `author_fname_cn` = '帕查拉' WHERE `authors`.`id` = 192;
+UPDATE `authors` SET `author_lname_th` = 'นาสา-เงื้อม' WHERE `authors`.`id` = 192;
+UPDATE `authors` SET `author_lname_cn` = '纳萨-恩久姆' WHERE `authors`.`id` = 192;
+
+UPDATE `authors` SET `author_fname_th` = 'ณัฐริยา' WHERE `authors`.`id` = 193;
+UPDATE `authors` SET `author_fname_cn` = '娜塔丽雅' WHERE `authors`.`id` = 193;
+UPDATE `authors` SET `author_lname_th` = 'เล้าประชา' WHERE `authors`.`id` = 193;
+UPDATE `authors` SET `author_lname_cn` = '老巴差' WHERE `authors`.`id` = 193;
+
+UPDATE `authors` SET `author_fname_th` = 'ชุดาภา' WHERE `authors`.`id` = 194;
+UPDATE `authors` SET `author_fname_cn` = '朱达帕' WHERE `authors`.`id` = 194;
+UPDATE `authors` SET `author_lname_th` = 'ธรรมสาคร' WHERE `authors`.`id` = 194;
+UPDATE `authors` SET `author_lname_cn` = '塔玛萨功' WHERE `authors`.`id` = 194;
+
+UPDATE `authors` SET `author_fname_th` = 'ธนัชพงศ์' WHERE `authors`.`id` = 195;
+UPDATE `authors` SET `author_fname_cn` = '塔纳查蓬' WHERE `authors`.`id` = 195;
+UPDATE `authors` SET `author_lname_th` = 'วังจำหาญ' WHERE `authors`.`id` = 195;
+UPDATE `authors` SET `author_lname_cn` = '王占汉' WHERE `authors`.`id` = 195;
+
+UPDATE `authors` SET `author_fname_th` = 'ณัฐจารี' WHERE `authors`.`id` = 196;
+UPDATE `authors` SET `author_fname_cn` = '娜查丽' WHERE `authors`.`id` = 196;
+UPDATE `authors` SET `author_lname_th` = 'วิเชียรนิตย์' WHERE `authors`.`id` = 196;
+UPDATE `authors` SET `author_lname_cn` = '威坚尼' WHERE `authors`.`id` = 196;
+
+UPDATE `authors` SET `author_fname_th` = 'บุญชัย' WHERE `authors`.`id` = 197;
+UPDATE `authors` SET `author_fname_cn` = '本柴' WHERE `authors`.`id` = 197;
+UPDATE `authors` SET `author_lname_th` = 'เลาชัยสะ' WHERE `authors`.`id` = 197;
+UPDATE `authors` SET `author_lname_cn` = '楼猜萨' WHERE `authors`.`id` = 197;
+
+UPDATE `authors` SET `author_fname_th` = 'บุญญารินทร์' WHERE `authors`.`id` = 198;
+UPDATE `authors` SET `author_fname_cn` = '本雅琳' WHERE `authors`.`id` = 198;
+UPDATE `authors` SET `author_lname_th` = 'อ่อนนุ่ม' WHERE `authors`.`id` = 198;
+UPDATE `authors` SET `author_lname_cn` = '温暖' WHERE `authors`.`id` = 198;
+
+UPDATE `authors` SET `author_fname_th` = 'อำนาจ' WHERE `authors`.`id` = 199;
+UPDATE `authors` SET `author_fname_cn` = '阿姆纳特' WHERE `authors`.`id` = 199;
+UPDATE `authors` SET `author_lname_th` = 'รัตนาม่วง' WHERE `authors`.`id` = 199;
+UPDATE `authors` SET `author_lname_cn` = '拉特纳穆昂' WHERE `authors`.`id` = 199;
+
+UPDATE `authors` SET `author_fname_th` = 'พฤกษ์' WHERE `authors`.`id` = 200;
+UPDATE `authors` SET `author_fname_cn` = '普鲁克' WHERE `authors`.`id` = 200;
+UPDATE `authors` SET `author_lname_th` = 'สุขศิริ' WHERE `authors`.`id` = 200;
+UPDATE `authors` SET `author_lname_cn` = '素克西里' WHERE `authors`.`id` = 200;
+
+UPDATE `authors` SET `author_fname_th` = 'จินตหรา' WHERE `authors`.`id` = 201;
+UPDATE `authors` SET `author_fname_cn` = '金塔拉' WHERE `authors`.`id` = 201;
+UPDATE `authors` SET `author_lname_th` = 'ดลลาวรรณ' WHERE `authors`.`id` = 201;
+UPDATE `authors` SET `author_lname_cn` = '多拉温' WHERE `authors`.`id` = 201;
+
+UPDATE `authors` SET `author_fname_th` = 'ยุพดี' WHERE `authors`.`id` = 202;
+UPDATE `authors` SET `author_fname_cn` = '尤帕迪' WHERE `authors`.`id` = 202;
+UPDATE `authors` SET `author_lname_th` = 'ศิบุปิ่นปา' WHERE `authors`.`id` = 202;
+UPDATE `authors` SET `author_lname_cn` = '西布品帕' WHERE `authors`.`id` = 202;
+
+UPDATE `authors` SET `author_fname_th` = 'ธนธาน' WHERE `authors`.`id` = 203;
+UPDATE `authors` SET `author_fname_cn` = '通坦' WHERE `authors`.`id` = 203;
+UPDATE `authors` SET `author_lname_th` = 'ชัยปราณิตัน' WHERE `authors`.`id` = 203;
+UPDATE `authors` SET `author_lname_cn` = '柴帕尼坦' WHERE `authors`.`id` = 203;
+
+UPDATE `authors` SET `author_fname_th` = 'พีระ' WHERE `authors`.`id` = 204;
+UPDATE `authors` SET `author_fname_cn` = '皮拉' WHERE `authors`.`id` = 204;
+UPDATE `authors` SET `author_lname_th` = 'เจริญไทย' WHERE `authors`.`id` = 204;
+UPDATE `authors` SET `author_lname_cn` = '嘉荣泰' WHERE `authors`.`id` = 204;
+
+UPDATE `authors` SET `author_fname_th` = 'พัฒนาพงษ์' WHERE `authors`.`id` = 205;
+UPDATE `authors` SET `author_fname_cn` = '帕塔纳蓬' WHERE `authors`.`id` = 205;
+UPDATE `authors` SET `author_lname_th` = 'โภคปัสสา' WHERE `authors`.`id` = 205;
+UPDATE `authors` SET `author_lname_cn` = '波克帕萨' WHERE `authors`.`id` = 205;
+
+UPDATE `authors` SET `author_fname_th` = 'กษมา' WHERE `authors`.`id` = 206;
+UPDATE `authors` SET `author_fname_cn` = '卡萨玛' WHERE `authors`.`id` = 206;
+UPDATE `authors` SET `author_lname_th` = 'ดอกดวง' WHERE `authors`.`id` = 206;
+UPDATE `authors` SET `author_lname_cn` = '朵克杜昂' WHERE `authors`.`id` = 206;
+
+UPDATE `authors` SET `author_fname_th` = 'วรชัย' WHERE `authors`.`id` = 207;
+UPDATE `authors` SET `author_fname_cn` = '沃拉猜' WHERE `authors`.`id` = 207;
+UPDATE `authors` SET `author_lname_th` = 'ทางวราพงศ์ชัย' WHERE `authors`.`id` = 207;
+UPDATE `authors` SET `author_lname_cn` = '唐沃拉蓬猜' WHERE `authors`.`id` = 207;
+
+UPDATE `authors` SET `author_fname_th` = 'กาญจนา' WHERE `authors`.`id` = 208;
+UPDATE `authors` SET `author_fname_cn` = '甘佳娜' WHERE `authors`.`id` = 208;
+UPDATE `authors` SET `author_lname_th` = 'ชาญศิริไพศาล' WHERE `authors`.`id` = 208;
+UPDATE `authors` SET `author_lname_cn` = '查安西里帕伊山' WHERE `authors`.`id` = 208;
+
+UPDATE `authors` SET `author_fname_th` = 'ปนิดา' WHERE `authors`.`id` = 209;
+UPDATE `authors` SET `author_fname_cn` = '帕妮达' WHERE `authors`.`id` = 209;
+UPDATE `authors` SET `author_lname_th` = 'ปฎุงเเวง' WHERE `authors`.`id` = 209;
+UPDATE `authors` SET `author_lname_cn` = '帕杜恩旺' WHERE `authors`.`id` = 209;
+
+UPDATE `authors` SET `author_fname_th` = 'สาธิต' WHERE `authors`.`id` = 210;
+UPDATE `authors` SET `author_fname_cn` = '萨提特' WHERE `authors`.`id` = 210;
+UPDATE `authors` SET `author_lname_th` = 'ประสมพาน' WHERE `authors`.`id` = 210;
+UPDATE `authors` SET `author_lname_cn` = '帕拉索姆潘' WHERE `authors`.`id` = 210;
+
+UPDATE `authors` SET `author_fname_th` = 'ชี้หงส์' WHERE `authors`.`id` = 211;
+UPDATE `authors` SET `author_fname_cn` = '奇洪' WHERE `authors`.`id` = 211;
+UPDATE `authors` SET `author_lname_th` = 'เฮนรี๋ ชู' WHERE `authors`.`id` = 211;
+UPDATE `authors` SET `author_lname_cn` = '亨利朱' WHERE `authors`.`id` = 211;
+
+UPDATE `authors` SET `author_fname_th` = 'อนันต์' WHERE `authors`.`id` = 212;
+UPDATE `authors` SET `author_fname_cn` = '阿南' WHERE `authors`.`id` = 212;
+UPDATE `authors` SET `author_lname_th` = 'นิยม' WHERE `authors`.`id` = 212;
+UPDATE `authors` SET `author_lname_cn` = '尼永' WHERE `authors`.`id` = 212;
+
+UPDATE `authors` SET `author_fname_th` = 'พนม' WHERE `authors`.`id` = 213;
+UPDATE `authors` SET `author_fname_cn` = '帕诺姆' WHERE `authors`.`id` = 213;
+UPDATE `authors` SET `author_lname_th` = 'เพชรจตุพร' WHERE `authors`.`id` = 213;
+UPDATE `authors` SET `author_lname_cn` = '佩猜朱彭' WHERE `authors`.`id` = 213;
+
+UPDATE `authors` SET `author_fname_th` = 'พินโย' WHERE `authors`.`id` = 214;
+UPDATE `authors` SET `author_fname_cn` = '平诺' WHERE `authors`.`id` = 214;
+UPDATE `authors` SET `author_lname_th` = 'วิจารณ์โชติ' WHERE `authors`.`id` = 214;
+UPDATE `authors` SET `author_lname_cn` = '维加兰佐提' WHERE `authors`.`id` = 214;
+
+UPDATE `authors` SET `author_fname_th` = 'นพดล' WHERE `authors`.`id` = 215;
+UPDATE `authors` SET `author_fname_cn` = '诺帕敦' WHERE `authors`.`id` = 215;
+UPDATE `authors` SET `author_lname_th` = 'แขฮินตัง' WHERE `authors`.`id` = 215;
+UPDATE `authors` SET `author_lname_cn` = '凯欣通' WHERE `authors`.`id` = 215;
+
+UPDATE `authors` SET `author_fname_th` = 'วิวัฒน์' WHERE `authors`.`id` = 216;
+UPDATE `authors` SET `author_fname_cn` = '维瓦特' WHERE `authors`.`id` = 216;
+UPDATE `authors` SET `author_lname_th` = 'กิรานนท์' WHERE `authors`.`id` = 216;
+UPDATE `authors` SET `author_lname_cn` = '基拉农' WHERE `authors`.`id` = 216;
+
+UPDATE `authors` SET `author_fname_th` = 'C. H.H.' WHERE `authors`.`id` = 217;
+UPDATE `authors` SET `author_fname_cn` = 'C. H.H.' WHERE `authors`.`id` = 217;
+UPDATE `authors` SET `author_lname_th` = 'ชู' WHERE `authors`.`id` = 217;
+UPDATE `authors` SET `author_lname_cn` = '朱' WHERE `authors`.`id` = 217;
+
+UPDATE `authors` SET `author_fname_th` = 'โจเอล อลัน' WHERE `authors`.`id` = 218;
+UPDATE `authors` SET `author_fname_cn` = '乔尔·艾伦' WHERE `authors`.`id` = 218;
+UPDATE `authors` SET `author_lname_th` = 'คินมอนด์' WHERE `authors`.`id` = 218;
+UPDATE `authors` SET `author_lname_cn` = '金蒙德' WHERE `authors`.`id` = 218;
+
+UPDATE `authors` SET `author_fname_th` = 'ปนิดา' WHERE `authors`.`id` = 219;
+UPDATE `authors` SET `author_fname_cn` = '帕妮达' WHERE `authors`.`id` = 219;
+UPDATE `authors` SET `author_lname_th` = 'ทรงรัมย์' WHERE `authors`.`id` = 219;
+UPDATE `authors` SET `author_lname_cn` = '松鲁姆' WHERE `authors`.`id` = 219;
+
+UPDATE `authors` SET `author_fname_th` = 'ระพีพร' WHERE `authors`.`id` = 220;
+UPDATE `authors` SET `author_fname_cn` = '拉披蓬' WHERE `authors`.`id` = 220;
+UPDATE `authors` SET `author_lname_th` = 'ฉำฉ่อง' WHERE `authors`.`id` = 220;
+UPDATE `authors` SET `author_lname_cn` = '占冲' WHERE `authors`.`id` = 220;
+
+UPDATE `authors` SET `author_fname_th` = 'บรรจาร์' WHERE `authors`.`id` = 221;
+UPDATE `authors` SET `author_fname_cn` = '班查' WHERE `authors`.`id` = 221;
+UPDATE `authors` SET `author_lname_th` = 'อานนท์กิจพานิช' WHERE `authors`.`id` = 221;
+UPDATE `authors` SET `author_lname_cn` = '阿侬吉巴尼' WHERE `authors`.`id` = 221;
+
+UPDATE `authors` SET `author_fname_th` = 'สรยุทธ' WHERE `authors`.`id` = 222;
+UPDATE `authors` SET `author_fname_cn` = '萨拉育特' WHERE `authors`.`id` = 222;
+UPDATE `authors` SET `author_lname_th` = 'พูลแสงงวน' WHERE `authors`.`id` = 222;
+UPDATE `authors` SET `author_lname_cn` = '普兰萨瓜恩' WHERE `authors`.`id` = 222;
+
+UPDATE `authors` SET `author_fname_th` = 'แจน เอ็น.' WHERE `authors`.`id` = 223;
+UPDATE `authors` SET `author_fname_cn` = '简·N' WHERE `authors`.`id` = 223;
+UPDATE `authors` SET `author_lname_th` = 'ฟาน ไรน์' WHERE `authors`.`id` = 223;
+UPDATE `authors` SET `author_lname_cn` = '范·赖因' WHERE `authors`.`id` = 223;
+
+UPDATE `authors` SET `author_fname_th` = 'มาร์เชลโล เอ็ม.' WHERE `authors`.`id` = 224;
+UPDATE `authors` SET `author_fname_cn` = '马切罗·M' WHERE `authors`.`id` = 224;
+UPDATE `authors` SET `author_lname_th` = 'บอนซานเก้' WHERE `authors`.`id` = 224;
+UPDATE `authors` SET `author_lname_cn` = '邦桑格' WHERE `authors`.`id` = 224;
+
+UPDATE `authors` SET `author_fname_th` = 'วรภัทร' WHERE `authors`.`id` = 225;
+UPDATE `authors` SET `author_fname_cn` = '沃拉帕特' WHERE `authors`.`id` = 225;
+UPDATE `authors` SET `author_lname_th` = 'สิริบุญพิพัฒนะ' WHERE `authors`.`id` = 225;
+UPDATE `authors` SET `author_lname_cn` = '西里汶皮帕塔纳' WHERE `authors`.`id` = 225;
+
+UPDATE `authors` SET `author_fname_th` = 'S.' WHERE `authors`.`id` = 476;
+UPDATE `authors` SET `author_fname_cn` = 'S.' WHERE `authors`.`id` = 476;
+UPDATE `authors` SET `author_lname_th` = 'รัตนเสริมพงศ์' WHERE `authors`.`id` = 476;
+UPDATE `authors` SET `author_lname_cn` = '拉塔纳色恩蓬' WHERE `authors`.`id` = 476;
+
+UPDATE `authors` SET `author_fname_th` = 'P.' WHERE `authors`.`id` = 477;
+UPDATE `authors` SET `author_fname_cn` = 'P.' WHERE `authors`.`id` = 477;
+UPDATE `authors` SET `author_lname_th` = 'จารุศิริ' WHERE `authors`.`id` = 477;
+UPDATE `authors` SET `author_lname_cn` = '查鲁西里' WHERE `authors`.`id` = 477;
+
+UPDATE `authors` SET `author_fname_th` = 'B.' WHERE `authors`.`id` = 478;
+UPDATE `authors` SET `author_fname_cn` = 'B.' WHERE `authors`.`id` = 478;
+UPDATE `authors` SET `author_lname_th` = 'จารุศิริ' WHERE `authors`.`id` = 478;
+UPDATE `authors` SET `author_lname_cn` = '查鲁西里' WHERE `authors`.`id` = 478;
+
+UPDATE `authors` SET `author_fname_th` = 'W.' WHERE `authors`.`id` = 479;
+UPDATE `authors` SET `author_fname_cn` = 'W.' WHERE `authors`.`id` = 479;
+UPDATE `authors` SET `author_lname_th` = 'พงศ์สพิชญ์' WHERE `authors`.`id` = 479;
+UPDATE `authors` SET `author_lname_cn` = '蓬萨皮' WHERE `authors`.`id` = 479;
+
+UPDATE `authors` SET `author_fname_th` = 'K.' WHERE `authors`.`id` = 480;
+UPDATE `authors` SET `author_fname_cn` = 'K.' WHERE `authors`.`id` = 480;
+UPDATE `authors` SET `author_lname_th` = 'บรอนส์เวลด์' WHERE `authors`.`id` = 480;
+UPDATE `authors` SET `author_lname_cn` = '布龙斯费尔德' WHERE `authors`.`id` = 480;
+
+UPDATE `authors` SET `author_fname_th` = 'S.' WHERE `authors`.`id` = 481;
+UPDATE `authors` SET `author_fname_cn` = 'S.' WHERE `authors`.`id` = 481;
+UPDATE `authors` SET `author_lname_th` = 'ชุติรัตนพรรณ' WHERE `authors`.`id` = 481;
+UPDATE `authors` SET `author_lname_cn` = '朱提拉塔那攀' WHERE `authors`.`id` = 481;
+
+UPDATE `authors` SET `author_fname_th` = 'B.' WHERE `authors`.`id` = 482;
+UPDATE `authors` SET `author_fname_cn` = 'B.' WHERE `authors`.`id` = 482;
+UPDATE `authors` SET `author_lname_th` = 'พัฒนานคร' WHERE `authors`.`id` = 482;
+UPDATE `authors` SET `author_lname_cn` = '帕塔纳那空' WHERE `authors`.`id` = 482;
+
+UPDATE `authors` SET `author_fname_th` = 'P.' WHERE `authors`.`id` = 483;
+UPDATE `authors` SET `author_fname_cn` = 'P.' WHERE `authors`.`id` = 483;
+UPDATE `authors` SET `author_lname_th` = 'ตระกูลดิษฐ์' WHERE `authors`.`id` = 483;
+UPDATE `authors` SET `author_lname_cn` = '特拉库迪' WHERE `authors`.`id` = 483;
+
+UPDATE `authors` SET `author_fname_th` = 'วิวัฒน์' WHERE `authors`.`id` = 484;
+UPDATE `authors` SET `author_fname_cn` = '维瓦特' WHERE `authors`.`id` = 484;
+UPDATE `authors` SET `author_lname_th` = 'วัฒนาวุฒิ' WHERE `authors`.`id` = 484;
+UPDATE `authors` SET `author_lname_cn` = '瓦塔纳乌' WHERE `authors`.`id` = 484;
+
+UPDATE `authors` SET `author_fname_th` = 'วรวิทย์' WHERE `authors`.`id` = 485;
+UPDATE `authors` SET `author_fname_cn` = '沃拉维特' WHERE `authors`.`id` = 485;
+UPDATE `authors` SET `author_lname_th` = 'พูลสวัสดิ์' WHERE `authors`.`id` = 485;
+UPDATE `authors` SET `author_lname_cn` = '普萨瓦斯迪' WHERE `authors`.`id` = 485;
+
+UPDATE `authors` SET `author_fname_th` = 'อาทิตย์' WHERE `authors`.`id` = 486;
+UPDATE `authors` SET `author_fname_cn` = '阿提特' WHERE `authors`.`id` = 486;
+UPDATE `authors` SET `author_lname_th` = 'ทองทัก' WHERE `authors`.`id` = 486;
+UPDATE `authors` SET `author_lname_cn` = '通塔克' WHERE `authors`.`id` = 486;
+
+UPDATE `authors` SET `author_fname_th` = 'W.' WHERE `authors`.`id` = 487;
+UPDATE `authors` SET `author_fname_cn` = 'W.' WHERE `authors`.`id` = 487;
+UPDATE `authors` SET `author_lname_th` = 'วัฒนาวุฒิ' WHERE `authors`.`id` = 487;
+UPDATE `authors` SET `author_lname_cn` = '瓦塔纳乌' WHERE `authors`.`id` = 487;
+
+UPDATE `authors` SET `author_fname_th` = 'A.' WHERE `authors`.`id` = 488;
+UPDATE `authors` SET `author_fname_cn` = 'A.' WHERE `authors`.`id` = 488;
+UPDATE `authors` SET `author_lname_th` = 'ทองทัก' WHERE `authors`.`id` = 488;
+UPDATE `authors` SET `author_lname_cn` = '通塔克' WHERE `authors`.`id` = 488;
+
+UPDATE `authors` SET `author_fname_th` = 'ยาชัย' WHERE `authors`.`id` = 489;
+UPDATE `authors` SET `author_fname_cn` = '雅猜' WHERE `authors`.`id` = 489;
+UPDATE `authors` SET `author_lname_th` = 'ลิมปิยากร' WHERE `authors`.`id` = 489;
+UPDATE `authors` SET `author_lname_cn` = '林皮亚功' WHERE `authors`.`id` = 489;
+
+UPDATE `authors` SET `author_fname_th` = 'วาฮิดุลเลาะห์' WHERE `authors`.`id` = 490;
+UPDATE `authors` SET `author_fname_cn` = '瓦希杜拉' WHERE `authors`.`id` = 490;
+UPDATE `authors` SET `author_lname_th` = 'มูดาเซอร์' WHERE `authors`.`id` = 490;
+UPDATE `authors` SET `author_lname_cn` = '穆达塞尔' WHERE `authors`.`id` = 490;
+
+UPDATE `authors` SET `author_fname_th` = 'พรชัย' WHERE `authors`.`id` = 491;
+UPDATE `authors` SET `author_fname_cn` = '蓬猜' WHERE `authors`.`id` = 491;
+UPDATE `authors` SET `author_lname_th` = 'มงคลน้ำ' WHERE `authors`.`id` = 491;
+UPDATE `authors` SET `author_lname_cn` = '蒙空南' WHERE `authors`.`id` = 491;
+
+UPDATE `authors` SET `author_fname_th` = 'พัชราภรณ์' WHERE `authors`.`id` = 492;
+UPDATE `authors` SET `author_fname_cn` = '帕差拉蓬' WHERE `authors`.`id` = 492;
+UPDATE `authors` SET `author_lname_th` = 'ลวังนันทน์' WHERE `authors`.`id` = 492;
+UPDATE `authors` SET `author_lname_cn` = '拉旺那楠达' WHERE `authors`.`id` = 492;
+
+UPDATE `authors` SET `author_fname_th` = 'ฐิติยาภรณ์' WHERE `authors`.`id` = 493;
+UPDATE `authors` SET `author_fname_cn` = '提提亚蓬' WHERE `authors`.`id` = 493;
+UPDATE `authors` SET `author_lname_th` = 'วีระพงษ์' WHERE `authors`.`id` = 493;
+UPDATE `authors` SET `author_lname_cn` = '维拉蓬' WHERE `authors`.`id` = 493;
+
+UPDATE `authors` SET `author_fname_th` = 'สุนิสา' WHERE `authors`.`id` = 494;
+UPDATE `authors` SET `author_fname_cn` = '苏妮莎' WHERE `authors`.`id` = 494;
+UPDATE `authors` SET `author_lname_th` = 'สถาพรวชนะ' WHERE `authors`.`id` = 494;
+UPDATE `authors` SET `author_lname_cn` = '萨塔蓬瓦贾纳' WHERE `authors`.`id` = 494;
+
+UPDATE `authors` SET `author_fname_th` = 'วรารัตน์' WHERE `authors`.`id` = 495;
+UPDATE `authors` SET `author_fname_cn` = '沃拉叻' WHERE `authors`.`id` = 495;
+UPDATE `authors` SET `author_lname_th` = 'กระทู้' WHERE `authors`.`id` = 495;
+UPDATE `authors` SET `author_lname_cn` = '克拉图' WHERE `authors`.`id` = 495;
+
+UPDATE `authors` SET `author_fname_th` = 'ศักดิ์ชัย' WHERE `authors`.`id` = 496;
+UPDATE `authors` SET `author_fname_cn` = '萨克猜' WHERE `authors`.`id` = 496;
+UPDATE `authors` SET `author_lname_th` = 'เสมอบุตร' WHERE `authors`.`id` = 496;
+UPDATE `authors` SET `author_lname_cn` = '萨莫布特' WHERE `authors`.`id` = 496;
+
+UPDATE `authors` SET `author_fname_th` = 'อิษณเรศ' WHERE `authors`.`id` = 497;
+UPDATE `authors` SET `author_fname_cn` = '伊萨列' WHERE `authors`.`id` = 497;
+UPDATE `authors` SET `author_lname_th` = 'ประจิตรมุทิตา' WHERE `authors`.`id` = 497;
+UPDATE `authors` SET `author_lname_cn` = '布拉吉特穆提塔' WHERE `authors`.`id` = 497;
+
+UPDATE `authors` SET `author_fname_th` = 'โอลาน' WHERE `authors`.`id` = 498;
+UPDATE `authors` SET `author_fname_cn` = '奥兰' WHERE `authors`.`id` = 498;
+UPDATE `authors` SET `author_lname_th` = 'โรจนพรพรรณ' WHERE `authors`.`id` = 498;
+UPDATE `authors` SET `author_lname_cn` = '罗加那蓬攀' WHERE `authors`.`id` = 498;
+
+UPDATE `authors` SET `author_fname_th` = 'ปิยะพงษ์ ' WHERE `authors`.`id` = 499;
+UPDATE `authors` SET `author_fname_cn` = '皮亚蓬' WHERE `authors`.`id` = 499;
+UPDATE `authors` SET `author_lname_th` = 'หวยหงษ์ทอง' WHERE `authors`.`id` = 499;
+UPDATE `authors` SET `author_lname_cn` = '怀洪通' WHERE `authors`.`id` = 499;
+
+UPDATE `authors` SET `author_fname_th` = 'สิริยากร' WHERE `authors`.`id` = 500;
+UPDATE `authors` SET `author_fname_cn` = '西里亚功' WHERE `authors`.`id` = 500;
+UPDATE `authors` SET `author_lname_th` = 'ริศอุดมสุข' WHERE `authors`.`id` = 500;
+UPDATE `authors` SET `author_lname_cn` = '勒克乌苏克' WHERE `authors`.`id` = 500;
+
+UPDATE `authors` SET `author_fname_th` = 'ทรงวิทย์' WHERE `authors`.`id` = 501;
+UPDATE `authors` SET `author_fname_cn` = '颂威' WHERE `authors`.`id` = 501;
+UPDATE `authors` SET `author_lname_th` = 'บูรณ์ดี' WHERE `authors`.`id` = 501;
+UPDATE `authors` SET `author_lname_cn` = '布迪' WHERE `authors`.`id` = 501;
+
+UPDATE `authors` SET `author_fname_th` = 'กิตติพงษ์' WHERE `authors`.`id` = 502;
+UPDATE `authors` SET `author_fname_cn` = '吉迪蓬' WHERE `authors`.`id` = 502;
+UPDATE `authors` SET `author_lname_th` = 'วรทรัพย์' WHERE `authors`.`id` = 502;
+UPDATE `authors` SET `author_lname_cn` = '瓦拉萨普' WHERE `authors`.`id` = 502;
+
+UPDATE `authors` SET `author_fname_th` = 'ศุภวริช' WHERE `authors`.`id` = 503;
+UPDATE `authors` SET `author_fname_cn` = '苏帕瓦里奇' WHERE `authors`.`id` = 503;
+UPDATE `authors` SET `author_lname_th` = 'ธนรัตนนาคินทร์' WHERE `authors`.`id` = 503;
+UPDATE `authors` SET `author_lname_cn` = '塔纳叻塔那那金' WHERE `authors`.`id` = 503;
+
+UPDATE `authors` SET `author_fname_th` = 'วุฒิพงษ์' WHERE `authors`.`id` = 504;
+UPDATE `authors` SET `author_fname_cn` = '乌提蓬' WHERE `authors`.`id` = 504;
+UPDATE `authors` SET `author_lname_th` = 'คงบุราณ' WHERE `authors`.`id` = 504;
+UPDATE `authors` SET `author_lname_cn` = '孔布兰' WHERE `authors`.`id` = 504;
+
+UPDATE `authors` SET `author_fname_th` = 'โจนาธาน เอช.' WHERE `authors`.`id` = 505;
+UPDATE `authors` SET `author_fname_cn` = '乔纳森·H' WHERE `authors`.`id` = 505;
+UPDATE `authors` SET `author_lname_th` = 'จันทร์' WHERE `authors`.`id` = 505;
+UPDATE `authors` SET `author_lname_cn` = '陈' WHERE `authors`.`id` = 505;
+
+UPDATE `authors` SET `author_fname_th` = 'อมรพันธ์' WHERE `authors`.`id` = 506;
+UPDATE `authors` SET `author_fname_cn` = '阿蒙潘' WHERE `authors`.`id` = 506;
+UPDATE `authors` SET `author_lname_th` = 'พรชัยเจริญ' WHERE `authors`.`id` = 506;
+UPDATE `authors` SET `author_lname_cn` = '蓬猜查隆' WHERE `authors`.`id` = 506;
+
+UPDATE `authors` SET `author_fname_th` = 'อมรเทพ' WHERE `authors`.`id` = 507;
+UPDATE `authors` SET `author_fname_cn` = '阿蒙贴' WHERE `authors`.`id` = 507;
+UPDATE `authors` SET `author_lname_th` = 'วิจิตรเจริญ' WHERE `authors`.`id` = 507;
+UPDATE `authors` SET `author_lname_cn` = '威集查隆' WHERE `authors`.`id` = 507;
+
+UPDATE `authors` SET `author_fname_th` = 'สนิท' WHERE `authors`.`id` = 508;
+UPDATE `authors` SET `author_fname_cn` = '萨尼' WHERE `authors`.`id` = 508;
+UPDATE `authors` SET `author_lname_th` = 'สิริสวัสดิวัฒนา' WHERE `authors`.`id` = 508;
+UPDATE `authors` SET `author_lname_cn` = '西里萨瓦瓦塔那' WHERE `authors`.`id` = 508;
+
+UPDATE `authors` SET `author_fname_th` = 'บัณฑิต' WHERE `authors`.`id` = 509;
+UPDATE `authors` SET `author_fname_cn` = '本提' WHERE `authors`.`id` = 509;
+UPDATE `authors` SET `author_lname_th` = 'วัฒนปา' WHERE `authors`.`id` = 509;
+UPDATE `authors` SET `author_lname_cn` = '瓦塔那帕' WHERE `authors`.`id` = 509;
+
+UPDATE `authors` SET `author_fname_th` = 'เทวะโยติ' WHERE `authors`.`id` = 510;
+UPDATE `authors` SET `author_fname_cn` = '德巴乔提' WHERE `authors`.`id` = 510;
+UPDATE `authors` SET `author_lname_th` = 'ปาล' WHERE `authors`.`id` = 510;
+UPDATE `authors` SET `author_lname_cn` = '帕尔' WHERE `authors`.`id` = 510;
+
+UPDATE `authors` SET `author_fname_th` = 'ตูล' WHERE `authors`.`id` = 511;
+UPDATE `authors` SET `author_fname_cn` = '图尔' WHERE `authors`.`id` = 511;
+UPDATE `authors` SET `author_lname_th` = 'ตรียศร' WHERE `authors`.`id` = 511;
+UPDATE `authors` SET `author_lname_cn` = '特里亚颂' WHERE `authors`.`id` = 511;
+
+UPDATE `authors` SET `author_fname_th` = 'จิตราวดี' WHERE `authors`.`id` = 512;
+UPDATE `authors` SET `author_fname_cn` = '吉特拉瓦迪' WHERE `authors`.`id` = 512;
+UPDATE `authors` SET `author_lname_th` = 'ระพีพงศ์พันธุ์' WHERE `authors`.`id` = 512;
+UPDATE `authors` SET `author_lname_cn` = '拉皮蓬潘' WHERE `authors`.`id` = 512;
+
+UPDATE `authors` SET `author_fname_th` = 'กิตติชัย' WHERE `authors`.`id` = 513;
+UPDATE `authors` SET `author_fname_cn` = '吉迪猜' WHERE `authors`.`id` = 513;
+UPDATE `authors` SET `author_lname_th` = 'ลวะนันทน์' WHERE `authors`.`id` = 513;
+UPDATE `authors` SET `author_lname_cn` = '拉旺那南达' WHERE `authors`.`id` = 513;
+
+UPDATE `authors` SET `author_fname_th` = 'วัชรวิชญ์' WHERE `authors`.`id` = 514;
+UPDATE `authors` SET `author_fname_cn` = '瓦奇拉威' WHERE `authors`.`id` = 514;
+UPDATE `authors` SET `author_lname_th` = 'อิทธิณรมงคล' WHERE `authors`.`id` = 514;
+UPDATE `authors` SET `author_lname_cn` = '艾提农蒙空' WHERE `authors`.`id` = 514;
+
+UPDATE `authors` SET `author_fname_th` = 'นาซอเร็ต' WHERE `authors`.`id` = 515;
+UPDATE `authors` SET `author_fname_cn` = '纳索雷特' WHERE `authors`.`id` = 515;
+UPDATE `authors` SET `author_lname_th` = 'พจนสุขสกุล' WHERE `authors`.`id` = 515;
+UPDATE `authors` SET `author_lname_cn` = '波查那苏克萨库' WHERE `authors`.`id` = 515;
+
+UPDATE `authors` SET `author_fname_th` = 'มนตรี' WHERE `authors`.`id` = 516;
+UPDATE `authors` SET `author_fname_cn` = '蒙特里' WHERE `authors`.`id` = 516;
+UPDATE `authors` SET `author_lname_th` = 'สุพรรษธรรม' WHERE `authors`.`id` = 516;
+UPDATE `authors` SET `author_lname_cn` = '苏帕塔探' WHERE `authors`.`id` = 516;
+
+UPDATE `authors` SET `author_fname_th` = 'เรวุฒิ' WHERE `authors`.`id` = 517;
+UPDATE `authors` SET `author_fname_cn` = '雷乌特' WHERE `authors`.`id` = 517;
+UPDATE `authors` SET `author_lname_th` = 'เกตุสุวรรณ' WHERE `authors`.`id` = 517;
+UPDATE `authors` SET `author_lname_cn` = '格苏万' WHERE `authors`.`id` = 517;
+
+UPDATE `authors` SET `author_fname_th` = 'โจนาธาน' WHERE `authors`.`id` = 518;
+UPDATE `authors` SET `author_fname_cn` = '乔纳森' WHERE `authors`.`id` = 518;
+UPDATE `authors` SET `author_lname_th` = 'ชาญ' WHERE `authors`.`id` = 518;
+UPDATE `authors` SET `author_lname_cn` = '陳' WHERE `authors`.`id` = 518;
+
+UPDATE `authors` SET `author_fname_th` = 'ปัญจนะ' WHERE `authors`.`id` = 519;
+UPDATE `authors` SET `author_fname_cn` = '班查那' WHERE `authors`.`id` = 519;
+UPDATE `authors` SET `author_lname_th` = 'กกาบุตร' WHERE `authors`.`id` = 519;
+UPDATE `authors` SET `author_lname_cn` = '卡卡布特' WHERE `authors`.`id` = 519;
+
+UPDATE `authors` SET `author_fname_th` = 'กุลนันท์ แซ่' WHERE `authors`.`id` = 520;
+UPDATE `authors` SET `author_fname_cn` = '古兰南 姓' WHERE `authors`.`id` = 520;
+UPDATE `authors` SET `author_lname_th` = 'เฉิน' WHERE `authors`.`id` = 520;
+UPDATE `authors` SET `author_lname_cn` = '陈' WHERE `authors`.`id` = 520;
+
+UPDATE `authors` SET `author_fname_th` = 'วิวปะกา' WHERE `authors`.`id` = 521;
+UPDATE `authors` SET `author_fname_cn` = '维乌帕卡' WHERE `authors`.`id` = 521;
+UPDATE `authors` SET `author_lname_th` = 'วังวิสววิทย์' WHERE `authors`.`id` = 521;
+UPDATE `authors` SET `author_lname_cn` = '王维萨威' WHERE `authors`.`id` = 521;
+
+UPDATE `authors` SET `author_fname_th` = 'สุพัตรา' WHERE `authors`.`id` = 522;
+UPDATE `authors` SET `author_fname_cn` = '苏帕特拉' WHERE `authors`.`id` = 522;
+UPDATE `authors` SET `author_lname_th` = 'นิบูนกิต' WHERE `authors`.`id` = 522;
+UPDATE `authors` SET `author_lname_cn` = '尼布恩基特' WHERE `authors`.`id` = 522;
+
+UPDATE `authors` SET `author_fname_th` = 'A.' WHERE `authors`.`id` = 523;
+UPDATE `authors` SET `author_fname_cn` = 'A.' WHERE `authors`.`id` = 523;
+UPDATE `authors` SET `author_lname_th` = 'วิจิตรเจริญ' WHERE `authors`.`id` = 523;
+UPDATE `authors` SET `author_lname_cn` = '维吉特查伦' WHERE `authors`.`id` = 523;
+
+UPDATE `authors` SET `author_fname_th` = 'B.' WHERE `authors`.`id` = 524;
+UPDATE `authors` SET `author_fname_cn` = 'B.' WHERE `authors`.`id` = 524;
+UPDATE `authors` SET `author_lname_th` = 'วัฒนาพา' WHERE `authors`.`id` = 524;
+UPDATE `authors` SET `author_lname_cn` = '瓦塔那帕' WHERE `authors`.`id` = 524;
+
+UPDATE `authors` SET `author_fname_th` = 'W.' WHERE `authors`.`id` = 525;
+UPDATE `authors` SET `author_fname_cn` = 'W.' WHERE `authors`.`id` = 525;
+UPDATE `authors` SET `author_lname_th` = 'อนันตศักดิ์' WHERE `authors`.`id` = 525;
+UPDATE `authors` SET `author_lname_cn` = '阿南塔萨基特' WHERE `authors`.`id` = 525;
