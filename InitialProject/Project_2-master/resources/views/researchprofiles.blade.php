@@ -247,8 +247,8 @@
                         @foreach ($paper->author as $author)
                             <span>
                                 <a>
-                                    {{ app()->getLocale() == 'th' ? ($author->fname_th ?? $author->author_fname) : $author->author_fname }}
-                                    {{ app()->getLocale() == 'th' ? ($author->lname_th ?? $author->author_lname) : $author->author_lname }}
+                                    {{ app()->getLocale() == 'th' ? ($author->fname_th ?? $author->author_fname_en) : $author->author_fname_en }}
+                                    {{ app()->getLocale() == 'th' ? ($author->lname_th ?? $author->author_lname_en) : $author->author_lname_en }}
                                 </a>
                             </span>
                         @endforeach
