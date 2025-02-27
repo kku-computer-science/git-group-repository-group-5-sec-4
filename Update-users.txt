@@ -1,0 +1,132 @@
+UPDATE `users` SET `fname_en` = 'Phasin' WHERE `users`.`id` = 85;
+UPDATE `users` SET `lname_en` = 'MeritPromote' WHERE `users`.`id` = 85;
+UPDATE `users` SET `fname_cn` = '帕信' WHERE `users`.`id` = 85;
+UPDATE `users` SET `lname_cn` = '功德促进' WHERE `users`.`id` = 85;
+
+UPDATE `users` SET `fname_en` = 'Wasawat' WHERE `users`.`id` = 86;
+UPDATE `users` SET `lname_en` = 'Bueng Kanchana' WHERE `users`.`id` = 86;
+UPDATE `users` SET `fname_cn` = '瓦萨瓦特' WHERE `users`.`id` = 86;
+UPDATE `users` SET `lname_cn` = '池甘乍那' WHERE `users`.`id` = 86;
+
+UPDATE `users` SET `fname_en` = 'Nattapong' WHERE `users`.`id` = 87;
+UPDATE `users` SET `lname_en` = 'Wanichworanun' WHERE `users`.`id` = 87;
+UPDATE `users` SET `fname_cn` = '纳塔蓬' WHERE `users`.`id` = 87;
+UPDATE `users` SET `lname_cn` = '瓦尼乔瓦拉楠 ' WHERE `users`.`id` = 87;
+
+UPDATE `users` SET `fname_en` = 'SOPHA' WHERE `users`.`id` = 88;
+UPDATE `users` SET `lname_en` = 'KHOEURT' WHERE `users`.`id` = 88;
+UPDATE `users` SET `fname_th` = 'โสภา' WHERE `users`.`id` = 88;
+UPDATE `users` SET `lname_th` = 'คูร์ท' WHERE `users`.`id` = 88;
+UPDATE `users` SET `fname_cn` = '索法' WHERE `users`.`id` = 88;
+PDATE `users` SET `lname_cn` = '霍爾特' WHERE `users`.`id` = 88;
+
+UPDATE `users` SET `fname_en` = 'CHEN' WHERE `users`.`id` = 89;
+UPDATE `users` SET `lname_en` = 'SET KIM' WHERE `users`.`id` = 89;
+UPDATE `users` SET `fname_cn` = '陳' WHERE `users`.`id` = 89;
+UPDATE `users` SET `lname_cn` = '賽金' WHERE `users`.`id` = 89;
+UPDATE `users` SET `fname_th` = 'เฉิน' WHERE `users`.`id` = 89;
+UPDATE `users` SET `lname_th` = 'เซ็ตคิม' WHERE `users`.`id` = 89;
+
+UPDATE `users` SET `fname_en` = 'Panat' WHERE `users`.`id` = 90;
+UPDATE `users` SET `lname_en` = 'Srinakarin' WHERE `users`.`id` = 90;
+UPDATE `users` SET `fname_cn` = '潘纳特' WHERE `users`.`id` = 90;
+UPDATE `users` SET `lname_cn` = '斯里那卡林' WHERE `users`.`id` = 90;
+
+UPDATE `users` SET `fname_en` = 'Apichai' WHERE `users`.`id` = 91;
+UPDATE `users` SET `lname_en` = 'Srikunsan' WHERE `users`.`id` = 91;
+UPDATE `users` SET `fname_cn` = '阿比猜 ' WHERE `users`.`id` = 91;
+UPDATE `users` SET `lname_cn` = '斯里坤山' WHERE `users`.`id` = 91;
+
+UPDATE `users` SET `fname_en` = 'Phoppapop' WHERE `users`.`id` = 92;
+UPDATE `users` SET `lname_en` = 'Ujanaya' WHERE `users`.`id` = 92;
+UPDATE `users` SET `fname_cn` = '波帕波' WHERE `users`.`id` = 92;
+UPDATE `users` SET `lname_cn` = '余真雅' WHERE `users`.`id` = 92;
+
+UPDATE `users` SET `fname_en` = 'Kornvich' WHERE `users`.`id` = 93;
+UPDATE `users` SET `lname_en` = 'Fungfuang' WHERE `users`.`id` = 93;
+UPDATE `users` SET `fname_cn` = '康维奇' WHERE `users`.`id` = 93;
+UPDATE `users` SET `lname_cn` = '丰凤' WHERE `users`.`id` = 93;
+
+UPDATE `users` SET `fname_en` = 'Yutthaphong' WHERE `users`.`id` = 94;
+UPDATE `users` SET `lname_en` = 'Manasthiparom' WHERE `users`.`id` = 94;
+UPDATE `users` SET `fname_cn` = '余达彭' WHERE `users`.`id` = 94;
+UPDATE `users` SET `lname_cn` = '曼纳斯提帕罗姆' WHERE `users`.`id` = 94;
+
+UPDATE `users` SET `fname_en` = 'Yuparat' WHERE `users`.`id` = 95;
+UPDATE `users` SET `lname_en` = 'Noppakun Pothisawang' WHERE `users`.`id` = 95;
+UPDATE `users` SET `fname_cn` = '余帕兰' WHERE `users`.`id` = 95;
+UPDATE `users` SET `lname_cn` = '诺帕坤·波提萨旺' WHERE `users`.`id` = 95;
+
+UPDATE `users` SET `fname_en` = 'Yurachat' WHERE `users`.`id` = 96;
+UPDATE `users` SET `lname_en` = 'Methmutha' WHERE `users`.`id` = 96;
+UPDATE `users` SET `fname_cn` = '于拉查特' WHERE `users`.`id` = 96;
+UPDATE `users` SET `lname_cn` = '梅塔穆塔' WHERE `users`.`id` = 96;
+
+UPDATE `users` SET `fname_en` = 'Ratthaphon' WHERE `users`.`id` = 97;
+UPDATE `users` SET `lname_en` = 'Songwuantrakul' WHERE `users`.`id` = 97;
+UPDATE `users` SET `fname_cn` = '拉塔彭 ' WHERE `users`.`id` = 97;
+UPDATE `users` SET `lname_cn` = '宋愿塔古尔' WHERE `users`.`id` = 97;
+
+UPDATE `users` SET `fname_en` = 'Sumet' WHERE `users`.`id` = 98;
+UPDATE `users` SET `lname_en` = 'Duangmalai' WHERE `users`.`id` = 98;
+UPDATE `users` SET `fname_cn` = '苏梅' WHERE `users`.`id` = 98;
+UPDATE `users` SET `lname_cn` = '度旺马赖' WHERE `users`.`id` = 98;
+
+UPDATE `users` SET `fname_en` = 'Phurivat' WHERE `users`.`id` = 99;
+UPDATE `users` SET `lname_en` = 'Datsada' WHERE `users`.`id` = 99;
+UPDATE `users` SET `fname_cn` = '普里瓦特' WHERE `users`.`id` = 99;
+UPDATE `users` SET `lname_cn` = '达萨达' WHERE `users`.`id` = 99;
+
+UPDATE `users` SET `fname_en` = 'Pongsilp' WHERE `users`.`id` = 100;
+UPDATE `users` SET `lname_en` = 'Jankiew' WHERE `users`.`id` = 100;
+UPDATE `users` SET `fname_cn` = '彭斯林' WHERE `users`.`id` = 100;
+UPDATE `users` SET `lname_cn` = '詹凯' WHERE `users`.`id` = 100;
+
+UPDATE `users` SET `fname_en` = 'Hriphat' WHERE `users`.`id` = 101;
+UPDATE `users` SET `lname_en` = 'Pongsuwan' WHERE `users`.`id` = 101;
+UPDATE `users` SET `fname_cn` = '哈里帕特' WHERE `users`.`id` = 101;
+UPDATE `users` SET `lname_cn` = '彭苏万' WHERE `users`.`id` = 101;
+
+UPDATE `users` SET `fname_en` = 'Natwat' WHERE `users`.`id` = 102;
+UPDATE `users` SET `lname_en` = 'Khamphakdee' WHERE `users`.`id` = 102;
+UPDATE `users` SET `fname_cn` = '纳特瓦' WHERE `users`.`id` = 102;
+UPDATE `users` SET `lname_cn` = '卡姆帕克迪' WHERE `users`.`id` = 102;
+
+UPDATE `users` SET `fname_en` = 'Suthasinee' WHERE `users`.`id` = 103;
+UPDATE `users` SET `lname_en` = 'Iamsaad' WHERE `users`.`id` = 103;
+UPDATE `users` SET `fname_cn` = '苏塔西妮' WHERE `users`.`id` = 103;
+UPDATE `users` SET `lname_cn` = '艾姆萨' WHERE `users`.`id` = 103;
+
+UPDATE `users` SET `fname_en` = 'Kunnawut' WHERE `users`.`id` = 104;
+UPDATE `users` SET `lname_en` = 'Boonkwang' WHERE `users`.`id` = 104;
+UPDATE `users` SET `fname_cn` = ' 昆纳武提' WHERE `users`.`id` = 104;
+UPDATE `users` SET `lname_cn` = '布恩宽' WHERE `users`.`id` = 104;
+
+UPDATE `users` SET `fname_en` = 'Nongnuch' WHERE `users`.`id` = 105;
+UPDATE `users` SET `lname_en` = 'Piboon' WHERE `users`.`id` = 105;
+UPDATE `users` SET `fname_cn` = '農努奇' WHERE `users`.`id` = 105;
+UPDATE `users` SET `lname_cn` = '拍布 ' WHERE `users`.`id` = 105;
+
+UPDATE `users` SET `fname_en` = 'Wuttichai' WHERE `users`.`id` = 106;
+UPDATE `users` SET `lname_en` = 'Vichianchai' WHERE `users`.`id` = 106;
+UPDATE `users` SET `fname_cn` = '武提猜' WHERE `users`.`id` = 106;
+UPDATE `users` SET `lname_cn` = '威千财 ' WHERE `users`.`id` = 106;
+
+UPDATE `users` SET `fname_en` = 'Jakkrakrit' WHERE `users`.`id` = 107;
+UPDATE `users` SET `lname_en` = 'Kaewyotha' WHERE `users`.`id` = 107;
+UPDATE `users` SET `fname_cn` = '乍克拉吉' WHERE `users`.`id` = 107;
+UPDATE `users` SET `lname_cn` = '盖约塔' WHERE `users`.`id` = 107;
+
+UPDATE `users` SET `fname_en` = 'LOAN HO' WHERE `users`.`id` = 108;
+UPDATE `users` SET `lname_en` = 'THI THUY' WHERE `users`.`id` = 108;
+UPDATE `users` SET `fname_th` = 'โลอัน โฮ' WHERE `users`.`id` = 108;
+UPDATE `users` SET `lname_th` = 'ธี ธุย' WHERE `users`.`id` = 108;
+UPDATE `users` SET `fname_cn` = '林鸿' WHERE `users`.`id` = 108;
+UPDATE `users` SET `lname_cn` = '田翠' WHERE `users`.`id` = 108;
+
+UPDATE `users` SET `fname_en` = 'SOVANNARITH' WHERE `users`.`id` = 109;
+UPDATE `users` SET `lname_en` = 'HENG' WHERE `users`.`id` = 109;
+UPDATE `users` SET `fname_th` = 'โสวรรณาริธ' WHERE `users`.`id` = 109;
+UPDATE `users` SET `lname_th` = 'เฮง' WHERE `users`.`id` = 109;
+UPDATE `users` SET `fname_cn` = '苏万纳瑞' WHERE `users`.`id` = 109;
+UPDATE `users` SET `lname_cn` = '黄' WHERE `users`.`id` = 109;
