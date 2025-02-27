@@ -122,18 +122,31 @@
                     </thead>
 
                     <tbody>
-                        <?php $__currentLoopData = $data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $user): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                        <tr>
-                            <td><?php echo e($key++); ?></td>
-                            <td><?php echo e($user->fname_en); ?> <?php echo e($user->lname_en); ?> </td>
-                            <td><?php echo e(Str::limit($user->program->program_name_en,20)); ?></td>
-                            <td><?php echo e($user->email); ?></td>
-                            <td>
-                                <?php if(!empty($user->getRoleNames())): ?>
-                                <?php $__currentLoopData = $user->getRoleNames(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                <label class="badge badge-dark"><?php echo e($val); ?></label>
-                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                <?php endif; ?>
+                                <?php $__currentLoopData = $data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $user): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                    <tr>
+                                        <td><?php echo e($key++); ?></td>
+                                        <td>
+                                            <?php echo e($user->{'fname_' . app()->getLocale()} ?? $user->fname_en); ?>
+
+                                            <?php echo e($user->{'lname_' . app()->getLocale()} ?? $user->lname_en); ?>
+
+                                        </td>
+                                        <td><?php echo e(Str::limit($user->{'program_name_' . app()->getLocale()} ?? $user->program->program_name_en, 20)); ?></td>
+                                        <td><?php echo e($user->email); ?></td>
+                                        <td>
+                                            <?php if(!empty($user->getRoleNames())): ?>
+                                                <?php $__currentLoopData = $user->getRoleNames(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                    <label class="badge badge-dark">
+                                                        <?php echo e(__('message.' . $val)); ?>
+
+                                                    </label>
+                                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                            <?php endif; ?>
+                                        </td>
+                                    </tr>
+                                
+
+                                
                             </td>
                             <td>
                                 <form action="<?php echo e(route('users.destroy',$user->id)); ?>" method="POST">

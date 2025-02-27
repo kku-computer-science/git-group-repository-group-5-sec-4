@@ -123,18 +123,28 @@
                     </thead>
 
                     <tbody>
-                        @foreach ($data as $key => $user)
-                        <tr>
-                            <td>{{ $key++ }}</td>
-                            <td>{{ $user->fname_en }} {{ $user->lname_en }} </td>
-                            <td>{{ Str::limit($user->program->program_name_en,20) }}</td>
-                            <td>{{ $user->email }}</td>
-                            <td>
-                                @if(!empty($user->getRoleNames()))
-                                @foreach($user->getRoleNames() as $val)
-                                <label class="badge badge-dark">{{ $val }}</label>
-                                @endforeach
-                                @endif
+                                @foreach ($data as $key => $user)
+                                    <tr>
+                                        <td>{{ $key++ }}</td>
+                                        <td>
+                                            {{ $user->{'fname_' . app()->getLocale()} ?? $user->fname_en }}
+                                            {{ $user->{'lname_' . app()->getLocale()} ?? $user->lname_en }}
+                                        </td>
+                                        <td>{{ Str::limit($user->{'program_name_' . app()->getLocale()} ?? $user->program->program_name_en, 20) }}</td>
+                                        <td>{{ $user->email }}</td>
+                                        <td>
+                                            @if(!empty($user->getRoleNames()))
+                                                @foreach($user->getRoleNames() as $val)
+                                                    <label class="badge badge-dark">
+                                                        {{ __('message.' . $val) }}
+                                                    </label>
+                                                @endforeach
+                                            @endif
+                                        </td>
+                                    </tr>
+                                
+
+                                
                             </td>
                             <td>
                                 <form action="{{ route('users.destroy',$user->id) }}" method="POST">

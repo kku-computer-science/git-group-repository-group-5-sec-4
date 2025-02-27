@@ -327,4 +327,26 @@ class PaperController extends Controller
         //return Excel::download(new ExportPaper, 'papers.xlsx');
 
     }
+
+    public function callAllPapers()
+    {
+        $papers = Paper::with('teacher', 'author')->orderBy('paper_yearpub', 'desc')->get();
+        return view('papers.index', compact('papers'));
+    }   
+
+    public function callGoogleScholar()
+    {
+        $papers = Paper::where('source', 'Google Scholar')->get();
+        return view('papers.index', compact('papers'));
+    }
+
+    public function callWOS()
+    {
+        $papers = Paper::where('source', 'WOS')->get();
+        return view('papers.index', compact('papers'));
+    }
+
+
+
+
 }

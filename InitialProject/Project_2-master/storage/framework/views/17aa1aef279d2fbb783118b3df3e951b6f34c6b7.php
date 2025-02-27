@@ -30,42 +30,64 @@
                     <td>
                         <div style="padding-bottom: 10px">
                             <?php if($re->project_start != null): ?>
-                            <span style="font-weight: bold;">
-                                <?php echo e(__('message.project_duration')); ?>
+                                <span style="font-weight: bold;">
+                                    <?php echo e(__('message.project_duration')); ?>
 
-                            </span>
-                            <span style="padding-left: 10px;">
-                                <?php echo e(\Carbon\Carbon::parse($re->project_start)->thaidate('j F Y')); ?> <?php echo e(__('message.to')); ?> <?php echo e(\Carbon\Carbon::parse($re->project_end)->thaidate('j F Y')); ?>
+                                </span>
+                                <span style="padding-left: 10px;">
+                                    <?php
+                                        $locale = app()->getLocale() == 'cn' ? 'zh_CN' : app()->getLocale(); // ตรวจสอบภาษาจีน
+                                        $start_date = \Carbon\Carbon::parse($re->project_start)->locale($locale)->translatedFormat('j F Y');
+                                        $end_date = \Carbon\Carbon::parse($re->project_end)->locale($locale)->translatedFormat('j F Y');
+                                    ?>
+                                    <?php echo e($start_date); ?> <?php echo e(__('message.to')); ?> <?php echo e($end_date); ?>
 
-                            </span>
+                                </span>
                             <?php else: ?>
-                            <span style="font-weight: bold;">
-                                <?php echo e(__('message.project_duration')); ?>
+                                <span style="font-weight: bold;">
+                                    <?php echo e(__('message.project_duration')); ?>
 
-                            </span>
-                            <span></span>
+                                </span>
+                                <span></span>
                             <?php endif; ?>
                         </div>
 
                         <div style="padding-bottom: 10px;">
                             <span style="font-weight: bold;"><?php echo e(__('message.research_fund_type')); ?></span>
-                            <span style="padding-left: 10px;"> <?php if(is_null($re->fund)): ?> <?php else: ?> <?php echo e($re->fund->fund_type); ?> <?php endif; ?></span>
+                            <span style="padding-left: 10px;">
+                                <?php if(!is_null($re->fund)): ?> 
+                                    <?php echo e($re->fund->{'fund_type_' . app()->getLocale()} ?? $re->fund->fund_type_en); ?>
+
+                                <?php endif; ?>
+                            </span>
                         </div>
+
                         <div style="padding-bottom: 10px;">
                             <span style="font-weight: bold;"><?php echo e(__('message.funding_agency')); ?></span>
-                            <span style="padding-left: 10px;"> <?php if(is_null($re->fund)): ?> <?php else: ?> <?php echo e($re->fund->support_resource); ?> <?php endif; ?></span>
+                            <span style="padding-left: 10px;">
+                                <?php if(!is_null($re->fund)): ?> 
+                                    <?php echo e($re->fund->{'support_resource_' . app()->getLocale()} ?? $re->fund->support_resource_en); ?>
+
+                                <?php endif; ?>
+                            </span>
                         </div>
+
                         <div style="padding-bottom: 10px;">
                             <span style="font-weight: bold;"><?php echo e(__('message.responsible_department')); ?></span>
                             <span style="padding-left: 10px;">
-                                <?php echo e(TranslateHelper::translate($re->responsible_department, app()->getLocale())); ?>
+                                <?php echo e($re->{'responsible_department_' . app()->getLocale()} ?? $re->responsible_department_en); ?>
 
                             </span>
                         </div>
+
                         <div style="padding-bottom: 10px;">
                             <span style="font-weight: bold;"><?php echo e(__('message.budget_allocated')); ?></span>
-                            <span style="padding-left: 10px;"> <?php echo e(number_format($re->budget)); ?> <?php echo e(__('message.baht')); ?></span>
+                            <span style="padding-left: 10px;"> 
+                                <?php echo e(number_format($re->budget)); ?> <?php echo e(__('message.baht')); ?>
+
+                            </span>
                         </div>
+
                     </td>
 
                     <td style="vertical-align: top;text-align: left;">
@@ -75,8 +97,8 @@
                                 <?php if(app()->getLocale() == 'th'): ?>
                                     <?php echo e($user->position_th); ?> <?php echo e($user->fname_th); ?> <?php echo e($user->lname_th); ?>
 
-                                <?php elseif(app()->getLocale() == 'en' || app()->getLocale() == 'cn'): ?>
-                                    <?php echo e($user->position_en); ?> <?php echo e($user->fname_en); ?> <?php echo e($user->lname_en); ?>
+                                <?php elseif(app()->getLocale() == 'cn'): ?>
+                                    <?php echo e($user->position_cn); ?> <?php echo e($user->fname_cn); ?> <?php echo e($user->lname_cn); ?>
 
                                 <?php else: ?>
                                     <?php echo e($user->position_en); ?> <?php echo e($user->fname_en); ?> <?php echo e($user->lname_en); ?> <!-- กรณี fallback -->

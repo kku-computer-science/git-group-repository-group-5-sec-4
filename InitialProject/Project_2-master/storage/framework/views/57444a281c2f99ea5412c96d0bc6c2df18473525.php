@@ -226,48 +226,35 @@
                     <p class="card-text col-sm-3"><b><?php echo e(trans('message.Published_research_author')); ?></b></p>
                     <p class="card-text col-sm-9">
 
-                        <?php $__currentLoopData = $paper->author; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $teacher): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                            <?php if($teacher->pivot->author_type == 1): ?>
-                                <b><?php echo e(trans('message.Published_research_first_author')); ?>:</b>
-                                <?php echo e($teacher->author_fname); ?> <?php echo e($teacher->author_lname); ?> <br>
-                            <?php endif; ?>
-                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                        <?php $__currentLoopData = $paper->teacher; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $teacher): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                            <?php if($teacher->pivot->author_type == 1): ?>
-                                <b><?php echo e(trans('message.Published_research_first_author')); ?>:</b> <?php echo e($teacher->fname_en); ?>
+                    <?php $__currentLoopData = $paper->author; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $teacher): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <?php
+                            $fname = $teacher->{'author_fname_' . app()->getLocale()} ?? $teacher->author_fname_en;
+                            $lname = $teacher->{'author_lname_' . app()->getLocale()} ?? $teacher->author_lname_en;
+                        ?>
 
-                                <?php echo e($teacher->lname_en); ?> <br>
-                            <?php endif; ?>
-                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                        <?php if($teacher->pivot->author_type == 1): ?>
+                            <b><?php echo e(trans('message.Published_research_first_author')); ?>:</b> <?php echo e($fname); ?> <?php echo e($lname); ?> <br>
+                        <?php elseif($teacher->pivot->author_type == 2): ?>
+                            <b><?php echo e(trans('message.Published_research_co_author')); ?>:</b> <?php echo e($fname); ?> <?php echo e($lname); ?> <br>
+                        <?php elseif($teacher->pivot->author_type == 3): ?>
+                            <b><?php echo e(trans('message.Published_research_corresponding_author')); ?>:</b> <?php echo e($fname); ?> <?php echo e($lname); ?> <br>
+                        <?php endif; ?>
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
-                        <?php $__currentLoopData = $paper->author; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $teacher): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                            <?php if($teacher->pivot->author_type == 2): ?>
-                                <b><?php echo e(trans('message.Published_research_co_author')); ?>:</b> <?php echo e($teacher->author_fname); ?>
+                    <?php $__currentLoopData = $paper->teacher; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $teacher): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <?php
+                            $fname = $teacher->{'fname_' . app()->getLocale()} ?? $teacher->fname_en;
+                            $lname = $teacher->{'lname_' . app()->getLocale()} ?? $teacher->lname_en;
+                        ?>
 
-                                <?php echo e($teacher->author_lname); ?> <br>
-                            <?php endif; ?>
-                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                        <?php $__currentLoopData = $paper->teacher; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $teacher): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                            <?php if($teacher->pivot->author_type == 2): ?>
-                                <b><?php echo e(trans('message.Published_research_co_author')); ?>:</b> <?php echo e($teacher->fname_en); ?>
-
-                                <?php echo e($teacher->lname_en); ?> <br>
-                            <?php endif; ?>
-                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-
-                        <?php $__currentLoopData = $paper->author; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $teacher): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                            <?php if($teacher->pivot->author_type == 3): ?>
-                                <b><?php echo e(trans('message.Published_research_corresponding_author')); ?>:</b>
-                                <?php echo e($teacher->author_fname); ?> <?php echo e($teacher->author_lname); ?> <br>
-                            <?php endif; ?>
-                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                        <?php $__currentLoopData = $paper->teacher; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $teacher): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                            <?php if($teacher->pivot->author_type == 3): ?>
-                                <b><?php echo e(trans('message.Published_research_corresponding_author')); ?>:</b>
-                                <?php echo e($teacher->fname_en); ?> <?php echo e($teacher->lname_en); ?> <br>
-                            <?php endif; ?>
-                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-
+                        <?php if($teacher->pivot->author_type == 1): ?>
+                            <b><?php echo e(trans('message.Published_research_first_author')); ?>:</b> <?php echo e($fname); ?> <?php echo e($lname); ?> <br>
+                        <?php elseif($teacher->pivot->author_type == 2): ?>
+                            <b><?php echo e(trans('message.Published_research_co_author')); ?>:</b> <?php echo e($fname); ?> <?php echo e($lname); ?> <br>
+                        <?php elseif($teacher->pivot->author_type == 3): ?>
+                            <b><?php echo e(trans('message.Published_research_corresponding_author')); ?>:</b> <?php echo e($fname); ?> <?php echo e($lname); ?> <br>
+                        <?php endif; ?>
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
 
 

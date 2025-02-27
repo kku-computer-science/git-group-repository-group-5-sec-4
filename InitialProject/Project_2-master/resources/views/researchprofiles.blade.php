@@ -47,47 +47,40 @@
                         </div>
                         <div class="col-md-6">
                         <div class="card-body">
-                @if(app()->getLocale() == 'th')
-                    <h6 class="card-text">
-                        <b>{{ $res->position_th }} {{ $res->fname_th }} {{ $res->lname_th }}</b>
-                    </h6>
+                        @php
+                            $locale = app()->getLocale();
 
-                    
+                            // ดึงค่าทั้งภาษาไทยและอังกฤษเสมอ
+                            $fname_th = $res->fname_th ?? '';
+                            $lname_th = $res->lname_th ?? '';
+                            $academic_ranks_th = $res->academic_ranks_th ?? '';
+                            $position_th = $res->position_th ?? '';
 
-                    <h6 class="card-text1"><b>{{ $res->academic_ranks_th }}</b></h6>
+                            $fname_en = $res->fname_en ?? '';
+                            $lname_en = $res->lname_en ?? '';
+                            $academic_ranks_en = $res->academic_ranks_en ?? '';
+                            $position_en = $res->position_en ?? '';
 
-                @elseif(app()->getLocale() == 'en')
-                    <h6 class="card-text">
-                        <b>{{ $res->position_en }} {{ $res->fname_en }} {{ $res->lname_en }}</b>
-                    </h6>
+                            $doctoral_degree_en = ($res->doctoral_degree_en == 'Ph.D.') ? 'Ph.D.' : '';
+                        @endphp
 
-                    
-
-                    <h6 class="card-text1"><b>{{ $res->academic_ranks_en }}</b></h6>
-
-                @elseif(app()->getLocale() == 'cn')
-                    <h6 class="card-text">
-                        <b>{{ $res->position_cn }} {{ $res->fname_en }} {{ $res->lname_en }}</b>
-                    </h6>
-
-                    
-
-                    <h6 class="card-text1"><b>{{ $res->academic_ranks_cn }}</b></h6>
-
-                @else
-                    <!-- กรณีที่ไม่มีค่า locale ที่กำหนดไว้ ใช้ค่าเริ่มต้นเป็นภาษาอังกฤษ -->
-                    <h6 class="card-text">
-                        <b>{{ $res->position_en }} {{ $res->fname_en }} {{ $res->lname_en }}</b>
-                    </h6>
-
-                    @if($res->doctoral_degree_en == 'Ph.D.')
-                        <h6 class="card-text"><b>{{ $res->fname_en }} {{ $res->lname_en }}, Ph.D. </b></h6>
-                    @else
-                        <h6 class="card-text"><b>{{ $res->fname_en }} {{ $res->lname_en }}</b></h6>
-                    @endif
-
-                    <h6 class="card-text1"><b>{{ $res->academic_ranks_en }}</b></h6>
-                @endif
+                        @if($locale == 'cn')
+                            <!-- กรณีภาษาจีน -->
+                            <h6 class="card-text">
+                                <b>{{ $res->position_cn }} {{ $res->fname_cn }} {{ $res->lname_cn }}</b>
+                            </h6>
+                            <h6 class="card-text1"><b>{{ $res->academic_ranks_cn }}</b></h6>
+                        @else
+                            <!-- กรณีภาษาไทย & อังกฤษ -->
+                            <h6 class="card-text">
+                                <b>{{ $position_th }} {{ $fname_th }} {{ $lname_th }}</b>
+                            </h6>
+                            <h6 class="card-text">
+                                <b>{{ $position_en }} {{ $fname_en }} {{ $lname_en }}{{ $doctoral_degree_en ? ', ' . $doctoral_degree_en : '' }}</b>
+                            </h6>
+                            <h6 class="card-text1"><b>{{ $academic_ranks_th }} 
+                                / {{ $academic_ranks_en }}</b></h6>
+                        @endif
 
 
                         <!-- <h6 class="card-text1">Department of {{$res->program->program_name_en}}</h6> -->

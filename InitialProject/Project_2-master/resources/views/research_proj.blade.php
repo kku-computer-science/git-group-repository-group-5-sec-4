@@ -30,38 +30,57 @@
                     <td>
                         <div style="padding-bottom: 10px">
                             @if ($re->project_start != null)
-                            <span style="font-weight: bold;">
-                                {{ __('message.project_duration') }}
-                            </span>
-                            <span style="padding-left: 10px;">
-                                {{\Carbon\Carbon::parse($re->project_start)->thaidate('j F Y') }} {{ __('message.to') }} {{\Carbon\Carbon::parse($re->project_end)->thaidate('j F Y') }}
-                            </span>
+                                <span style="font-weight: bold;">
+                                    {{ __('message.project_duration') }}
+                                </span>
+                                <span style="padding-left: 10px;">
+                                    @php
+                                        $locale = app()->getLocale() == 'cn' ? 'zh_CN' : app()->getLocale(); // ตรวจสอบภาษาจีน
+                                        $start_date = \Carbon\Carbon::parse($re->project_start)->locale($locale)->translatedFormat('j F Y');
+                                        $end_date = \Carbon\Carbon::parse($re->project_end)->locale($locale)->translatedFormat('j F Y');
+                                    @endphp
+                                    {{ $start_date }} {{ __('message.to') }} {{ $end_date }}
+                                </span>
                             @else
-                            <span style="font-weight: bold;">
-                                {{ __('message.project_duration') }}
-                            </span>
-                            <span></span>
+                                <span style="font-weight: bold;">
+                                    {{ __('message.project_duration') }}
+                                </span>
+                                <span></span>
                             @endif
                         </div>
 
                         <div style="padding-bottom: 10px;">
                             <span style="font-weight: bold;">{{ __('message.research_fund_type') }}</span>
-                            <span style="padding-left: 10px;"> @if(is_null($re->fund)) @else {{$re->fund->fund_type}} @endif</span>
+                            <span style="padding-left: 10px;">
+                                @if (!is_null($re->fund)) 
+                                    {{ $re->fund->{'fund_type_' . app()->getLocale()} ?? $re->fund->fund_type_en }}
+                                @endif
+                            </span>
                         </div>
+
                         <div style="padding-bottom: 10px;">
                             <span style="font-weight: bold;">{{ __('message.funding_agency') }}</span>
-                            <span style="padding-left: 10px;"> @if(is_null($re->fund)) @else {{$re->fund->support_resource}} @endif</span>
+                            <span style="padding-left: 10px;">
+                                @if (!is_null($re->fund)) 
+                                    {{ $re->fund->{'support_resource_' . app()->getLocale()} ?? $re->fund->support_resource_en }}
+                                @endif
+                            </span>
                         </div>
+
                         <div style="padding-bottom: 10px;">
                             <span style="font-weight: bold;">{{ __('message.responsible_department') }}</span>
                             <span style="padding-left: 10px;">
-                                {{ TranslateHelper::translate($re->responsible_department, app()->getLocale()) }}
+                                {{ $re->{'responsible_department_' . app()->getLocale()} ?? $re->responsible_department_en }}
                             </span>
                         </div>
+
                         <div style="padding-bottom: 10px;">
                             <span style="font-weight: bold;">{{ __('message.budget_allocated') }}</span>
-                            <span style="padding-left: 10px;"> {{number_format($re->budget)}} {{ __('message.baht') }}</span>
+                            <span style="padding-left: 10px;"> 
+                                {{ number_format($re->budget) }} {{ __('message.baht') }}
+                            </span>
                         </div>
+
                     </td>
 
                     <td style="vertical-align: top;text-align: left;">
@@ -70,8 +89,8 @@
                             @foreach($re->user as $user)
                                 @if(app()->getLocale() == 'th')
                                     {{ $user->position_th }} {{ $user->fname_th }} {{ $user->lname_th }}
-                                @elseif(app()->getLocale() == 'en' || app()->getLocale() == 'cn')
-                                    {{ $user->position_en }} {{ $user->fname_en }} {{ $user->lname_en }}
+                                @elseif(app()->getLocale() == 'cn')
+                                    {{ $user->position_cn }} {{ $user->fname_cn }} {{ $user->lname_cn }}
                                 @else
                                     {{ $user->position_en }} {{ $user->fname_en }} {{ $user->lname_en }} <!-- กรณี fallback -->
                                 @endif

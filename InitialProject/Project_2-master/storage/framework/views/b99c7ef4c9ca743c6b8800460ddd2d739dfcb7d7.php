@@ -1,37 +1,22 @@
-<link rel="stylesheet" href="https://cdn.datatables.net/fixedheader/3.2.3/css/fixedHeader.bootstrap4.min.css">
-<link rel="stylesheet" href="https://cdn.datatables.net/1.12.0/css/dataTables.bootstrap4.min.css">
-<link rel="stylesheet" href="https://cdn.datatables.net/fixedheader/3.2.3/css/fixedHeader.bootstrap4.min.css">
-<style type="text/css">
-    .dropdown-toggle {
-        height: 40px;
-        width: 400px !important;
-    }
+<?php $__env->startPush('styles'); ?>
+    <!-- ✅ โหลด CSS ตามลำดับ -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.12.0/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/fixedheader/3.2.3/css/fixedHeader.bootstrap4.min.css">
+<?php $__env->stopPush(); ?>
 
-    body label:not(.input-group-text) {
-        margin-top: 10px;
-    }
-
-    body .my-select {
-        background-color: #EFEFEF;
-        color: #212529;
-        border: 0 none;
-        border-radius: 10px;
-        padding: 6px 20px;
-        width: 100%;
-    }
-</style>
 <?php $__env->startSection('content'); ?>
-    <div class="container">
+    
+
         <?php if($message = Session::get('success')): ?>
-            <div class="alert alert-success">
-                <p><?php echo e($message); ?></p>
-            </div>
+            <div class="alert alert-success"><?php echo e($message); ?></div>
         <?php endif; ?>
-        <div class="card" style="padding: 16px;">
+
+        <div class="card p-3">
             <div class="card-body">
-                <h4 class="card-title" style="text-align: center;"><?php echo e(trans('message.Manage_Program_navbar_title')); ?></h4>
-                <a class="btn btn-primary btn-menu btn-icon-text btn-sm mb-3" href="javascript:void(0)" id="new-program"
-                    data-toggle="modal"><i class="mdi mdi-plus btn-icon-prepend"></i> <?php echo e(trans('message.Add_program')); ?>
+                <h4 class="card-title text-center"><?php echo e(trans('message.Manage_Program_navbar_title')); ?></h4>
+                <a class="btn btn-primary btn-sm mb-3" href="javascript:void(0)" id="new-program" data-toggle="modal">
+                    <i class="mdi mdi-plus"></i> <?php echo e(trans('message.Add_program')); ?>
 
                 </a>
                 <table id="example1" class="table table-striped">
@@ -39,7 +24,6 @@
                         <tr>
                             <th><?php echo e(trans('message.Program_no')); ?></th>
                             <th><?php echo e(trans('message.Program_name')); ?></th>
-                            <!-- <th>Name (Eng)</th> -->
                             <th><?php echo e(trans('message.Program_degree')); ?></th>
                             <th><?php echo e(trans('message.Program_action')); ?></th>
                         </tr>
@@ -48,41 +32,24 @@
                         <?php $__currentLoopData = $programs; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $i => $program): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <tr id="program_id_<?php echo e($program->id); ?>">
                                 <td><?php echo e($i + 1); ?></td>
-                                <td>
-                                    <?php if(App::getLocale() == 'th'): ?>
-                                        <?php echo e($program->program_name_th); ?>
-
-                                    <?php elseif(App::getLocale() == 'en'): ?>
-                                        <?php echo e($program->program_name_en); ?>
-
-                                    <?php elseif(App::getLocale() == 'cn'): ?>
-                                        <?php echo e($program->program_name_cn); ?>
-
-                                    <?php endif; ?>
-                                </td>
-                                <!-- <td><?php echo e($program->program_name_en); ?></td> -->
-                                <td><?php echo e($program->degree->degree_name_en); ?></td>
+                                <td><?php echo e($program->{'program_name_' . App::getLocale()}); ?></td>
+                                <td><?php echo e($program->degree->{'degree_name_' . App::getLocale()}); ?></td>
                                 <td>
                                     <form action="<?php echo e(route('programs.destroy', $program->id)); ?>" method="POST">
-                                        <!-- <a class="btn btn-info" id="show-program" data-toggle="modal" data-id="<?php echo e($program->id); ?>">Show</a> -->
-
-                                        <!-- <a class="btn btn-outline-primary btn-sm" id="show-program" type="button" data-toggle="modal" data-placement="top" title="view" data-id="<?php echo e($program->id); ?>"><i class="mdi mdi-eye"></i></a>
-                                         -->
-                                        <!-- <a href="javascript:void(0)" class="btn btn-success" id="edit-program" data-toggle="modal" data-id="<?php echo e($program->id); ?>">Edit </a> -->
                                         <li class="list-inline-item">
-                                            <a class="btn btn-outline-success btn-sm" id="edit-program" type="button"
-                                                data-toggle="modal" data-id="<?php echo e($program->id); ?>" data-placement="top"
-                                                title="Edit" href="javascript:void(0)"><i class="mdi mdi-pencil"></i></a>
+                                            <a class="btn btn-outline-success btn-sm" id="edit-program" 
+                                                data-toggle="modal" data-id="<?php echo e($program->id); ?>" title="Edit">
+                                                <i class="mdi mdi-pencil"></i>
+                                            </a>
                                         </li>
                                         <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
                                         <li class="list-inline-item">
-                                            <button class="btn btn-outline-danger btn-sm " id="delete-program"
-                                                type="submit" data-id="<?php echo e($program->id); ?>" data-toggle="tooltip"
-                                                data-placement="top" title="Delete"><i class="mdi mdi-delete"></i></button>
+                                            <button class="btn btn-outline-danger btn-sm" id="delete-program" type="submit"
+                                                data-id="<?php echo e($program->id); ?>" title="Delete">
+                                                <i class="mdi mdi-delete"></i>
+                                            </button>
                                         </li>
                                     </form>
-                                    <!-- <a id="delete-program" data-id="<?php echo e($program->id); ?>" class="btn btn-danger delete-user">Delete</a> -->
-
                                 </td>
                             </tr>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -92,6 +59,55 @@
         </div>
     </div>
 
+    <!-- ✅ Modal Form สำหรับเพิ่มและแก้ไขโปรแกรม -->
+    <div class="modal fade" id="crud-modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="programCrudModal"></h4>
+                </div>
+                <div class="modal-body">
+                    <form name="proForm" action="<?php echo e(route('programs.store')); ?>" method="POST">
+                        <?php echo csrf_field(); ?>
+                        <input type="hidden" name="pro_id" id="pro_id">
+                        <div class="form-group">
+                            <strong><?php echo e(trans('message.Program_degree')); ?>:</strong>
+                            <select id="degree" class="custom-select" name="degree">
+                                <?php $__currentLoopData = $degree; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $d): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                    <option value="<?php echo e($d->id); ?>"><?php echo e($d->{'degree_name_' . App::getLocale()}); ?></option>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <strong><?php echo e(trans('message.Program_name_th')); ?>:</strong>
+                            <input type="text" name="program_name_th" id="program_name_th" class="form-control" 
+                                placeholder="<?php echo e(trans('message.Program_name_th')); ?>" onchange="validate()">
+                        </div>
+                        <div class="form-group">
+                            <strong><?php echo e(trans('message.Program_name_en')); ?>:</strong>
+                            <input type="text" name="program_name_en" id="program_name_en" class="form-control"
+                                placeholder="<?php echo e(trans('message.Program_name_en')); ?>" onchange="validate()">
+                        </div>
+                        <div class="form-group">
+                            <strong><?php echo e(trans('message.Program_name_cn')); ?>:</strong>
+                            <input type="text" name="program_name_cn" id="program_name_cn" class="form-control"
+                                placeholder="<?php echo e(trans('message.Program_name_cn')); ?>" onchange="validate()">
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" id="btn-save" class="btn btn-primary" disabled>
+                                <?php echo e(trans('message.Submit_button')); ?>
+
+                            </button>
+                            <a href="<?php echo e(route('programs.index')); ?>" class="btn btn-danger">
+                                <?php echo e(trans('message.Cancle_button')); ?>
+
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Add and Edit program modal -->
     <div class="modal fade" id="crud-modal" aria-hidden="true">
@@ -194,7 +210,6 @@
                 $('#crud-modal').modal('show');
             });
 
-            /* Edit program */
             $('body').on('click', '#edit-program', function() {
                 var program_id = $(this).data('id');
                 $.get('programs/' + program_id + '/edit', function(data) {

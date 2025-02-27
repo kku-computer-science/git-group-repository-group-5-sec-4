@@ -118,6 +118,7 @@ return [
 
 // ส่วนของ Profile
 'Profile_navbar_title' => '个人资料',
+'position' => '职称',
 
 // Profile Setting
 'Profile_Account_ProfileSetting' => '設定檔設定',
@@ -673,5 +674,26 @@ return [
 'copyrightsoundrecording' => '版权 (录音作品)',
 'tradesecret' => '商业机密',
 'trademark' => '商标',
+
+// ส่วนของ Login
+'Account_Login' => '帐户登录',
+'Username' => '用户名',
+'Password' => '密码',
+'Remember_me' => '记住我',
+'Login_button' => '登录',
+'Forgot_password' => '*** 如果您忘记密码，请联系管理员',
+'Username_kkumail' => '使用KKU-Mail登录用户名',
+'Student_first_time_login' => '首次登录的学生，请使用学生ID登录',
+'Login_failed' => '登录失败：您的用户名或密码不正确',
+'required' => [
+        'username' => '需要用户名',
+        'password' => '需要密码'
+],
+
+'admin' => '管理员',
+    'teacher' => '教师',
+    'student' => '学生',
+    'staff' => '职员',
+    'headproject' => '项目负责人',
 ];
     
