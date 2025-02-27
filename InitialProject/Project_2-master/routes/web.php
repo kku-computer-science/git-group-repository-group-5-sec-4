@@ -73,8 +73,12 @@ Route::middleware(['middleware' => 'PreventBackHistory'])->group(function () {
 
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/papers/all', [PaperController::class, 'callAllPapers'])->name('callallpapers');
+Route::get('/papers/google-scholar', [PaperController::class, 'callGoogleScholar'])->name('callgooglescholar');
+Route::get('/papers/wos', [PaperController::class, 'callWOS'])->name('callwos');
+
 //Route::get('/researchers',[ResearcherController::class,'index'])->name('researchers');
-Route::get('researchers/{id}', [ResearcherController::class, 'index'])->name('researchers');
+Route::get('researchers/{id}', [ResearcherController::class, 'request'])->name('researchers');
 Route::get('researchers/{id}/search', [ResearcherController::class, 'search'])->name('searchresearchers');
 Route::get('/researchproject', [App\Http\Controllers\ResearchProjController::class, 'index'])->name('researchproject');
 Route::get('/researchgroup', [App\Http\Controllers\ResearchgroupsController::class, 'index'])->name('researchgroup');

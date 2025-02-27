@@ -10,10 +10,11 @@
         </div>
         <?php endif; ?>
         <div class="card">
-            <div class="card-header">Permissions
+            <div class="card-header"><?php echo e(trans('message.Permission_navbar_title')); ?>
+
                 <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('permission-create')): ?>
                 <span class="float-right">
-                    <a class="btn btn-primary" href="<?php echo e(route('permissions.create')); ?>">New Permission</a>
+                    <a class="btn btn-primary" href="<?php echo e(route('permissions.create')); ?>"><?php echo e(trans('message.Add_permission')); ?></a>
                 </span>
                 <?php endif; ?>
             </div>
@@ -22,8 +23,8 @@
                     <thead class="thead-dark">
                         <tr>
                             <th>#</th>
-                            <th>Name</th>
-                            <th width="280px">Action</th>
+                            <th><?php echo e(trans('message.Permission_name')); ?></th>
+                            <th width="280px"><?php echo e(trans('message.Permission_action')); ?></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -80,6 +81,18 @@
     $(document).ready(function() {
         var table1 = $('#example1').DataTable({
             responsive: true,
+            language: {
+                    "emptyTable": "<?php echo e(trans('message.No_data_avalible')); ?>",
+                    "info": "<?php echo e(trans('message.info')); ?>",
+                    "infoEmpty": "<?php echo e(trans('message.infoEmpty')); ?>",
+                    "infoFiltered": "<?php echo e(trans('message.infoFiltered')); ?>",
+                    "lengthMenu": "<?php echo e(trans('message.lengthMenu')); ?>",
+                    "search": "<?php echo e(trans('message.search')); ?>",
+                    "paginate": {
+                        "next": "<?php echo e(trans('message.Next')); ?>",
+                        "previous": "<?php echo e(trans('message.Previous')); ?>"
+                    }
+                }
         });
     });
 </script>
@@ -89,15 +102,15 @@
         var name = $(this).data("name");
         event.preventDefault();
         swal({
-                title: `Are you sure?`,
-                text: "If you delete this, it will be gone forever.",
+                title: `<?php echo e(trans('message.Fund_warning_delete.warning_title')); ?>`,
+                text: "<?php echo e(trans('message.Fund_warning_delete.warning_text')); ?>",
                 icon: "warning",
                 buttons: true,
                 dangerMode: true,
             })
             .then((willDelete) => {
                 if (willDelete) {
-                    swal("Delete Successfully", {
+                    swal("<?php echo e(trans('message.Delete_successfully')); ?>", {
                         icon: "success",
                     }).then(function() {
                         location.reload();

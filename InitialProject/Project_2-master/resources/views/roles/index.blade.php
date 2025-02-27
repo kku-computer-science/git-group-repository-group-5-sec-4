@@ -28,7 +28,7 @@
 
                         <tr>
                             <td>{{ $i++ }}</td>
-                            <td>{{ $role->name }}</td>
+                            <td>{{ $role->{'name_' . app()->getLocale()} ?? $role->name }}</td>
                             <td>
                                 <form action="{{ route('roles.destroy',$role->id) }}" method="POST">
                                     <a class="btn btn-outline-primary btn-sm" type="button" data-toggle="tooltip" data-placement="top" title="view" href="{{ route('roles.show',$role->id) }}"><i class="mdi mdi-eye"></i></a>

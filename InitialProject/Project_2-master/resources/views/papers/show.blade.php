@@ -173,45 +173,35 @@
                     <p class="card-text col-sm-3"><b>{{ trans('message.Published_research_author') }}</b></p>
                     <p class="card-text col-sm-9">
 
-                        @foreach ($paper->author as $teacher)
-                            @if ($teacher->pivot->author_type == 1)
-                                <b>{{ trans('message.Published_research_first_author') }}:</b>
-                                {{ $teacher->author_fname }} {{ $teacher->author_lname }} <br>
-                            @endif
-                        @endforeach
-                        @foreach ($paper->teacher as $teacher)
-                            @if ($teacher->pivot->author_type == 1)
-                                <b>{{ trans('message.Published_research_first_author') }}:</b> {{ $teacher->fname_en }}
-                                {{ $teacher->lname_en }} <br>
-                            @endif
-                        @endforeach
+                    @foreach ($paper->author as $teacher)
+                        @php
+                            $fname = $teacher->{'author_fname_' . app()->getLocale()} ?? $teacher->author_fname_en;
+                            $lname = $teacher->{'author_lname_' . app()->getLocale()} ?? $teacher->author_lname_en;
+                        @endphp
 
-                        @foreach ($paper->author as $teacher)
-                            @if ($teacher->pivot->author_type == 2)
-                                <b>{{ trans('message.Published_research_co_author') }}:</b> {{ $teacher->author_fname }}
-                                {{ $teacher->author_lname }} <br>
-                            @endif
-                        @endforeach
-                        @foreach ($paper->teacher as $teacher)
-                            @if ($teacher->pivot->author_type == 2)
-                                <b>{{ trans('message.Published_research_co_author') }}:</b> {{ $teacher->fname_en }}
-                                {{ $teacher->lname_en }} <br>
-                            @endif
-                        @endforeach
+                        @if ($teacher->pivot->author_type == 1)
+                            <b>{{ trans('message.Published_research_first_author') }}:</b> {{ $fname }} {{ $lname }} <br>
+                        @elseif ($teacher->pivot->author_type == 2)
+                            <b>{{ trans('message.Published_research_co_author') }}:</b> {{ $fname }} {{ $lname }} <br>
+                        @elseif ($teacher->pivot->author_type == 3)
+                            <b>{{ trans('message.Published_research_corresponding_author') }}:</b> {{ $fname }} {{ $lname }} <br>
+                        @endif
+                    @endforeach
 
-                        @foreach ($paper->author as $teacher)
-                            @if ($teacher->pivot->author_type == 3)
-                                <b>{{ trans('message.Published_research_corresponding_author') }}:</b>
-                                {{ $teacher->author_fname }} {{ $teacher->author_lname }} <br>
-                            @endif
-                        @endforeach
-                        @foreach ($paper->teacher as $teacher)
-                            @if ($teacher->pivot->author_type == 3)
-                                <b>{{ trans('message.Published_research_corresponding_author') }}:</b>
-                                {{ $teacher->fname_en }} {{ $teacher->lname_en }} <br>
-                            @endif
-                        @endforeach
+                    @foreach ($paper->teacher as $teacher)
+                        @php
+                            $fname = $teacher->{'fname_' . app()->getLocale()} ?? $teacher->fname_en;
+                            $lname = $teacher->{'lname_' . app()->getLocale()} ?? $teacher->lname_en;
+                        @endphp
 
+                        @if ($teacher->pivot->author_type == 1)
+                            <b>{{ trans('message.Published_research_first_author') }}:</b> {{ $fname }} {{ $lname }} <br>
+                        @elseif ($teacher->pivot->author_type == 2)
+                            <b>{{ trans('message.Published_research_co_author') }}:</b> {{ $fname }} {{ $lname }} <br>
+                        @elseif ($teacher->pivot->author_type == 3)
+                            <b>{{ trans('message.Published_research_corresponding_author') }}:</b> {{ $fname }} {{ $lname }} <br>
+                        @endif
+                    @endforeach
 
 
 

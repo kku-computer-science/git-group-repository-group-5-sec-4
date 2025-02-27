@@ -59,11 +59,11 @@
         <div class="container-fluid">
             <a class="navbar-brand logo-image" href="#">
                 @if(App::getLocale() == 'th')
-            <img src="{{ asset('img/logo2_th.png') }}" alt="alternative">
+            <img src="{{ asset('img/logo2-th.png') }}" alt="alternative">
                 @elseif(App::getLocale() == 'cn')
-            <img src="{{ asset('img/logo2_cn.png') }}" alt="alternative">
+            <img src="{{ asset('img/logo2-cn.png') }}" alt="alternative">
                 @else
-            <img src="{{ asset('img/logo2.png') }}" alt="alternative">
+            <img src="{{ asset('img/logo2-en.png') }}" alt="alternative">
                 @endif
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar"
