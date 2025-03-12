@@ -61,14 +61,23 @@
                             $position_en = $res->position_en ?? '';
 
                             $doctoral_degree_en = ($res->doctoral_degree_en == 'Ph.D.') ? 'Ph.D.' : '';
+                            $doctoral_degree_cn = ($res->doctoral_degree_cn == '博士') ? '博士' : '';
+
                         ?>
 
                         <?php if($locale == 'cn'): ?>
                             <!-- กรณีภาษาจีน -->
                             <h6 class="card-text">
-                                <b><?php echo e($res->position_cn); ?> <?php echo e($res->fname_cn); ?> <?php echo e($res->lname_cn); ?></b>
+                                <b><?php echo e($res->academic_ranks_cn); ?> <?php echo e($res->lname_cn); ?> <?php echo e($res->fname_cn); ?><?php echo e($doctoral_degree_cn ? ', ' . $doctoral_degree_cn : ''); ?></b>
                             </h6>
-                            <h6 class="card-text1"><b><?php echo e($res->academic_ranks_cn); ?></b></h6>
+                            <h6 class="card-text">
+                                <b><?php echo e($position_en); ?> <?php echo e($fname_en); ?> <?php echo e($lname_en); ?><?php echo e($doctoral_degree_en ? ', ' . $doctoral_degree_en : ''); ?></b>
+                            </h6>
+                            <h6 class="card-text1"><b><?php echo e($res->academic_ranks_cn); ?>
+
+                            / <?php echo e($academic_ranks_en); ?>
+
+                            </b></h6>
                         <?php else: ?>
                             <!-- กรณีภาษาไทย & อังกฤษ -->
                             <h6 class="card-text">

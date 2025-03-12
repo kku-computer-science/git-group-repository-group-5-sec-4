@@ -66,6 +66,9 @@ return [
     'Otheracademicworks' => 'Other academic works',
     'laboratory_supervisor' => 'Laboratory Supervisor',
     'student' => 'Student',
+    'reference_apa' => 'Reference (APA)',
+    'close' => 'Close',
+    'modal_body_text' => 'Modal body text goes here.',
     // ส่วนของหน้า Dashboard
 'Welcome' => 'Welcome to the Research Information Management System',
 'Welcome_hello' => 'Hello',

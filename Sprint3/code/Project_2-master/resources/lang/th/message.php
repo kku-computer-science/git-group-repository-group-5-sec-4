@@ -83,6 +83,9 @@ return [
     'Otheracademicworks' => 'ผลงานวิชาการด้านอื่นๆ',
     'laboratory_supervisor' => 'หัวหน้าห้องปฏิบัติการ',
    'student' => 'นักศึกษา',
+   'reference_apa' => 'เอกสารอ้างอิง (APA)',
+    'close' => 'ปิด',
+    'modal_body_text' => 'ข้อความในโมดอลแสดงที่นี่',
     // ส่วนของ Login
 'Account_Login' => 'เข้าสู่ระบบ',
 'Username' => 'ชื่อผู้ใช้',

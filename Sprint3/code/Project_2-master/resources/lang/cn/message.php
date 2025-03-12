@@ -83,6 +83,9 @@ return [
     'Search' => '搜索',
     'laboratory_supervisor' => '实验室主管',
     'student' => '学生',
+    'reference_apa' => '参考文献 (APA)',
+    'close' => '关闭',
+    'modal_body_text' => '模态框内容将在此显示。',
     // ส่วนของ Login
 'Account_Login' => '帐户登录',
 'Username' => '用户名',
