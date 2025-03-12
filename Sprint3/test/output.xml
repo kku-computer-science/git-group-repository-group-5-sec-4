@@ -1,0 +1,521 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.1.1 (Python 3.11.1 on win32)" generated="2025-02-27T10:05:14.602651" rpa="false" schemaversion="5">
+<suite id="s1" name="Lang-004" source="c:\Users\k\Desktop\robot_test_lang\Lang-004.robot">
+<test id="s1-t1" name="Test lang-004-Switch language Staff Section" line="8">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>=====login to Researcher====</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-02-27T10:05:14.920265" elapsed="0.000000"/>
+</kw>
+<kw name="Open site" owner="resource">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-02-27T10:05:14.921266" level="WARN">exexcutable_path is being deprecated. Please use service to configure the driver's executable_path as per documentation.</msg>
+<msg time="2025-02-27T10:05:14.923265" level="INFO">Opening browser 'chrome' to base url 'https://cs0567.cpkkuhost.com/'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<arg>executable_path=${CHROMEDRIVER_PATH}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-02-27T10:05:14.921266" elapsed="6.087934"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-02-27T10:05:21.010201" elapsed="0.036375"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-27T10:05:24.047091" level="INFO">Slept 3 seconds.</msg>
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-27T10:05:21.046576" elapsed="3.000515"/>
+</kw>
+<status status="PASS" start="2025-02-27T10:05:14.920265" elapsed="9.126826"/>
+</kw>
+<kw name="click login button" owner="dashboard_resource">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${login_path}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-27T10:05:24.048108" elapsed="0.017270"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-27T10:05:24.066380" level="INFO">Clicking element 'xpath=/html/body/nav/div/div/span/a'.</msg>
+<arg>${login_path}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-27T10:05:24.066380" elapsed="0.245893"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-27T10:05:26.312935" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-27T10:05:24.312779" elapsed="2.000156"/>
+</kw>
+<kw name="Switch Window" owner="SeleniumLibrary">
+<arg>NEW</arg>
+<doc>Switches to browser window matching ``locator``.</doc>
+<status status="PASS" start="2025-02-27T10:05:26.313442" elapsed="0.005017"/>
+</kw>
+<kw name="Wait Until Location Is" owner="SeleniumLibrary">
+<arg>https://cs0567.cpkkuhost.com/login</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the current URL is ``expected``.</doc>
+<status status="PASS" start="2025-02-27T10:05:26.318459" elapsed="0.005413"/>
+</kw>
+<status status="PASS" start="2025-02-27T10:05:24.048108" elapsed="2.275764"/>
+</kw>
+<kw name="check current url" owner="dashboard_resource">
+<kw name="Get Location" owner="SeleniumLibrary">
+<msg time="2025-02-27T10:05:26.328512" level="INFO">${current_url} = https://cs0567.cpkkuhost.com/login</msg>
+<var>${current_url}</var>
+<doc>Returns the current browser window URL.</doc>
+<status status="PASS" start="2025-02-27T10:05:26.324871" elapsed="0.003641"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${current_url}</arg>
+<arg>https://cs0567.cpkkuhost.com/login</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-02-27T10:05:26.328512" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-02-27T10:05:26.324871" elapsed="0.004641"/>
+</kw>
+<kw name="toggle admin dropdown" owner="dashboard_resource">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-02-27T10:05:26.330512" level="INFO">Executing JavaScript:
+document.querySelector(".nav-item.dropdown").classList.add("show");
+Without any arguments.</msg>
+<arg>document.querySelector(".nav-item.dropdown").classList.add("show");</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-02-27T10:05:26.329512" elapsed="0.007012"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-02-27T10:05:26.337523" level="INFO">Executing JavaScript:
+document.querySelector(".dropdown-menu").classList.add("show");
+Without any arguments.</msg>
+<arg>document.querySelector(".dropdown-menu").classList.add("show");</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-02-27T10:05:26.336524" elapsed="0.005999"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-27T10:05:28.342904" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-27T10:05:26.342523" elapsed="2.000381"/>
+</kw>
+<status status="PASS" start="2025-02-27T10:05:26.329512" elapsed="2.013392"/>
+</kw>
+<kw name="select admin TH" owner="dashboard_resource">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-27T10:05:28.344100" level="INFO">Clicking element 'xpath=//a[contains(text(), 'ไทย')]'.</msg>
+<arg>${TH_path}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-27T10:05:28.344100" elapsed="1.457678"/>
+</kw>
+<status status="PASS" start="2025-02-27T10:05:28.342904" elapsed="1.459872"/>
+</kw>
+<kw name="check login title is TH" owner="dashboard_resource">
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-02-27T10:05:29.821289" level="INFO">${text} = เข้าสู่ระบบ</msg>
+<var>${text}</var>
+<arg>${login_title_text}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-27T10:05:29.802776" elapsed="0.019512"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${text}</arg>
+<arg>${expec_login_title_TH}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-02-27T10:05:29.822288" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-02-27T10:05:29.802776" elapsed="0.019512"/>
+</kw>
+<kw name="toggle admin dropdown" owner="dashboard_resource">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-02-27T10:05:29.823290" level="INFO">Executing JavaScript:
+document.querySelector(".nav-item.dropdown").classList.add("show");
+Without any arguments.</msg>
+<arg>document.querySelector(".nav-item.dropdown").classList.add("show");</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-02-27T10:05:29.823290" elapsed="0.004001"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-02-27T10:05:29.828290" level="INFO">Executing JavaScript:
+document.querySelector(".dropdown-menu").classList.add("show");
+Without any arguments.</msg>
+<arg>document.querySelector(".dropdown-menu").classList.add("show");</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-02-27T10:05:29.828290" elapsed="0.002998"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-27T10:05:31.831677" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-27T10:05:29.831288" elapsed="2.000389"/>
+</kw>
+<status status="PASS" start="2025-02-27T10:05:29.823290" elapsed="2.008387"/>
+</kw>
+<kw name="select admin CN" owner="dashboard_resource">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-27T10:05:31.833684" level="INFO">Clicking element 'xpath=//a[contains(text(), '中文')]'.</msg>
+<arg>${CN_path}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-27T10:05:31.832687" elapsed="1.467840"/>
+</kw>
+<status status="PASS" start="2025-02-27T10:05:31.832687" elapsed="1.467840"/>
+</kw>
+<kw name="check login title is CN" owner="dashboard_resource">
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-02-27T10:05:33.315521" level="INFO">${text} = 帐户登录</msg>
+<var>${text}</var>
+<arg>${login_title_text}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-27T10:05:33.301531" elapsed="0.013990"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${text}</arg>
+<arg>${expec_login_title_CN}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-02-27T10:05:33.316519" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-02-27T10:05:33.301531" elapsed="0.014988"/>
+</kw>
+<kw name="toggle admin dropdown" owner="dashboard_resource">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-02-27T10:05:33.318520" level="INFO">Executing JavaScript:
+document.querySelector(".nav-item.dropdown").classList.add("show");
+Without any arguments.</msg>
+<arg>document.querySelector(".nav-item.dropdown").classList.add("show");</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-02-27T10:05:33.317521" elapsed="0.005001"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-02-27T10:05:33.322522" level="INFO">Executing JavaScript:
+document.querySelector(".dropdown-menu").classList.add("show");
+Without any arguments.</msg>
+<arg>document.querySelector(".dropdown-menu").classList.add("show");</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-02-27T10:05:33.322522" elapsed="0.004516"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-27T10:05:35.328153" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-27T10:05:33.328036" elapsed="2.000117"/>
+</kw>
+<status status="PASS" start="2025-02-27T10:05:33.317521" elapsed="2.010632"/>
+</kw>
+<kw name="select admin EN" owner="dashboard_resource">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-27T10:05:35.329172" level="INFO">Clicking element 'xpath=//a[contains(text(), 'English')]'.</msg>
+<arg>${EN_path}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-27T10:05:35.329172" elapsed="1.453387"/>
+</kw>
+<status status="PASS" start="2025-02-27T10:05:35.328153" elapsed="1.454406"/>
+</kw>
+<kw name="input Staff user and password" owner="dashboard_resource">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-02-27T10:05:36.783559" level="INFO">Typing text 'staff@gmail.com' into text field 'xpath=/html/body/div/div[2]/div[2]/form/div[1]/input'.</msg>
+<arg>${username_path}</arg>
+<arg>staff@gmail.com</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-27T10:05:36.783559" elapsed="0.060753"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-27T10:05:37.845414" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-27T10:05:36.845311" elapsed="1.000729"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-02-27T10:05:37.847048" level="INFO">Typing text '123456789' into text field 'xpath=/html/body/div/div[2]/div[2]/form/div[2]/input'.</msg>
+<arg>${pass_path}</arg>
+<arg>123456789</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-27T10:05:37.846040" elapsed="0.091350"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-27T10:05:38.938482" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-27T10:05:37.937390" elapsed="1.001092"/>
+</kw>
+<status status="PASS" start="2025-02-27T10:05:36.783559" elapsed="2.154923"/>
+</kw>
+<kw name="submit" owner="dashboard_resource">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-27T10:05:38.939497" level="INFO">Clicking element 'xpath=/html/body/div/div[2]/div[2]/form/div[4]/button'.</msg>
+<arg>${submit_path}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-27T10:05:38.939497" elapsed="2.227443"/>
+</kw>
+<kw name="Wait Until Location Is" owner="SeleniumLibrary">
+<arg>https://cs0567.cpkkuhost.com/dashboard</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the current URL is ``expected``.</doc>
+<status status="PASS" start="2025-02-27T10:05:41.167942" elapsed="0.002998"/>
+</kw>
+<status status="PASS" start="2025-02-27T10:05:38.939497" elapsed="2.232444"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>====dashboard page====</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-02-27T10:05:41.171941" elapsed="0.000549"/>
+</kw>
+<kw name="check dashboard page is EN" owner="dashboard_resource">
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-02-27T10:05:41.188497" level="INFO">${text} = Welcome to the Research Information Management System</msg>
+<var>${text}</var>
+<arg>${dashboard_page_text}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-27T10:05:41.173497" elapsed="0.015000"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${text}</arg>
+<arg>${expec_dashboard_page_text_EN}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-02-27T10:05:41.188497" elapsed="0.000999"/>
+</kw>
+<status status="PASS" start="2025-02-27T10:05:41.172490" elapsed="0.017006"/>
+</kw>
+<kw name="toggle admin dropdown" owner="dashboard_resource">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-02-27T10:05:41.190497" level="INFO">Executing JavaScript:
+document.querySelector(".nav-item.dropdown").classList.add("show");
+Without any arguments.</msg>
+<arg>document.querySelector(".nav-item.dropdown").classList.add("show");</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-02-27T10:05:41.189496" elapsed="0.004000"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-02-27T10:05:41.193496" level="INFO">Executing JavaScript:
+document.querySelector(".dropdown-menu").classList.add("show");
+Without any arguments.</msg>
+<arg>document.querySelector(".dropdown-menu").classList.add("show");</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-02-27T10:05:41.193496" elapsed="0.004001"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-27T10:05:43.198538" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-27T10:05:41.198498" elapsed="2.000040"/>
+</kw>
+<status status="PASS" start="2025-02-27T10:05:41.189496" elapsed="2.009042"/>
+</kw>
+<kw name="select admin TH" owner="dashboard_resource">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-27T10:05:43.199558" level="INFO">Clicking element 'xpath=//a[contains(text(), 'ไทย')]'.</msg>
+<arg>${TH_path}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-27T10:05:43.199558" elapsed="1.683885"/>
+</kw>
+<status status="PASS" start="2025-02-27T10:05:43.199558" elapsed="1.683885"/>
+</kw>
+<kw name="check dashboard page is TH" owner="dashboard_resource">
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-02-27T10:05:44.896523" level="INFO">${text} = ยินดีต้อนรับเข้าสู่ระบบจัดการข้อมูลวิจัยของสาขาวิชาวิทยาการคอมพิวเตอร์</msg>
+<var>${text}</var>
+<arg>${dashboard_page_text}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-27T10:05:44.884442" elapsed="0.012081"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${text}</arg>
+<arg>${expec_dashboard_page_text_TH}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-02-27T10:05:44.897523" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-02-27T10:05:44.884442" elapsed="0.013081"/>
+</kw>
+<kw name="toggle admin dropdown" owner="dashboard_resource">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-02-27T10:05:44.898523" level="INFO">Executing JavaScript:
+document.querySelector(".nav-item.dropdown").classList.add("show");
+Without any arguments.</msg>
+<arg>document.querySelector(".nav-item.dropdown").classList.add("show");</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-02-27T10:05:44.898523" elapsed="0.003998"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-02-27T10:05:44.903522" level="INFO">Executing JavaScript:
+document.querySelector(".dropdown-menu").classList.add("show");
+Without any arguments.</msg>
+<arg>document.querySelector(".dropdown-menu").classList.add("show");</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-02-27T10:05:44.903522" elapsed="0.004002"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-27T10:05:46.908655" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-27T10:05:44.907524" elapsed="2.001131"/>
+</kw>
+<status status="PASS" start="2025-02-27T10:05:44.898523" elapsed="2.010638"/>
+</kw>
+<kw name="select admin CN" owner="dashboard_resource">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-27T10:05:46.910168" level="INFO">Clicking element 'xpath=//a[contains(text(), '中文')]'.</msg>
+<arg>${CN_path}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-27T10:05:46.909161" elapsed="1.721983"/>
+</kw>
+<status status="PASS" start="2025-02-27T10:05:46.909161" elapsed="1.721983"/>
+</kw>
+<kw name="check dashboard page is CN" owner="dashboard_resource">
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-02-27T10:05:48.643276" level="INFO">${text} = 欢迎来到研究信息管理系统</msg>
+<var>${text}</var>
+<arg>${dashboard_page_text}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-27T10:05:48.632147" elapsed="0.011129"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${text}</arg>
+<arg>${expec_dashboard_page_text_CN}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-02-27T10:05:48.644366" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-02-27T10:05:48.632147" elapsed="0.012219"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>====user profile====</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-02-27T10:05:48.644366" elapsed="0.001001"/>
+</kw>
+<kw name="click manage program" owner="dashboard_resource">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-27T10:05:48.646368" level="INFO">Clicking element 'xpath=/html/body/div/div/nav/ul/li[10]/a/span'.</msg>
+<arg>${manage_programs_path}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-27T10:05:48.646368" elapsed="1.412590"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${manage_programs_path}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-27T10:05:50.059486" elapsed="0.012700"/>
+</kw>
+<status status="PASS" start="2025-02-27T10:05:48.645367" elapsed="1.426819"/>
+</kw>
+<kw name="toggle admin dropdown" owner="dashboard_resource">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-02-27T10:05:50.073186" level="INFO">Executing JavaScript:
+document.querySelector(".nav-item.dropdown").classList.add("show");
+Without any arguments.</msg>
+<arg>document.querySelector(".nav-item.dropdown").classList.add("show");</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-02-27T10:05:50.073186" elapsed="0.004000"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-02-27T10:05:50.077186" level="INFO">Executing JavaScript:
+document.querySelector(".dropdown-menu").classList.add("show");
+Without any arguments.</msg>
+<arg>document.querySelector(".dropdown-menu").classList.add("show");</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-02-27T10:05:50.077186" elapsed="0.002999"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-27T10:05:52.081636" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-27T10:05:50.081187" elapsed="2.000449"/>
+</kw>
+<status status="PASS" start="2025-02-27T10:05:50.072186" elapsed="2.009450"/>
+</kw>
+<kw name="select admin TH" owner="dashboard_resource">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-27T10:05:52.083664" level="INFO">Clicking element 'xpath=//a[contains(text(), 'ไทย')]'.</msg>
+<arg>${TH_path}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-27T10:05:52.083664" elapsed="1.760478"/>
+</kw>
+<status status="PASS" start="2025-02-27T10:05:52.082710" elapsed="1.761432"/>
+</kw>
+<kw name="check manage program is TH" owner="dashboard_resource">
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-02-27T10:05:53.859809" level="INFO">${text} = จัดการหลักสูตร</msg>
+<var>${text}</var>
+<arg>${manage_programs_text}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-27T10:05:53.845285" elapsed="0.014524"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${text}</arg>
+<arg>${expec_manage_programs_text_TH}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-02-27T10:05:53.859809" elapsed="0.001002"/>
+</kw>
+<status status="PASS" start="2025-02-27T10:05:53.845285" elapsed="0.015526"/>
+</kw>
+<kw name="toggle admin dropdown" owner="dashboard_resource">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-02-27T10:05:53.861810" level="INFO">Executing JavaScript:
+document.querySelector(".nav-item.dropdown").classList.add("show");
+Without any arguments.</msg>
+<arg>document.querySelector(".nav-item.dropdown").classList.add("show");</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-02-27T10:05:53.861810" elapsed="0.003000"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-02-27T10:05:53.865812" level="INFO">Executing JavaScript:
+document.querySelector(".dropdown-menu").classList.add("show");
+Without any arguments.</msg>
+<arg>document.querySelector(".dropdown-menu").classList.add("show");</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-02-27T10:05:53.864810" elapsed="0.004000"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-27T10:05:55.868997" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-27T10:05:53.868810" elapsed="2.000187"/>
+</kw>
+<status status="PASS" start="2025-02-27T10:05:53.860811" elapsed="2.008186"/>
+</kw>
+<kw name="select admin CN" owner="dashboard_resource">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-27T10:05:55.870004" level="INFO">Clicking element 'xpath=//a[contains(text(), '中文')]'.</msg>
+<arg>${CN_path}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-27T10:05:55.870004" elapsed="1.885387"/>
+</kw>
+<status status="PASS" start="2025-02-27T10:05:55.870004" elapsed="1.886394"/>
+</kw>
+<kw name="check manage program is CN" owner="dashboard_resource">
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-02-27T10:05:57.769328" level="INFO">${text} = 管理项目</msg>
+<var>${text}</var>
+<arg>${manage_programs_text}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-27T10:05:57.757394" elapsed="0.011934"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${text}</arg>
+<arg>${expec_manage_programs_text_CN}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-02-27T10:05:57.769328" elapsed="0.001139"/>
+</kw>
+<status status="PASS" start="2025-02-27T10:05:57.756398" elapsed="0.014069"/>
+</kw>
+<kw name="Close Browser Session" owner="resource">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-02-27T10:05:57.770467" elapsed="2.197823"/>
+</kw>
+<status status="PASS" start="2025-02-27T10:05:57.770467" elapsed="2.198375"/>
+</kw>
+<status status="PASS" start="2025-02-27T10:05:14.919265" elapsed="45.049577"/>
+</test>
+<status status="PASS" start="2025-02-27T10:05:14.607641" elapsed="45.362210"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Lang-004">Lang-004</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2025-02-27T10:05:14.921266" level="WARN">exexcutable_path is being deprecated. Please use service to configure the driver's executable_path as per documentation.</msg>
+</errors>
+</robot>
