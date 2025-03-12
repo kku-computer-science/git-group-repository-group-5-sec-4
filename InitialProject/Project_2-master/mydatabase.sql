@@ -3,7 +3,11 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: mysql:3306
+<<<<<<< HEAD
 -- Generation Time: Feb 27, 2025 at 12:18 AM
+=======
+-- Generation Time: Mar 11, 2025 at 05:55 PM
+>>>>>>> ade91794 (add switch lang in home and researcher  profile)
 -- Server version: 8.0.32
 -- PHP Version: 8.2.27
 
@@ -166,8 +170,13 @@ INSERT INTO `authors` (`id`, `author_fname`, `author_lname`, `created_at`, `upda
 (31, 'Peraphon', 'Sophatsathit', '2022-04-30 13:03:54', '2022-04-30 13:03:54', 'Peraphon', 'เภราภรณ์', '佩雅芬', 'Sophatsathit', 'โสภณเศรษฐ์', '苏发世德'),
 (32, 'Yuefeng', 'Li', '2022-04-30 13:03:56', '2022-04-30 13:03:56', 'Yuefeng', 'เยว่เฟิง', '月峰', 'Li', 'ลี่', '丽'),
 (33, 'Ngamnii', 'Arch-Int', '2022-04-30 13:03:56', '2022-04-30 13:03:56', 'Ngamnii', 'งามณี', '雅妮', 'Arch-Int', 'อาชอินทร์', '安智英'),
+<<<<<<< HEAD
 (34, 'Yanika', 'Kongsorot', '2022-04-30 13:04:29', '2022-04-30 13:04:29', 'Yanika', 'ญานิกา', '雅妮卡', 'Kongsorot', 'คงสโรจน์', '康思荣 '),
 (35, 'Pakarat', 'Musikawan', '2022-04-30 13:04:29', '2022-04-30 13:04:29', 'Pakarat', 'ภัคภรัช', '帕卡拉特', 'Musikawan', 'มุสิกาวรรณ', '慕思佳文'),
+=======
+(34, 'Yanika', 'Kongsorot', '2022-04-30 13:04:29', '2022-04-30 13:04:29', 'Yanika', 'ญานิกา', '雅妮卡', 'Kongsorot', 'คงโสรส', '康思荣 '),
+(35, 'Pakarat', 'Musikawan', '2022-04-30 13:04:29', '2022-04-30 13:04:29', 'Pakarat', 'ภัคราช', '帕卡拉特', 'Musikawan', 'มุสิกะวัน', '慕思佳文'),
+>>>>>>> ade91794 (add switch lang in home and researcher  profile)
 (36, 'Paisarn', 'Muneesawang', '2022-04-30 13:04:29', '2022-04-30 13:04:29', 'Paisarn', 'ไพศาล', '培山', 'Muneesawang', 'มุนีสว่าง', '明智光'),
 (37, 'Jureeporn', 'Chuerduangphui', '2022-04-30 13:04:31', '2022-04-30 13:04:31', 'Jureeporn', 'จุรีพร', '珠丽芳', 'Chuerduangphui', 'เชื้อดวงผุย', '初端菲'),
 (38, 'Thawaree', 'Nukpook', '2022-04-30 13:04:31', '2022-04-30 13:04:31', 'Thawaree', 'ถาวรี ', '长丽', 'Nukpook', 'นุกพุก', '乐福'),
@@ -271,17 +280,30 @@ INSERT INTO `authors` (`id`, `author_fname`, `author_lname`, `created_at`, `upda
 (136, 'Suthasinee', 'Senasu', '2022-04-30 13:18:08', '2022-04-30 13:18:08', 'Suthasinee', 'สุธาสินี', '苏塔西妮', 'Senasu', 'เซนาโซ่', '谢那苏'),
 (137, 'Itthi', 'Trisirisatayawong', '2022-04-30 13:18:08', '2022-04-30 13:18:08', 'Itthi', 'อิทธิ', '伊提', 'Trisirisatayawong', 'ทริศิริสาทยาวงค์', '特里西里萨塔雅翁'),
 (138, 'Anuphao', 'Aobpaet', '2022-04-30 13:18:10', '2022-04-30 13:18:10', 'Anuphao', 'อนุภา', '阿努刹', 'Aobpaet', 'ออบแพย์', '奥帕埃'),
+<<<<<<< HEAD
 (139, 'Panuwat', 'Keawbor', '2022-04-30 13:18:31', '2022-04-30 13:18:31', 'Panuwat', 'พนุต', '帕努瓦特', 'Keawbor', 'แก้วบอร์', '凯沃博'),
 (140, 'Suthasinee', 'Iamsa-At', '2022-04-30 13:18:32', '2022-04-30 13:18:32', 'Suthasinee', 'สุธาสินี', '苏塔西妮', 'Iamsa-At', 'เอี่ยมสะอาด', '艾姆萨阿特'),
 (141, 'Janebhop', 'Sawaengchob', '2022-04-30 13:18:34', '2022-04-30 13:18:34', 'Janebhop', 'เจนบอป', '杰内波', 'Sawaengchob', 'สวางค์ชอบ', '萨万钟布'),
 (142, 'Songpon', 'Sastrawaha', '2022-04-30 13:18:35', '2022-04-30 13:18:35', 'Songpon', 'ส่งพล', '宋朋', 'Sastrawaha', 'สาธราวะหา', '萨斯特拉瓦哈'),
 (143, 'Khanittha', 'Phurattanaprapin', '2022-04-30 13:18:37', '2022-04-30 13:18:37', 'Khanittha', 'ขนิษฐา', '卡尼塔', 'Phurattanaprapin', 'พุรัตน์ประพิณ', '普拉特纳帕平'),
 (144, 'Sarunyoo', 'Boriratrit', '2022-04-30 13:18:37', '2022-04-30 13:18:37', 'Sarunyoo', 'สารุณย์', '萨鲁纽', 'Boriratrit', 'บอริรัตติริต', '波里拉特里特'),
+=======
+(139, 'Panuwat', 'Keawbor', '2022-04-30 13:18:31', '2022-04-30 13:18:31', 'Panuwat', 'ภานุวัฒน์', '帕努瓦特', 'Keawbor', 'แก้วบ่อ', '凯沃博'),
+(140, 'Suthasinee', 'Iamsa-At', '2022-04-30 13:18:32', '2022-04-30 13:18:32', 'Suthasinee', 'สุธาสินี', '苏塔西妮', 'Iamsa-At', 'เอี่ยมสะอาด', '艾姆萨阿特'),
+(141, 'Janebhop', 'Sawaengchob', '2022-04-30 13:18:34', '2022-04-30 13:18:34', 'Janebhop', 'เจนภพ', '杰内波', 'Sawaengchob', 'แสวงโชค', '萨万钟布'),
+(142, 'Songpon', 'Sastrawaha', '2022-04-30 13:18:35', '2022-04-30 13:18:35', 'Songpon', 'ทรงพล', '宋朋', 'Sastrawaha', 'ศาสตรวาหะ ', '萨斯特拉瓦哈'),
+(143, 'Khanittha', 'Phurattanaprapin', '2022-04-30 13:18:37', '2022-04-30 13:18:37', 'Khanittha', 'ขนิษฐา', '卡尼塔', 'Phurattanaprapin', 'ภูรัตนประพิน', '普拉特纳帕平'),
+(144, 'Sarunyoo', 'Boriratrit', '2022-04-30 13:18:37', '2022-04-30 13:18:37', 'Sarunyoo', 'สรัญยู', '萨鲁纽', 'Boriratrit', 'บริรัตน์ฤทธิ์', '波里拉特里特'),
+>>>>>>> ade91794 (add switch lang in home and researcher  profile)
 (145, 'Sarutte', 'Atsawaraungsuk', '2022-04-30 13:18:40', '2022-04-30 13:18:40', 'Sarutte', 'สารัตน์', '萨鲁特', 'Atsawaraungsuk', 'อัจฉวารังสุข', '阿察瓦朗苏克'),
 (146, 'Sumanta', 'Subhadhira', '2022-04-30 13:18:41', '2022-04-30 13:18:41', 'Sumanta', 'สุมัณฑา', '苏曼塔', 'Subhadhira', 'สุภาธิร', '苏巴迪拉'),
 (147, 'Usarat', 'Juithonglang', '2022-04-30 13:18:41', '2022-04-30 13:18:41', 'Usarat', 'อุษรัต', '乌萨拉特', 'Juithonglang', 'จุยทองหลาง', '聚伊通朗'),
 (148, 'Paweena', 'Sakulkoo', '2022-04-30 13:18:41', '2022-04-30 13:18:41', 'Paweena', 'ปวีณา', '帕维娜', 'Sakulkoo', 'สกุลคู', '萨库尔库'),
+<<<<<<< HEAD
 (149, 'Pakarat', 'Musigawan', '2022-04-30 13:18:44', '2022-04-30 13:18:44', 'Pakarat', 'ปกฤต', '帕卡拉特', 'Musigawan', 'มูซิกาวัน', '穆西加旺'),
+=======
+(149, 'Pakarat', 'Musigawan', '2022-04-30 13:18:44', '2022-04-30 13:18:44', 'Pakarat', 'ภัคราช', '帕卡拉特', 'Musigawan', 'มุสิกะวัน', '穆西加旺'),
+>>>>>>> ade91794 (add switch lang in home and researcher  profile)
 (150, 'Nguyen Ngoc', 'Thuy', '2022-04-30 13:19:01', '2022-04-30 13:19:01', 'Nguyen Ngoc', 'เหงียน ง็อค', '阮玉', 'Thuy', 'ทุย', '推'),
 (151, 'Charinya', 'Wangwatcharakul', '2022-04-30 13:19:01', '2022-04-30 13:19:01', 'Charinya', 'ชาริญา', '查琳雅', 'Wangwatcharakul', 'วังวัจฉระกุล', '王瓦差拉古'),
 (152, 'Pattapon', 'Wanna', '2022-04-30 13:19:03', '2022-04-30 13:19:03', 'Pattapon', 'พัทธพล', '帕塔蓬', 'Wanna', 'None', '婉娜'),
@@ -3572,8 +3594,13 @@ CREATE TABLE `roles` (
   `guard_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
+<<<<<<< HEAD
   `name_th` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `name_cn` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
+=======
+  `name_th` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name_cn` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL
+>>>>>>> ade91794 (add switch lang in home and researcher  profile)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --

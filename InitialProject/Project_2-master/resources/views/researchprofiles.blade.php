@@ -247,8 +247,21 @@
                         @foreach ($paper->author as $author)
                             <span>
                                 <a>
+<<<<<<< HEAD
                                     {{ app()->getLocale() == 'th' ? ($author->fname_th ?? $author->author_fname) : $author->author_fname }}
                                     {{ app()->getLocale() == 'th' ? ($author->lname_th ?? $author->author_lname) : $author->author_lname }}
+=======
+                                    @if (app()->getLocale() == 'th')
+                                        {{ $author->author_fname_th ?? $author->author_fname_en }}
+                                        {{ $author->author_lname_th ?? $author->author_lname_en }}
+                                    @elseif (app()->getLocale() == 'cn')
+                                        {{ $author->author_fname_cn ?? $author->author_fname_en }}
+                                        {{ $author->author_lname_cn ?? $author->author_lname_en }}
+                                    @else
+                                        {{ $author->author_fname_en }}
+                                        {{ $author->author_lname_en }}
+                                    @endif
+>>>>>>> ade91794 (add switch lang in home and researcher  profile)
                                 </a>
                             </span>
                         @endforeach
@@ -257,8 +270,21 @@
                             <span>
                                 <a href="{{ route('detail', Crypt::encrypt($author->id)) }}">
                                     <teacher>
+<<<<<<< HEAD
                                         {{ app()->getLocale() == 'th' ? ($author->fname_th ?? $author->fname_en) : $author->fname_en }}
                                         {{ app()->getLocale() == 'th' ? ($author->lname_th ?? $author->lname_en) : $author->lname_en }}
+=======
+                                        @if (app()->getLocale() == 'th')
+                                            {{ $author->fname_th ?? $author->fname_en }}
+                                            {{ $author->lname_th ?? $author->lname_en }}
+                                        @elseif (app()->getLocale() == 'cn')
+                                            {{ $author->fname_cn ?? $author->fname_en }}
+                                            {{ $author->lname_cn ?? $author->lname_en }}
+                                        @else
+                                            {{ $author->fname_en }}
+                                            {{ $author->lname_en }}
+                                        @endif
+>>>>>>> ade91794 (add switch lang in home and researcher  profile)
                                     </teacher>
                                 </a>
                             </span>
@@ -266,7 +292,13 @@
                     </td>
                         <td>
                         @if(app()->getLocale() == 'th')
+<<<<<<< HEAD
                             {{ str_replace(['Conference Proceeding', 'Journal'], ['การประชุมวิชาการ', 'วารสาร'], $paper->paper_type) }}
+=======
+                            {{ str_replace(['Conference Proceeding', 'Journal', 'Book Series'], ['การประชุมวิชาการ', 'วารสาร', 'ชุดหนังสือ'], $paper->paper_type) }}
+                        @elseif(app()->getLocale() == 'cn')
+                            {{ str_replace(['Conference Proceeding', 'Journal', 'Book Series'], ['会议论文', '期刊', '丛书'], $paper->paper_type) }}
+>>>>>>> ade91794 (add switch lang in home and researcher  profile)
                         @else
                             {{ $paper->paper_type }}
                         @endif
@@ -323,18 +355,47 @@
                         @foreach ($paper->author as $author)
                             <span>
                                 <a>
+<<<<<<< HEAD
                                     {{ app()->getLocale() == 'th' ? ($author->fname_th ?? $author->author_fname) : $author->author_fname }}
                                     {{ app()->getLocale() == 'th' ? ($author->lname_th ?? $author->author_lname) : $author->author_lname }}
+=======
+                                    @if (app()->getLocale() == 'th')
+                                        {{ $author->author_fname_th ?? $author->author_fname_en }}
+                                        {{ $author->author_lname_th ?? $author->author_lname_en }}
+                                    @elseif (app()->getLocale() == 'cn')
+                                        {{ $author->author_fname_cn ?? $author->author_fname_en }}
+                                        {{ $author->author_lname_cn ?? $author->author_lname_en }}
+                                    @else
+                                        {{ $author->author_fname_en }}
+                                        {{ $author->author_lname_en }}
+                                    @endif
+>>>>>>> ade91794 (add switch lang in home and researcher  profile)
                                 </a>
                             </span>
                         @endforeach
 
                         @foreach ($paper->teacher as $author)
+<<<<<<< HEAD
                             <span>
                                 <a href="{{ route('detail', Crypt::encrypt($author->id)) }}">
                                     <teacher>
                                         {{ app()->getLocale() == 'th' ? ($author->fname_th ?? $author->fname_en) : $author->fname_en }}
                                         {{ app()->getLocale() == 'th' ? ($author->lname_th ?? $author->lname_en) : $author->lname_en }}
+=======
+                        <span>
+                                <a href="{{ route('detail', Crypt::encrypt($author->id)) }}">
+                                    <teacher>
+                                        @if (app()->getLocale() == 'th')
+                                            {{ $author->fname_th ?? $author->fname_en }}
+                                            {{ $author->lname_th ?? $author->lname_en }}
+                                        @elseif (app()->getLocale() == 'cn')
+                                            {{ $author->fname_cn ?? $author->fname_en }}
+                                            {{ $author->lname_cn ?? $author->lname_en }}
+                                        @else
+                                            {{ $author->fname_en }}
+                                            {{ $author->lname_en }}
+                                        @endif
+>>>>>>> ade91794 (add switch lang in home and researcher  profile)
                                     </teacher>
                                 </a>
                             </span>
@@ -342,7 +403,13 @@
                         </td>
                         <td>
                         @if(app()->getLocale() == 'th')
+<<<<<<< HEAD
                             {{ str_replace(['Conference Proceeding', 'Journal'], ['การประชุมวิชาการ', 'วารสาร'], $paper->paper_type) }}
+=======
+                            {{ str_replace(['Conference Proceeding', 'Journal', 'Book Series'], ['การประชุมวิชาการ', 'วารสาร', 'ชุดหนังสือ'], $paper->paper_type) }}
+                        @elseif(app()->getLocale() == 'cn')
+                            {{ str_replace(['Conference Proceeding', 'Journal', 'Book Series'], ['会议论文', '期刊', '丛书'], $paper->paper_type) }}
+>>>>>>> ade91794 (add switch lang in home and researcher  profile)
                         @else
                             {{ $paper->paper_type }}
                         @endif
@@ -395,8 +462,21 @@
                         @foreach ($paper->author as $author)
                             <span>
                                 <a>
+<<<<<<< HEAD
                                     {{ app()->getLocale() == 'th' ? ($author->fname_th ?? $author->author_fname) : $author->author_fname }}
                                     {{ app()->getLocale() == 'th' ? ($author->lname_th ?? $author->author_lname) : $author->author_lname }}
+=======
+                                    @if (app()->getLocale() == 'th')
+                                        {{ $author->author_fname_th ?? $author->author_fname_en }}
+                                        {{ $author->author_lname_th ?? $author->author_lname_en }}
+                                    @elseif (app()->getLocale() == 'cn')
+                                        {{ $author->author_fname_cn ?? $author->author_fname_en }}
+                                        {{ $author->author_lname_cn ?? $author->author_lname_en }}
+                                    @else
+                                        {{ $author->author_fname_en }}
+                                        {{ $author->author_lname_en }}
+                                    @endif
+>>>>>>> ade91794 (add switch lang in home and researcher  profile)
                                 </a>
                             </span>
                         @endforeach
@@ -405,8 +485,21 @@
                             <span>
                                 <a href="{{ route('detail', Crypt::encrypt($author->id)) }}">
                                     <teacher>
+<<<<<<< HEAD
                                         {{ app()->getLocale() == 'th' ? ($author->fname_th ?? $author->fname_en) : $author->fname_en }}
                                         {{ app()->getLocale() == 'th' ? ($author->lname_th ?? $author->lname_en) : $author->lname_en }}
+=======
+                                        @if (app()->getLocale() == 'th')
+                                            {{ $author->fname_th ?? $author->fname_en }}
+                                            {{ $author->lname_th ?? $author->lname_en }}
+                                        @elseif (app()->getLocale() == 'cn')
+                                            {{ $author->fname_cn ?? $author->fname_en }}
+                                            {{ $author->lname_cn ?? $author->lname_en }}
+                                        @else
+                                            {{ $author->fname_en }}
+                                            {{ $author->lname_en }}
+                                        @endif
+>>>>>>> ade91794 (add switch lang in home and researcher  profile)
                                     </teacher>
                                 </a>
                             </span>
@@ -414,7 +507,13 @@
                         </td>
                         <td>
                         @if(app()->getLocale() == 'th')
+<<<<<<< HEAD
                             {{ str_replace(['Conference Proceeding', 'Journal'], ['การประชุมวิชาการ', 'วารสาร'], $paper->paper_type) }}
+=======
+                            {{ str_replace(['Conference Proceeding', 'Journal', 'Book Series'], ['การประชุมวิชาการ', 'วารสาร', 'ชุดหนังสือ'], $paper->paper_type) }}
+                        @elseif(app()->getLocale() == 'cn')
+                            {{ str_replace(['Conference Proceeding', 'Journal', 'Book Series'], ['会议论文', '期刊', '丛书'], $paper->paper_type) }}
+>>>>>>> ade91794 (add switch lang in home and researcher  profile)
                         @else
                             {{ $paper->paper_type }}
                         @endif
@@ -467,8 +566,21 @@
                         @foreach ($paper->author as $author)
                             <span>
                                 <a>
+<<<<<<< HEAD
                                     {{ app()->getLocale() == 'th' ? ($author->fname_th ?? $author->author_fname) : $author->author_fname }}
                                     {{ app()->getLocale() == 'th' ? ($author->lname_th ?? $author->author_lname) : $author->author_lname }}
+=======
+                                    @if (app()->getLocale() == 'th')
+                                        {{ $author->author_fname_th ?? $author->author_fname_en }}
+                                        {{ $author->author_lname_th ?? $author->author_lname_en }}
+                                    @elseif (app()->getLocale() == 'cn')
+                                        {{ $author->author_fname_cn ?? $author->author_fname_en }}
+                                        {{ $author->author_lname_cn ?? $author->author_lname_en }}
+                                    @else
+                                        {{ $author->author_fname_en }}
+                                        {{ $author->author_lname_en }}
+                                    @endif
+>>>>>>> ade91794 (add switch lang in home and researcher  profile)
                                 </a>
                             </span>
                         @endforeach
@@ -477,8 +589,21 @@
                             <span>
                                 <a href="{{ route('detail', Crypt::encrypt($author->id)) }}">
                                     <teacher>
+<<<<<<< HEAD
                                         {{ app()->getLocale() == 'th' ? ($author->fname_th ?? $author->fname_en) : $author->fname_en }}
                                         {{ app()->getLocale() == 'th' ? ($author->lname_th ?? $author->lname_en) : $author->lname_en }}
+=======
+                                        @if (app()->getLocale() == 'th')
+                                            {{ $author->fname_th ?? $author->fname_en }}
+                                            {{ $author->lname_th ?? $author->lname_en }}
+                                        @elseif (app()->getLocale() == 'cn')
+                                            {{ $author->fname_cn ?? $author->fname_en }}
+                                            {{ $author->lname_cn ?? $author->lname_en }}
+                                        @else
+                                            {{ $author->fname_en }}
+                                            {{ $author->lname_en }}
+                                        @endif
+>>>>>>> ade91794 (add switch lang in home and researcher  profile)
                                     </teacher>
                                 </a>
                             </span>
@@ -486,7 +611,13 @@
                         </td>
                         <td>
                         @if(app()->getLocale() == 'th')
+<<<<<<< HEAD
                             {{ str_replace(['Conference Proceeding', 'Journal'], ['การประชุมวิชาการ', 'วารสาร'], $paper->paper_type) }}
+=======
+                            {{ str_replace(['Conference Proceeding', 'Journal', 'Book Series'], ['การประชุมวิชาการ', 'วารสาร', 'ชุดหนังสือ'], $paper->paper_type) }}
+                        @elseif(app()->getLocale() == 'cn')
+                            {{ str_replace(['Conference Proceeding', 'Journal', 'Book Series'], ['会议论文', '期刊', '丛书'], $paper->paper_type) }}
+>>>>>>> ade91794 (add switch lang in home and researcher  profile)
                         @else
                             {{ $paper->paper_type }}
                         @endif
@@ -530,6 +661,7 @@
                         <td>{{$paper->ac_name}}</td>
                         <td>
                             @foreach ($paper->author as $author)
+<<<<<<< HEAD
                                 <span>
                                     <a>
                                         {{ app()->getLocale() == 'th' ? ($author->fname_th ?? $author->author_fname) : $author->author_fname }}
@@ -545,6 +677,39 @@
                                         {{ app()->getLocale() == 'th' ? ($author->lname_th ?? $author->lname_en) : $author->lname_en }}
                                     </a>
                                 </span>
+=======
+                            <span>
+                                <a>
+                                    @if (app()->getLocale() == 'th')
+                                        {{ $author->author_fname_th ?? $author->author_fname_en }}
+                                        {{ $author->author_lname_th ?? $author->author_lname_en }}
+                                    @elseif (app()->getLocale() == 'cn')
+                                        {{ $author->author_fname_cn ?? $author->author_fname_en }}
+                                        {{ $author->author_lname_cn ?? $author->author_lname_en }}
+                                    @else
+                                        {{ $author->author_fname_en }}
+                                        {{ $author->author_lname_en }}
+                                    @endif
+                                </a>
+                            </span>
+                            @endforeach
+
+                            @foreach ($paper->user as $author)
+                            <span>
+                                <a>
+                                    @if (app()->getLocale() == 'th')
+                                            {{ $author->fname_th ?? $author->fname_en }}
+                                            {{ $author->lname_th ?? $author->lname_en }}
+                                    @elseif (app()->getLocale() == 'cn')
+                                        {{ $author->fname_cn ?? $author->fname_en }}
+                                        {{ $author->lname_cn ?? $author->lname_en }}
+                                    @else
+                                        {{ $author->fname_en }}
+                                        {{ $author->lname_en }}
+                                    @endif
+                                </a>
+                            </span>
+>>>>>>> ade91794 (add switch lang in home and researcher  profile)
                             @endforeach
                         </td>
                         <td>
@@ -579,31 +744,72 @@
                         <td>{{$paper->ac_name}}</td>
                         <td>
                             @foreach ($paper->author as $author)
+<<<<<<< HEAD
                                 <span>
                                     <a>
                                         {{ app()->getLocale() == 'th' ? ($author->fname_th ?? $author->author_fname) : $author->author_fname }}
                                         {{ app()->getLocale() == 'th' ? ($author->lname_th ?? $author->author_lname) : $author->author_lname }}
                                     </a>
                                 </span>
+=======
+                            <span>
+                                <a>
+                                    @if (app()->getLocale() == 'th')
+                                        {{ $author->author_fname_th ?? $author->author_fname_en }}
+                                        {{ $author->author_lname_th ?? $author->author_lname_en }}
+                                    @elseif (app()->getLocale() == 'cn')
+                                        {{ $author->author_fname_cn ?? $author->author_fname_en }}
+                                        {{ $author->author_lname_cn ?? $author->author_lname_en }}
+                                    @else
+                                        {{ $author->author_fname_en }}
+                                        {{ $author->author_lname_en }}
+                                    @endif
+                                </a>
+                            </span>
+>>>>>>> ade91794 (add switch lang in home and researcher  profile)
                             @endforeach
 
                             @foreach ($paper->user as $author)
                                 <span>
                                     <a href="{{ route('detail', Crypt::encrypt($author->id)) }}">
                                         <teacher>
+<<<<<<< HEAD
                                             {{ app()->getLocale() == 'th' ? ($author->fname_th ?? $author->fname_en) : $author->fname_en }}
                                             {{ app()->getLocale() == 'th' ? ($author->lname_th ?? $author->lname_en) : $author->lname_en }}
+=======
+                                            @if (app()->getLocale() == 'th')
+                                                {{ $author->fname_th ?? $author->fname_en }}
+                                                {{ $author->lname_th ?? $author->lname_en }}
+                                            @elseif (app()->getLocale() == 'cn')
+                                                {{ $author->fname_cn ?? $author->fname_en }}
+                                                {{ $author->lname_cn ?? $author->lname_en }}
+                                            @else
+                                                {{ $author->fname_en }}
+                                                {{ $author->lname_en }}
+                                            @endif
+>>>>>>> ade91794 (add switch lang in home and researcher  profile)
                                         </teacher>
                                     </a>
                                 </span>
                             @endforeach
                         </td>
                         <td>
+<<<<<<< HEAD
                             @if(app()->getLocale() == 'th')
                                 {{ str_replace(['Patent', 'Utility Model'], ['สิทธิบัตร', 'อนุสิทธิบัตร'], $paper->ac_type) }}
                             @else
                                 {{ $paper->ac_type }}
                             @endif
+=======
+                        @if(app()->getLocale() == 'th')
+                            {{ str_replace(['Patent', 'Utility Model'], ['สิทธิบัตร', 'อนุสิทธิบัตร'], $paper->ac_type) }}
+                        @elseif(app()->getLocale() == 'cn')
+                            {{ str_replace(['Patent', 'Utility Model'], ['专利', '实用新型'], $paper->ac_type) }}
+                        @else
+                            {{ $paper->ac_type }}
+                        @endif
+
+>>>>>>> ade91794 (add switch lang in home and researcher  profile)
                         </td>
                         <td>{{$paper->ac_refnumber }}</td>
                         <td>

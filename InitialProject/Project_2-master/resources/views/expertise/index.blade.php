@@ -103,6 +103,7 @@
                     @csrf
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-12">
+<<<<<<< HEAD
                             <div class="form-group">
                                 <strong>Name in English :</strong>
                                 <input type="text" name="expert_name" id="expert_name" class="form-control" placeholder="Expert_name" onchange="validate()">
@@ -111,6 +112,28 @@
                                 <strong>Name in Chinese :</strong>
                                 <input type="text" name="expert_name_cn" id="expert_name_cn" class="form-control" placeholder="Expert_name" onchange="validate()">
                             </div>
+=======
+                        @php
+                            $locale = app()->getLocale();
+                            $labels = [
+                                'en' => ['Name in Thai', 'Name in English', 'Name in Chinese'],
+                                'th' => ['ชื่อภาษาไทย', 'ชื่อภาษาอังกฤษ', 'ชื่อภาษาจีน'],
+                                'cn' => ['泰文名', '英文名', '中文名称']
+                            ];
+                        @endphp
+
+                        <div class="form-group">
+                            <strong>{{ $labels[$locale][0] }} :</strong>
+                            <input type="text" name="expert_name_th" id="expert_name_th" class="form-control" placeholder="{{ $labels[$locale][0] }}" onchange="validate()">
+
+                            <strong>{{ $labels[$locale][1] }} :</strong>
+                            <input type="text" name="expert_name_en" id="expert_name_en" class="form-control" placeholder="{{ $labels[$locale][1] }}" onchange="validate()">
+
+                            <strong>{{ $labels[$locale][2] }} :</strong>
+                            <input type="text" name="expert_name_cn" id="expert_name_cn" class="form-control" placeholder="{{ $labels[$locale][2] }}" onchange="validate()">
+                        </div>
+
+>>>>>>> ade91794 (add switch lang in home and researcher  profile)
                         </div>
 
                         <div class="col-xs-12 col-sm-12 col-md-12 text-center">

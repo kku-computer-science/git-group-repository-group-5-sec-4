@@ -53,7 +53,11 @@
                             <span style="font-weight: bold;">{{ __('message.research_fund_type') }}</span>
                             <span style="padding-left: 10px;">
                                 @if (!is_null($re->fund)) 
+<<<<<<< HEAD
                                     {{ $re->fund->{'fund_type_' . app()->getLocale()} ?? $re->fund->fund_type_en }}
+=======
+                                    {{ $re->fund->{'fund_type_' . app()->getLocale()} ?? $re->fund->fund_type }}
+>>>>>>> ade91794 (add switch lang in home and researcher  profile)
                                 @endif
                             </span>
                         </div>
@@ -62,7 +66,11 @@
                             <span style="font-weight: bold;">{{ __('message.funding_agency') }}</span>
                             <span style="padding-left: 10px;">
                                 @if (!is_null($re->fund)) 
+<<<<<<< HEAD
                                     {{ $re->fund->{'support_resource_' . app()->getLocale()} ?? $re->fund->support_resource_en }}
+=======
+                                    {{ $re->fund->{'support_resource_' . app()->getLocale()} ?? $re->fund->support_resource }}
+>>>>>>> ade91794 (add switch lang in home and researcher  profile)
                                 @endif
                             </span>
                         </div>
@@ -70,7 +78,11 @@
                         <div style="padding-bottom: 10px;">
                             <span style="font-weight: bold;">{{ __('message.responsible_department') }}</span>
                             <span style="padding-left: 10px;">
+<<<<<<< HEAD
                                 {{ $re->{'responsible_department_' . app()->getLocale()} ?? $re->responsible_department_en }}
+=======
+                                {{ $re->{'responsible_department_' . app()->getLocale()} ?? $re->responsible_department }}
+>>>>>>> ade91794 (add switch lang in home and researcher  profile)
                             </span>
                         </div>
 

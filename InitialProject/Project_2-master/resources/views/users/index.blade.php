@@ -130,7 +130,11 @@
                                             {{ $user->{'fname_' . app()->getLocale()} ?? $user->fname_en }}
                                             {{ $user->{'lname_' . app()->getLocale()} ?? $user->lname_en }}
                                         </td>
+<<<<<<< HEAD
                                         <td>{{ Str::limit($user->{'program_name_' . app()->getLocale()} ?? $user->program->program_name_en, 20) }}</td>
+=======
+                                        <td>{{ Str::limit($user->program->{'program_name_' . app()->getLocale()} ?? $user->program->program_name_en, 20) }}</td>
+>>>>>>> ade91794 (add switch lang in home and researcher  profile)
                                         <td>{{ $user->email }}</td>
                                         <td>
                                             @if(!empty($user->getRoleNames()))
