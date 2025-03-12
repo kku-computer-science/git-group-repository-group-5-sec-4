@@ -37,7 +37,7 @@ class BibtexController extends Controller
                 },
             'author' => function ($query) use ($locale) {
                     if ($locale === 'en') {
-                        $query->select(DB::raw("CONCAT(concat(left(author_fname,1),'.'),' ',author_lname) as full_name"))
+                        $query->select(DB::raw("CONCAT(concat(left(author_fname_en,1),'.'),' ',author_lname_en) as full_name"))
                             ->addSelect('author_of_papers.author_type');
                     } elseif ($locale === 'cn') {
                         $query->select(DB::raw("CONCAT(author_fname_cn, ' ', author_lname_cn) as full_name"))
@@ -126,8 +126,10 @@ class BibtexController extends Controller
 
         return response()->json([
             'key' => $key,
-            'bibtex' => mb_convert_encoding($bb->bibarr, 'UTF-8', 'auto') // 🔹 ป้องกัน Encoding ผิด
+            'bibtex' => $bb->bibarr[$key] ?? []
         ], JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
+        
+
         //return view('test', compact('key', 'bb'));
 
     }

@@ -1,6 +1,8 @@
 *** Settings ***
 Library    SeleniumLibrary
 Library    String
+Library    Process
+Library    XML
 
 *** Variables ***
 ${URL}    https://cs0567.cpkkuhost.com/
@@ -30,6 +32,8 @@ ${Reports}    //*[@id="collapsibleNavbar"]/ul/li[5]/a
 #location for check------------------------------------------------------------
    #home page   
 ${home_banner_path}   xpath=/html/body/div/div[1]/div/div[2]/div[1]/img
+${Publications_2022_element_path}    xpath=/html/body/div/div[5]/div[4]/div/h2/button
+${referencel_button_home_path}    xpath=/html/body/div/div[5]/div[4]/div/div/div/div[1]/div[2]/p/button
    #researchers page
 ${Researchers_page_title_path}    xpath=/html/body/div/p
 ${Researchers_page_span_path}     xpath=/html/body/div/span
@@ -38,6 +42,7 @@ ${Researchers_card_path}    xpath=/html/body/div/div[2]/a[2]/div/div/div[2]/div/
 ${Researchers_info_path}    xpath=/html/body/div/div[2]/a[2]
 ${info_education}    xpath=/html/body/div/div[1]/div/div[2]/div/h6[4]
 ${info_publications}    xpath=/html/body/div/div[1]/div/div[3]/h6
+${doc_type_path}    xpath=/html/body/div/div[2]/div[1]/div[2]/div[2]/div/table/tbody/tr[10]/td[5]
     #researcher project
 ${Research_Project_page_title}    xpath=/html/body/div/p
     #researchers group
@@ -52,7 +57,7 @@ ${EXPECTED_Home_EN}    HOME
 ${EXPECTED_Researchers_EN}    RESEARCHERS
 # in dropdawn 
 ${EXPECTED_CS_EN}     Computer Science
-${EXPECTED_IT_EN}     Infomation Technology
+${EXPECTED_IT_EN}     details Technology
 ${EXPECTED_GIS_EN}    Geo-Informatics
 ${EXPECTED_AI_EN}    Artificial Intelligence
 ${EXPECTED_CYBER_EN}    Cybersecurity
@@ -99,6 +104,9 @@ ${EXPECTED_Reports_CN}    报告
 ${EXPECTED_home_banner_EN}   https://cs0567.cpkkuhost.com/img/banner1-en.png
 ${EXPECTED_home_banner_TH}   https://cs0567.cpkkuhost.com/img/banner1-th.png
 ${EXPECTED_home_banner_CN}   https://cs0567.cpkkuhost.com/img/banner1-cn.png
+${EXPECTED_refer_home_2022_EN}    [Reference]
+${EXPECTED_refer_home_2022_TH}    [อ้างอิง]
+${EXPECTED_refer_home_2022_CN}    [参考]
     #researcher
 ${EXPECTED_researchers_title_EN}    RESEARCHERS
 ${EXPECTED_researchers_title_TH}    ผู้วิจัย
@@ -117,6 +125,9 @@ ${EXPECTED_researchers_detail_education_EN}    Education
 ${EXPECTED_researchers_detail_education_TH}    การศึกษา
 ${EXPECTED_researchers_detail_education_CN}    教育背景
 
+${EXPECTED_doc_type_EN}    Conference Proceeding
+${EXPECTED_doc_type_TH}    การประชุมวิชาการ 
+${EXPECTED_doc_type_CN}    会议论文
     #research project
 ${EXPECTED_research_project_title_EN}    Academic Service Project/Research Project
 ${EXPECTED_research_project_title_TH}    โครงการบริการวิชาการ/ โครงการวิจัย
@@ -149,14 +160,17 @@ Open site
 Toggle dropdown
     Click Element    ${DROPDOWN_lang}
     Wait Until Element Is Visible    ${DROPDOWN_lang}    timeout=5s
+    Sleep    1s
 
 Select TH
     Click Element    ${MENU_TH}
     Wait Until Page Contains    ${EXPECTED_Home_TH}    timeout=10s
+    Sleep    1s
 
 Select CN
     Click Element    ${MENU_CN}
     Wait Until Page Contains    ${EXPECTED_Home_CN}    timeout=10s
+    Sleep    1s
 
 
 # Click link in navbar----------------------------------------------
@@ -171,6 +185,18 @@ Click Research Group link
     Click Element    ${Research_Group}
 Click Reports link
     Click Element    ${Reports}
+
+Scroll to bottom 
+    Execute JavaScript    window.scrollTo(0, document.body.scrollHeight)
+    Sleep    2s
+Scroll to top
+    Execute JavaScript    window.scrollTo(0, 0)
+    Sleep    2s
+
+Click 2022 Publications
+    Click Element    ${Publications_2022_element_path}
+    Wait Until Element Is Visible    ${referencel_button_home_path}    timeout=5s
+    sleep   3s  
 #--------------------------------------------------------------------------
 #default
 Check default is EN
@@ -196,7 +222,7 @@ Check Navbar Menu Text is EN
 
     #${text_6}    Get Text    ${Login} 
     #Should Be Equal As Strings    ${text_6}    ${EXPECTED_Login_EN}
-
+    sleep   1s
 Check reseachers dropdown is EN
     ${text_1}    Get Text    ${CS}
     Should Be Equal As Strings    ${text_1}    ${EXPECTED_CS_EN}
@@ -232,6 +258,8 @@ Check Navbar Menu Text is TH
 
     #${text_6}    Get Text    ${Login} 
     #Should Be Equal As Strings    ${text_6}    ${EXPECTED_Login_TH}
+
+    sleep    1s
 Check reseachers dropdown is TH
     ${text_1}    Get Text    ${CS}
     Should Be Equal As Strings    ${text_1}    ${EXPECTED_CS_TH}
@@ -291,7 +319,24 @@ Check banner home page is EN
     ${src_home_banner}=    Get Element Attribute    ${home_banner_path}    src
     Should Be Equal As Strings     ${src_home_banner}   ${EXPECTED_home_banner_EN}
     Log    Banner SRC: ${src_home_banner}
-
+check referencel button in home is EN
+    Wait Until Element Is Visible    ${referencel_button_home_path}
+    ${text}    Get Text    ${referencel_button_home_path}
+    Should Be Equal As Strings    ${text}    ${EXPECTED_refer_home_2022_EN}
+    Log    Referencel button: ${text}
+    Log    Expected referencel button: ${EXPECTED_refer_home_2022_EN}
+check referencel button in home is TH
+    Wait Until Element Is Visible    ${referencel_button_home_path}
+    ${text}    Get Text    ${referencel_button_home_path}
+    Should Be Equal As Strings    ${text}    ${EXPECTED_refer_home_2022_TH}
+    Log    Referencel button: ${text}
+    Log    Expected referencel button: ${EXPECTED_refer_home_2022_TH}
+check referencel button in home is CN
+    Wait Until Element Is Visible    ${referencel_button_home_path}
+    ${text}    Get Text    ${referencel_button_home_path}
+    Should Be Equal As Strings    ${text}    ${EXPECTED_refer_home_2022_CN}
+    Log    Referencel button: ${text}
+    Log    Expected referencel button: ${EXPECTED_refer_home_2022_CN}
 Check banner home page is TH     
    
     ${src_home_banner}=    Get Element Attribute    ${home_banner_path}    src
@@ -311,6 +356,12 @@ Check banner home page is CN
 #-------------------------------------------------------------------------------------------
 
 #researchers page---------------------------------------------------------------------------
+click Reseachers details page
+    Wait Until Element Is Visible    ${Researchers_info_path}
+    Click Element    ${Researchers_info_path}
+    Sleep    1s
+
+
 Check reseachers page is EN
     ${title}    Get Text    ${Researchers_page_title_path}
     ${span}    Get Text    ${Researchers_page_span_path}
@@ -334,34 +385,34 @@ Check reseachers page is CN
     Log    Researchers title : ${title}
     Log    Researchers span : ${span}
 #----------------------------------------------------------------------------------
-Check Infomation reseachers page is EN
-    Click Element    ${Researchers_info_path}
-    ${education}    Get Text    ${info_education}
+Check details reseachers page is EN
+  
     ${title}    Get Text    ${info_publications}
-    Should Be Equal As Strings    ${education}  ${EXPECTED_researchers_detail_education_EN}
     Should Be Equal As Strings    ${title}    ${EXPECTED_researchers_detail_title_EN}
-    
-    Log    education: ${education}
     Log    title: ${title}
 
-Check Infomation reseachers page is TH
-    Click Element    ${Researchers_info_path}
-    ${education}    Get Text    ${info_education}
-    ${title}    Get Text    ${info_publications}
-    Should Be Equal As Strings    ${education}  ${EXPECTED_researchers_detail_education_TH}
+Check details reseachers page is TH
+    ${title}    Get Text    ${info_publications} 
     Should Be Equal As Strings    ${title}    ${EXPECTED_researchers_detail_title_TH}
-    
-    Log    education: ${education}
     Log    title: ${title}
-Check Infomation reseachers page is CN
-    Click Element    ${Researchers_info_path}
-    ${education}    Get Text    ${info_education}
+Check details reseachers page is CN
+    
     ${title}    Get Text    ${info_publications}
-    Should Be Equal As Strings    ${education}  ${EXPECTED_researchers_detail_education_CN}
     Should Be Equal As Strings    ${title}    ${EXPECTED_researchers_detail_title_CN}
-    
-    Log    education: ${education}
     Log    title: ${title}
+
+Check details reseachers page in <td> is EN
+    Wait Until Element Is Visible    ${doc_type_path}    timeout=5s
+    ${text}    Get Text    ${doc_type_path}
+    Should Be Equal As Strings    ${text}    ${EXPECTED_doc_type_EN}
+Check details reseachers page in <td> is TH
+    Wait Until Element Is Visible    ${doc_type_path}    timeout=5s
+    ${text}    Get Text    ${doc_type_path}
+    Should Be Equal As Strings    ${text}    ${EXPECTED_doc_type_TH}
+Check details reseachers page in <td> is CN
+    Wait Until Element Is Visible    ${doc_type_path}    timeout=5s
+    ${text}    Get Text    ${doc_type_path}
+    Should Be Equal As Strings    ${text}    ${EXPECTED_doc_type_CN}
 #researcher project----------------------------------------------------------------
 Check reseachers project page is EN 
     ${title}    Get Text    ${Research_Project_page_title}

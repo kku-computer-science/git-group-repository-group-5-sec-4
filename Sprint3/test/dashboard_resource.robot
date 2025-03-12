@@ -160,7 +160,7 @@ check sidebar is EN
 
     ${text3}    Get Text    ${admin_side_text_path}
     Should Be Equal As Strings    ${text3}    ${expec_admin_side_text_EN}
-check default is EN
+check default in dashboard is EN
     check sidebar is EN
 
 check dashboard page is EN

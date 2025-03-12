@@ -255,9 +255,18 @@ class HomeController extends Controller
     }
     public function bibtex($id)
     {
-        $paper = Paper::with(['author' => function ($query) {
-            $query->select('author_name');
-        }])->find([$id])->first()->toArray();
+        $locale = request()->get('locale', 'en'); // รับค่าภาษา
+        $paper = Paper::with([
+            'author' => function ($query) use ($locale) {
+                if ($locale === 'en') {
+                    $query->select(DB::raw("CONCAT(LEFT(author_fname_en,1),'. ', author_lname_en) as full_name"));
+                } elseif ($locale === 'cn') {
+                    $query->select(DB::raw("CONCAT(author_fname_cn, ' ', author_lname_cn) as full_name"));
+                } elseif ($locale === 'th') {
+                    $query->select(DB::raw("CONCAT(author_fname_th, ' ', author_lname_th) as full_name"));
+                }
+            }
+        ])->find($id);
 
         $Path['lib'] = './../lib/';
         require_once $Path['lib'] . 'lib_bibtex.inc.php';
@@ -271,7 +280,7 @@ class HomeController extends Controller
         $title = $paper['paper_name'];
 
         $a = collect($paper['author']);
-        $author = $a->implode('author_name', ', ');
+        $author = $a->pluck('full_name')->filter()->implode(', ');
         $journal = $paper['paper_sourcetitle'];
         $volume = $paper['paper_volume'];
         $number = $paper['paper_citation'];
@@ -285,6 +294,9 @@ class HomeController extends Controller
         $bb->bibarr["kku"] = $arr;
         $key = "kku";
 
-        return response()->json($key, $bb);
+        return response()->json([
+            'key' => $key,
+            'bibtex' => $bb->bibarr[$key] ?? []
+        ], JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
     }
 }
