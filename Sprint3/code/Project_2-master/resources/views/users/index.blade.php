@@ -130,7 +130,7 @@
                                             {{ $user->{'fname_' . app()->getLocale()} ?? $user->fname_en }}
                                             {{ $user->{'lname_' . app()->getLocale()} ?? $user->lname_en }}
                                         </td>
-                                        <td>{{ Str::limit($user->{'program_name_' . app()->getLocale()} ?? $user->program->program_name_en, 20) }}</td>
+                                        <td>{{ Str::limit($user->program->{'program_name_' . app()->getLocale()} ?? $user->program->program_name_en, 20) }}</td>
                                         <td>{{ $user->email }}</td>
                                         <td>
                                             @if(!empty($user->getRoleNames()))

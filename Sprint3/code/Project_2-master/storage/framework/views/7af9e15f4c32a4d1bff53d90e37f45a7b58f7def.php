@@ -106,7 +106,16 @@ var paper_tci_cit = <?php echo $paper_tci_cit; ?>;
 var paper_scopus_cit = <?php echo $paper_scopus_cit; ?>;
 var paper_wos_cit = <?php echo $paper_wos_cit; ?>;
 
-year.unshift("source");
+let locale = "<?php echo e(app()->getLocale()); ?>"; // ดึงค่าภาษาจาก Laravel
+let sourceText = "source"; // ค่าเริ่มต้นเป็นภาษาอังกฤษ
+
+if (locale === "th") {
+    sourceText = "แหล่งที่มา";
+} else if (locale === "cn") {
+    sourceText = "来源";
+}
+
+year.unshift(sourceText); // เพิ่มคำแปลลงใน array
 paper_tci.unshift("tci");
 
 //console.log(paper_scopus_cit);

@@ -56,7 +56,7 @@
                             <span style="font-weight: bold;"><?php echo e(__('message.research_fund_type')); ?></span>
                             <span style="padding-left: 10px;">
                                 <?php if(!is_null($re->fund)): ?> 
-                                    <?php echo e($re->fund->{'fund_type_' . app()->getLocale()} ?? $re->fund->fund_type_en); ?>
+                                    <?php echo e($re->fund->{'fund_type_' . app()->getLocale()} ?? $re->fund->fund_type); ?>
 
                                 <?php endif; ?>
                             </span>
@@ -66,7 +66,7 @@
                             <span style="font-weight: bold;"><?php echo e(__('message.funding_agency')); ?></span>
                             <span style="padding-left: 10px;">
                                 <?php if(!is_null($re->fund)): ?> 
-                                    <?php echo e($re->fund->{'support_resource_' . app()->getLocale()} ?? $re->fund->support_resource_en); ?>
+                                    <?php echo e($re->fund->{'support_resource_' . app()->getLocale()} ?? $re->fund->support_resource); ?>
 
                                 <?php endif; ?>
                             </span>
@@ -75,7 +75,7 @@
                         <div style="padding-bottom: 10px;">
                             <span style="font-weight: bold;"><?php echo e(__('message.responsible_department')); ?></span>
                             <span style="padding-left: 10px;">
-                                <?php echo e($re->{'responsible_department_' . app()->getLocale()} ?? $re->responsible_department_en); ?>
+                                <?php echo e($re->{'responsible_department_' . app()->getLocale()} ?? $re->responsible_department); ?>
 
                             </span>
                         </div>

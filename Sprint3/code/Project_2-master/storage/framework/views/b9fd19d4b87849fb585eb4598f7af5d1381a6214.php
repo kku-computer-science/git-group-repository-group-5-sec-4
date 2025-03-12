@@ -131,7 +131,7 @@
                                             <?php echo e($user->{'lname_' . app()->getLocale()} ?? $user->lname_en); ?>
 
                                         </td>
-                                        <td><?php echo e(Str::limit($user->{'program_name_' . app()->getLocale()} ?? $user->program->program_name_en, 20)); ?></td>
+                                        <td><?php echo e(Str::limit($user->program->{'program_name_' . app()->getLocale()} ?? $user->program->program_name_en, 20)); ?></td>
                                         <td><?php echo e($user->email); ?></td>
                                         <td>
                                             <?php if(!empty($user->getRoleNames())): ?>

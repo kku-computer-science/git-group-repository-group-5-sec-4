@@ -247,8 +247,16 @@
                         @foreach ($paper->author as $author)
                             <span>
                                 <a>
-                                    {{ app()->getLocale() == 'th' ? ($author->fname_th ?? $author->author_fname_en) : $author->author_fname_en }}
-                                    {{ app()->getLocale() == 'th' ? ($author->lname_th ?? $author->author_lname_en) : $author->author_lname_en }}
+                                    @if (app()->getLocale() == 'th')
+                                        {{ $author->author_fname_th ?? $author->author_fname_en }}
+                                        {{ $author->author_lname_th ?? $author->author_lname_en }}
+                                    @elseif (app()->getLocale() == 'cn')
+                                        {{ $author->author_fname_cn ?? $author->author_fname_en }}
+                                        {{ $author->author_lname_cn ?? $author->author_lname_en }}
+                                    @else
+                                        {{ $author->author_fname_en }}
+                                        {{ $author->author_lname_en }}
+                                    @endif
                                 </a>
                             </span>
                         @endforeach
@@ -257,8 +265,16 @@
                             <span>
                                 <a href="{{ route('detail', Crypt::encrypt($author->id)) }}">
                                     <teacher>
-                                        {{ app()->getLocale() == 'th' ? ($author->fname_th ?? $author->fname_en) : $author->fname_en }}
-                                        {{ app()->getLocale() == 'th' ? ($author->lname_th ?? $author->lname_en) : $author->lname_en }}
+                                        @if (app()->getLocale() == 'th')
+                                            {{ $author->fname_th ?? $author->fname_en }}
+                                            {{ $author->lname_th ?? $author->lname_en }}
+                                        @elseif (app()->getLocale() == 'cn')
+                                            {{ $author->fname_cn ?? $author->fname_en }}
+                                            {{ $author->lname_cn ?? $author->lname_en }}
+                                        @else
+                                            {{ $author->fname_en }}
+                                            {{ $author->lname_en }}
+                                        @endif
                                     </teacher>
                                 </a>
                             </span>
@@ -266,7 +282,9 @@
                     </td>
                         <td>
                         @if(app()->getLocale() == 'th')
-                            {{ str_replace(['Conference Proceeding', 'Journal'], ['การประชุมวิชาการ', 'วารสาร'], $paper->paper_type) }}
+                            {{ str_replace(['Conference Proceeding', 'Journal', 'Book Series'], ['การประชุมวิชาการ', 'วารสาร', 'ชุดหนังสือ'], $paper->paper_type) }}
+                        @elseif(app()->getLocale() == 'cn')
+                            {{ str_replace(['Conference Proceeding', 'Journal', 'Book Series'], ['会议论文', '期刊', '丛书'], $paper->paper_type) }}
                         @else
                             {{ $paper->paper_type }}
                         @endif
@@ -323,8 +341,16 @@
                         @foreach ($paper->author as $author)
                             <span>
                                 <a>
-                                    {{ app()->getLocale() == 'th' ? ($author->fname_th ?? $author->author_fname) : $author->author_fname }}
-                                    {{ app()->getLocale() == 'th' ? ($author->lname_th ?? $author->author_lname) : $author->author_lname }}
+                                    @if (app()->getLocale() == 'th')
+                                        {{ $author->author_fname_th ?? $author->author_fname_en }}
+                                        {{ $author->author_lname_th ?? $author->author_lname_en }}
+                                    @elseif (app()->getLocale() == 'cn')
+                                        {{ $author->author_fname_cn ?? $author->author_fname_en }}
+                                        {{ $author->author_lname_cn ?? $author->author_lname_en }}
+                                    @else
+                                        {{ $author->author_fname_en }}
+                                        {{ $author->author_lname_en }}
+                                    @endif
                                 </a>
                             </span>
                         @endforeach
@@ -333,8 +359,16 @@
                             <span>
                                 <a href="{{ route('detail', Crypt::encrypt($author->id)) }}">
                                     <teacher>
-                                        {{ app()->getLocale() == 'th' ? ($author->fname_th ?? $author->fname_en) : $author->fname_en }}
-                                        {{ app()->getLocale() == 'th' ? ($author->lname_th ?? $author->lname_en) : $author->lname_en }}
+                                        @if (app()->getLocale() == 'th')
+                                            {{ $author->fname_th ?? $author->fname_en }}
+                                            {{ $author->lname_th ?? $author->lname_en }}
+                                        @elseif (app()->getLocale() == 'cn')
+                                            {{ $author->fname_cn ?? $author->fname_en }}
+                                            {{ $author->lname_cn ?? $author->lname_en }}
+                                        @else
+                                            {{ $author->fname_en }}
+                                            {{ $author->lname_en }}
+                                        @endif
                                     </teacher>
                                 </a>
                             </span>
@@ -342,7 +376,9 @@
                         </td>
                         <td>
                         @if(app()->getLocale() == 'th')
-                            {{ str_replace(['Conference Proceeding', 'Journal'], ['การประชุมวิชาการ', 'วารสาร'], $paper->paper_type) }}
+                            {{ str_replace(['Conference Proceeding', 'Journal', 'Book Series'], ['การประชุมวิชาการ', 'วารสาร', 'ชุดหนังสือ'], $paper->paper_type) }}
+                        @elseif(app()->getLocale() == 'cn')
+                            {{ str_replace(['Conference Proceeding', 'Journal', 'Book Series'], ['会议论文', '期刊', '丛书'], $paper->paper_type) }}
                         @else
                             {{ $paper->paper_type }}
                         @endif
@@ -395,8 +431,16 @@
                         @foreach ($paper->author as $author)
                             <span>
                                 <a>
-                                    {{ app()->getLocale() == 'th' ? ($author->fname_th ?? $author->author_fname) : $author->author_fname }}
-                                    {{ app()->getLocale() == 'th' ? ($author->lname_th ?? $author->author_lname) : $author->author_lname }}
+                                    @if (app()->getLocale() == 'th')
+                                        {{ $author->author_fname_th ?? $author->author_fname_en }}
+                                        {{ $author->author_lname_th ?? $author->author_lname_en }}
+                                    @elseif (app()->getLocale() == 'cn')
+                                        {{ $author->author_fname_cn ?? $author->author_fname_en }}
+                                        {{ $author->author_lname_cn ?? $author->author_lname_en }}
+                                    @else
+                                        {{ $author->author_fname_en }}
+                                        {{ $author->author_lname_en }}
+                                    @endif
                                 </a>
                             </span>
                         @endforeach
@@ -405,8 +449,16 @@
                             <span>
                                 <a href="{{ route('detail', Crypt::encrypt($author->id)) }}">
                                     <teacher>
-                                        {{ app()->getLocale() == 'th' ? ($author->fname_th ?? $author->fname_en) : $author->fname_en }}
-                                        {{ app()->getLocale() == 'th' ? ($author->lname_th ?? $author->lname_en) : $author->lname_en }}
+                                        @if (app()->getLocale() == 'th')
+                                            {{ $author->fname_th ?? $author->fname_en }}
+                                            {{ $author->lname_th ?? $author->lname_en }}
+                                        @elseif (app()->getLocale() == 'cn')
+                                            {{ $author->fname_cn ?? $author->fname_en }}
+                                            {{ $author->lname_cn ?? $author->lname_en }}
+                                        @else
+                                            {{ $author->fname_en }}
+                                            {{ $author->lname_en }}
+                                        @endif
                                     </teacher>
                                 </a>
                             </span>
@@ -414,7 +466,9 @@
                         </td>
                         <td>
                         @if(app()->getLocale() == 'th')
-                            {{ str_replace(['Conference Proceeding', 'Journal'], ['การประชุมวิชาการ', 'วารสาร'], $paper->paper_type) }}
+                            {{ str_replace(['Conference Proceeding', 'Journal', 'Book Series'], ['การประชุมวิชาการ', 'วารสาร', 'ชุดหนังสือ'], $paper->paper_type) }}
+                        @elseif(app()->getLocale() == 'cn')
+                            {{ str_replace(['Conference Proceeding', 'Journal', 'Book Series'], ['会议论文', '期刊', '丛书'], $paper->paper_type) }}
                         @else
                             {{ $paper->paper_type }}
                         @endif
@@ -467,8 +521,16 @@
                         @foreach ($paper->author as $author)
                             <span>
                                 <a>
-                                    {{ app()->getLocale() == 'th' ? ($author->fname_th ?? $author->author_fname) : $author->author_fname }}
-                                    {{ app()->getLocale() == 'th' ? ($author->lname_th ?? $author->author_lname) : $author->author_lname }}
+                                    @if (app()->getLocale() == 'th')
+                                        {{ $author->author_fname_th ?? $author->author_fname_en }}
+                                        {{ $author->author_lname_th ?? $author->author_lname_en }}
+                                    @elseif (app()->getLocale() == 'cn')
+                                        {{ $author->author_fname_cn ?? $author->author_fname_en }}
+                                        {{ $author->author_lname_cn ?? $author->author_lname_en }}
+                                    @else
+                                        {{ $author->author_fname_en }}
+                                        {{ $author->author_lname_en }}
+                                    @endif
                                 </a>
                             </span>
                         @endforeach
@@ -477,8 +539,16 @@
                             <span>
                                 <a href="{{ route('detail', Crypt::encrypt($author->id)) }}">
                                     <teacher>
-                                        {{ app()->getLocale() == 'th' ? ($author->fname_th ?? $author->fname_en) : $author->fname_en }}
-                                        {{ app()->getLocale() == 'th' ? ($author->lname_th ?? $author->lname_en) : $author->lname_en }}
+                                        @if (app()->getLocale() == 'th')
+                                            {{ $author->fname_th ?? $author->fname_en }}
+                                            {{ $author->lname_th ?? $author->lname_en }}
+                                        @elseif (app()->getLocale() == 'cn')
+                                            {{ $author->fname_cn ?? $author->fname_en }}
+                                            {{ $author->lname_cn ?? $author->lname_en }}
+                                        @else
+                                            {{ $author->fname_en }}
+                                            {{ $author->lname_en }}
+                                        @endif
                                     </teacher>
                                 </a>
                             </span>
@@ -486,7 +556,9 @@
                         </td>
                         <td>
                         @if(app()->getLocale() == 'th')
-                            {{ str_replace(['Conference Proceeding', 'Journal'], ['การประชุมวิชาการ', 'วารสาร'], $paper->paper_type) }}
+                            {{ str_replace(['Conference Proceeding', 'Journal', 'Book Series'], ['การประชุมวิชาการ', 'วารสาร', 'ชุดหนังสือ'], $paper->paper_type) }}
+                        @elseif(app()->getLocale() == 'cn')
+                            {{ str_replace(['Conference Proceeding', 'Journal', 'Book Series'], ['会议论文', '期刊', '丛书'], $paper->paper_type) }}
                         @else
                             {{ $paper->paper_type }}
                         @endif
@@ -532,8 +604,16 @@
                             @foreach ($paper->author as $author)
                                 <span>
                                     <a>
-                                        {{ app()->getLocale() == 'th' ? ($author->fname_th ?? $author->author_fname) : $author->author_fname }}
-                                        {{ app()->getLocale() == 'th' ? ($author->lname_th ?? $author->author_lname) : $author->author_lname }}
+                                        @if (app()->getLocale() == 'th')
+                                            {{ $author->author_fname_th ?? $author->author_fname_en }}
+                                            {{ $author->author_lname_th ?? $author->author_lname_en }}
+                                        @elseif (app()->getLocale() == 'cn')
+                                            {{ $author->author_fname_cn ?? $author->author_fname_en }}
+                                            {{ $author->author_lname_cn ?? $author->author_lname_en }}
+                                        @else
+                                            {{ $author->author_fname_en }}
+                                            {{ $author->author_lname_en }}
+                                        @endif
                                     </a>
                                 </span>
                             @endforeach
@@ -541,8 +621,16 @@
                             @foreach ($paper->user as $author)
                                 <span>
                                     <a>
-                                        {{ app()->getLocale() == 'th' ? ($author->fname_th ?? $author->fname_en) : $author->fname_en }}
-                                        {{ app()->getLocale() == 'th' ? ($author->lname_th ?? $author->lname_en) : $author->lname_en }}
+                                        @if (app()->getLocale() == 'th')
+                                                {{ $author->fname_th ?? $author->fname_en }}
+                                                {{ $author->lname_th ?? $author->lname_en }}
+                                        @elseif (app()->getLocale() == 'cn')
+                                            {{ $author->fname_cn ?? $author->fname_en }}
+                                            {{ $author->lname_cn ?? $author->lname_en }}
+                                        @else
+                                            {{ $author->fname_en }}
+                                            {{ $author->lname_en }}
+                                        @endif
                                     </a>
                                 </span>
                             @endforeach
@@ -581,8 +669,16 @@
                             @foreach ($paper->author as $author)
                                 <span>
                                     <a>
-                                        {{ app()->getLocale() == 'th' ? ($author->fname_th ?? $author->author_fname) : $author->author_fname }}
-                                        {{ app()->getLocale() == 'th' ? ($author->lname_th ?? $author->author_lname) : $author->author_lname }}
+                                        @if (app()->getLocale() == 'th')
+                                            {{ $author->author_fname_th ?? $author->author_fname_en }}
+                                            {{ $author->author_lname_th ?? $author->author_lname_en }}
+                                        @elseif (app()->getLocale() == 'cn')
+                                            {{ $author->author_fname_cn ?? $author->author_fname_en }}
+                                            {{ $author->author_lname_cn ?? $author->author_lname_en }}
+                                        @else
+                                            {{ $author->author_fname_en }}
+                                            {{ $author->author_lname_en }}
+                                        @endif
                                     </a>
                                 </span>
                             @endforeach
@@ -591,8 +687,16 @@
                                 <span>
                                     <a href="{{ route('detail', Crypt::encrypt($author->id)) }}">
                                         <teacher>
-                                            {{ app()->getLocale() == 'th' ? ($author->fname_th ?? $author->fname_en) : $author->fname_en }}
-                                            {{ app()->getLocale() == 'th' ? ($author->lname_th ?? $author->lname_en) : $author->lname_en }}
+                                            @if (app()->getLocale() == 'th')
+                                                {{ $author->fname_th ?? $author->fname_en }}
+                                                {{ $author->lname_th ?? $author->lname_en }}
+                                            @elseif (app()->getLocale() == 'cn')
+                                                {{ $author->fname_cn ?? $author->fname_en }}
+                                                {{ $author->lname_cn ?? $author->lname_en }}
+                                            @else
+                                                {{ $author->fname_en }}
+                                                {{ $author->lname_en }}
+                                            @endif
                                         </teacher>
                                     </a>
                                 </span>
@@ -601,6 +705,8 @@
                         <td>
                             @if(app()->getLocale() == 'th')
                                 {{ str_replace(['Patent', 'Utility Model'], ['สิทธิบัตร', 'อนุสิทธิบัตร'], $paper->ac_type) }}
+                            @elseif(app()->getLocale() == 'cn')
+                                {{ str_replace(['Patent', 'Utility Model'], ['专利', '实用新型'], $paper->ac_type) }}
                             @else
                                 {{ $paper->ac_type }}
                             @endif

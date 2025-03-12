@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\App;
 use Illuminate\Http\Request;
 use App\Models\Paper;
 use Carbon\Carbon;
@@ -21,7 +21,7 @@ class HomeController extends Controller
         $year = range(Carbon::now()->year - 4, Carbon::now()->year);
         //$papers =Paper::orderBy('paper_yearpub', 'desc')->where('paper_yearpub', '=', 1)->get();
         $years = range(Carbon::now()->year, Carbon::now()->year - 5);
-
+        $locale = App::getLocale();
         $from = Carbon::now()->year - 16;
         $to = Carbon::now()->year - 6;
         // foreach ($years as $key => $value) {
@@ -33,11 +33,29 @@ class HomeController extends Controller
         //     return $query->select(['fname_en','lname_en']);
         // })->get();
         $p2 = Paper::with([
-            'teacher' => function ($query) {
-                $query->select(DB::raw("CONCAT(concat(left(fname_en,1),'.'),' ',lname_en) as full_name"))->addSelect('user_papers.author_type');
+            'teacher' => function ($query) use ($locale) {
+                if ($locale === 'en') {
+                    $query->select(DB::raw("CONCAT(concat(left(fname_en,1),'.'),' ',lname_en) as full_name"))
+                        ->addSelect('user_papers.author_type');
+                } elseif ($locale === 'cn') {
+                    $query->select(DB::raw("CONCAT(fname_cn, ' ', lname_cn) as full_name"))
+                        ->addSelect('user_papers.author_type');
+                } elseif ($locale === 'th') {
+                    $query->select(DB::raw("CONCAT(fname_th, ' ', lname_th) as full_name"))
+                        ->addSelect('user_papers.author_type');
+                }
             },
-            'author' => function ($query) {
-                $query->select(DB::raw("CONCAT(concat(left(author_fname,1),'.'),' ',author_lname) as full_name"))->addSelect('author_of_papers.author_type');
+            'author' => function ($query) use ($locale) {
+                if ($locale === 'en') {
+                    $query->select(DB::raw("CONCAT(concat(left(author_fname,1),'.'),' ',author_lname) as full_name"))
+                        ->addSelect('author_of_papers.author_type');
+                } elseif ($locale === 'cn') {
+                    $query->select(DB::raw("CONCAT(author_fname_cn, ' ', author_lname_cn) as full_name"))
+                        ->addSelect('author_of_papers.author_type');
+                } elseif ($locale === 'th') {
+                    $query->select(DB::raw("CONCAT(author_fname_th, ' ', author_lname_th) as full_name"))
+                        ->addSelect('author_of_papers.author_type');
+                }
             },
 
         ])->whereBetween('paper_yearpub', [$from, $to])->orderBy('paper_yearpub', 'desc')->get()->toArray();
@@ -71,11 +89,29 @@ class HomeController extends Controller
 
         foreach ($years as $key => $value) {
             $p = Paper::with([
-                'teacher' => function ($query) {
-                    $query->select(DB::raw("CONCAT(concat(left(fname_en,1),'.'),' ',lname_en) as full_name"))->addSelect('user_papers.author_type');
+                'teacher' => function ($query) use ($locale) {
+                    if ($locale === 'en') {
+                        $query->select(DB::raw("CONCAT(concat(left(fname_en,1),'.'),' ',lname_en) as full_name"))
+                            ->addSelect('user_papers.author_type');
+                    } elseif ($locale === 'cn') {
+                        $query->select(DB::raw("CONCAT(fname_cn, ' ', lname_cn) as full_name"))
+                            ->addSelect('user_papers.author_type');
+                    } elseif ($locale === 'th') {
+                        $query->select(DB::raw("CONCAT(fname_th, ' ', lname_th) as full_name"))
+                            ->addSelect('user_papers.author_type');
+                    }
                 },
-                'author' => function ($query) {
-                    $query->select(DB::raw("CONCAT(concat(left(author_fname,1),'.'),' ',author_lname) as full_name"))->addSelect('author_of_papers.author_type');
+                'author' => function ($query) use ($locale) {
+                    if ($locale === 'en') {
+                        $query->select(DB::raw("CONCAT(concat(left(author_fname,1),'.'),' ',author_lname) as full_name"))
+                            ->addSelect('author_of_papers.author_type');
+                    } elseif ($locale === 'cn') {
+                        $query->select(DB::raw("CONCAT(author_fname_cn, ' ', author_lname_cn) as full_name"))
+                            ->addSelect('author_of_papers.author_type');
+                    } elseif ($locale === 'th') {
+                        $query->select(DB::raw("CONCAT(author_fname_th, ' ', author_lname_th) as full_name"))
+                            ->addSelect('author_of_papers.author_type');
+                    }
                 },
 
             ])->where('paper_yearpub', '=', $value)->orderBy('paper_yearpub', 'desc')->get()->toArray();

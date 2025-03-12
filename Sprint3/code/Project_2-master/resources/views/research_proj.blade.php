@@ -53,7 +53,7 @@
                             <span style="font-weight: bold;">{{ __('message.research_fund_type') }}</span>
                             <span style="padding-left: 10px;">
                                 @if (!is_null($re->fund)) 
-                                    {{ $re->fund->{'fund_type_' . app()->getLocale()} ?? $re->fund->fund_type_en }}
+                                    {{ $re->fund->{'fund_type_' . app()->getLocale()} ?? $re->fund->fund_type }}
                                 @endif
                             </span>
                         </div>
@@ -62,7 +62,7 @@
                             <span style="font-weight: bold;">{{ __('message.funding_agency') }}</span>
                             <span style="padding-left: 10px;">
                                 @if (!is_null($re->fund)) 
-                                    {{ $re->fund->{'support_resource_' . app()->getLocale()} ?? $re->fund->support_resource_en }}
+                                    {{ $re->fund->{'support_resource_' . app()->getLocale()} ?? $re->fund->support_resource }}
                                 @endif
                             </span>
                         </div>
@@ -70,7 +70,7 @@
                         <div style="padding-bottom: 10px;">
                             <span style="font-weight: bold;">{{ __('message.responsible_department') }}</span>
                             <span style="padding-left: 10px;">
-                                {{ $re->{'responsible_department_' . app()->getLocale()} ?? $re->responsible_department_en }}
+                                {{ $re->{'responsible_department_' . app()->getLocale()} ?? $re->responsible_department }}
                             </span>
                         </div>
 
